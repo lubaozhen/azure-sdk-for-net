@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="inboundNatRuleName"> The name of the inbound nat rule. </param>
         /// <param name="inboundNatRuleParameters"> Parameters supplied to the create or update inbound nat rule operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleName"/> or <paramref name="inboundNatRuleParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="inboundNatRuleName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleParameters"/> is null. </exception>
         public virtual InboundNatRuleCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string inboundNatRuleName, InboundNatRuleData inboundNatRuleParameters, CancellationToken cancellationToken = default)
         {
-            if (inboundNatRuleName == null)
+            if (string.IsNullOrEmpty(inboundNatRuleName))
             {
-                throw new ArgumentNullException(nameof(inboundNatRuleName));
+                throw new ArgumentException($"Parameter {nameof(inboundNatRuleName)} cannot be null or empty", nameof(inboundNatRuleName));
             }
             if (inboundNatRuleParameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="inboundNatRuleName"> The name of the inbound nat rule. </param>
         /// <param name="inboundNatRuleParameters"> Parameters supplied to the create or update inbound nat rule operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleName"/> or <paramref name="inboundNatRuleParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="inboundNatRuleName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleParameters"/> is null. </exception>
         public async virtual Task<InboundNatRuleCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string inboundNatRuleName, InboundNatRuleData inboundNatRuleParameters, CancellationToken cancellationToken = default)
         {
-            if (inboundNatRuleName == null)
+            if (string.IsNullOrEmpty(inboundNatRuleName))
             {
-                throw new ArgumentNullException(nameof(inboundNatRuleName));
+                throw new ArgumentException($"Parameter {nameof(inboundNatRuleName)} cannot be null or empty", nameof(inboundNatRuleName));
             }
             if (inboundNatRuleParameters == null)
             {
@@ -123,12 +125,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="inboundNatRuleName"> The name of the inbound nat rule. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="inboundNatRuleName"/> is null or empty. </exception>
         public virtual Response<InboundNatRule> Get(string inboundNatRuleName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (inboundNatRuleName == null)
+            if (string.IsNullOrEmpty(inboundNatRuleName))
             {
-                throw new ArgumentNullException(nameof(inboundNatRuleName));
+                throw new ArgumentException($"Parameter {nameof(inboundNatRuleName)} cannot be null or empty", nameof(inboundNatRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("InboundNatRuleCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="inboundNatRuleName"> The name of the inbound nat rule. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="inboundNatRuleName"/> is null or empty. </exception>
         public async virtual Task<Response<InboundNatRule>> GetAsync(string inboundNatRuleName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (inboundNatRuleName == null)
+            if (string.IsNullOrEmpty(inboundNatRuleName))
             {
-                throw new ArgumentNullException(nameof(inboundNatRuleName));
+                throw new ArgumentException($"Parameter {nameof(inboundNatRuleName)} cannot be null or empty", nameof(inboundNatRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("InboundNatRuleCollection.Get");
@@ -179,12 +181,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="inboundNatRuleName"> The name of the inbound nat rule. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="inboundNatRuleName"/> is null or empty. </exception>
         public virtual Response<InboundNatRule> GetIfExists(string inboundNatRuleName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (inboundNatRuleName == null)
+            if (string.IsNullOrEmpty(inboundNatRuleName))
             {
-                throw new ArgumentNullException(nameof(inboundNatRuleName));
+                throw new ArgumentException($"Parameter {nameof(inboundNatRuleName)} cannot be null or empty", nameof(inboundNatRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("InboundNatRuleCollection.GetIfExists");
@@ -207,12 +209,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="inboundNatRuleName"> The name of the inbound nat rule. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="inboundNatRuleName"/> is null or empty. </exception>
         public async virtual Task<Response<InboundNatRule>> GetIfExistsAsync(string inboundNatRuleName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (inboundNatRuleName == null)
+            if (string.IsNullOrEmpty(inboundNatRuleName))
             {
-                throw new ArgumentNullException(nameof(inboundNatRuleName));
+                throw new ArgumentException($"Parameter {nameof(inboundNatRuleName)} cannot be null or empty", nameof(inboundNatRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("InboundNatRuleCollection.GetIfExists");
@@ -235,12 +237,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="inboundNatRuleName"> The name of the inbound nat rule. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="inboundNatRuleName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string inboundNatRuleName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (inboundNatRuleName == null)
+            if (string.IsNullOrEmpty(inboundNatRuleName))
             {
-                throw new ArgumentNullException(nameof(inboundNatRuleName));
+                throw new ArgumentException($"Parameter {nameof(inboundNatRuleName)} cannot be null or empty", nameof(inboundNatRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("InboundNatRuleCollection.Exists");
@@ -261,12 +263,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="inboundNatRuleName"> The name of the inbound nat rule. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="inboundNatRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="inboundNatRuleName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string inboundNatRuleName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (inboundNatRuleName == null)
+            if (string.IsNullOrEmpty(inboundNatRuleName))
             {
-                throw new ArgumentNullException(nameof(inboundNatRuleName));
+                throw new ArgumentException($"Parameter {nameof(inboundNatRuleName)} cannot be null or empty", nameof(inboundNatRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("InboundNatRuleCollection.Exists");

@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="diskName"> The name of the managed disk that is being created. The name can&apos;t be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="disk"> Disk object supplied in the body of the Put disk operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskName"/> or <paramref name="disk"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="disk"/> is null. </exception>
         public virtual DiskCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string diskName, DiskData disk, CancellationToken cancellationToken = default)
         {
-            if (diskName == null)
+            if (string.IsNullOrEmpty(diskName))
             {
-                throw new ArgumentNullException(nameof(diskName));
+                throw new ArgumentException($"Parameter {nameof(diskName)} cannot be null or empty", nameof(diskName));
             }
             if (disk == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="diskName"> The name of the managed disk that is being created. The name can&apos;t be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="disk"> Disk object supplied in the body of the Put disk operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskName"/> or <paramref name="disk"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="disk"/> is null. </exception>
         public async virtual Task<DiskCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string diskName, DiskData disk, CancellationToken cancellationToken = default)
         {
-            if (diskName == null)
+            if (string.IsNullOrEmpty(diskName))
             {
-                throw new ArgumentNullException(nameof(diskName));
+                throw new ArgumentException($"Parameter {nameof(diskName)} cannot be null or empty", nameof(diskName));
             }
             if (disk == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Gets information about a disk. </summary>
         /// <param name="diskName"> The name of the managed disk that is being created. The name can&apos;t be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskName"/> is null or empty. </exception>
         public virtual Response<Disk> Get(string diskName, CancellationToken cancellationToken = default)
         {
-            if (diskName == null)
+            if (string.IsNullOrEmpty(diskName))
             {
-                throw new ArgumentNullException(nameof(diskName));
+                throw new ArgumentException($"Parameter {nameof(diskName)} cannot be null or empty", nameof(diskName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Gets information about a disk. </summary>
         /// <param name="diskName"> The name of the managed disk that is being created. The name can&apos;t be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskName"/> is null or empty. </exception>
         public async virtual Task<Response<Disk>> GetAsync(string diskName, CancellationToken cancellationToken = default)
         {
-            if (diskName == null)
+            if (string.IsNullOrEmpty(diskName))
             {
-                throw new ArgumentNullException(nameof(diskName));
+                throw new ArgumentException($"Parameter {nameof(diskName)} cannot be null or empty", nameof(diskName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="diskName"> The name of the managed disk that is being created. The name can&apos;t be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskName"/> is null or empty. </exception>
         public virtual Response<Disk> GetIfExists(string diskName, CancellationToken cancellationToken = default)
         {
-            if (diskName == null)
+            if (string.IsNullOrEmpty(diskName))
             {
-                throw new ArgumentNullException(nameof(diskName));
+                throw new ArgumentException($"Parameter {nameof(diskName)} cannot be null or empty", nameof(diskName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="diskName"> The name of the managed disk that is being created. The name can&apos;t be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskName"/> is null or empty. </exception>
         public async virtual Task<Response<Disk>> GetIfExistsAsync(string diskName, CancellationToken cancellationToken = default)
         {
-            if (diskName == null)
+            if (string.IsNullOrEmpty(diskName))
             {
-                throw new ArgumentNullException(nameof(diskName));
+                throw new ArgumentException($"Parameter {nameof(diskName)} cannot be null or empty", nameof(diskName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="diskName"> The name of the managed disk that is being created. The name can&apos;t be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string diskName, CancellationToken cancellationToken = default)
         {
-            if (diskName == null)
+            if (string.IsNullOrEmpty(diskName))
             {
-                throw new ArgumentNullException(nameof(diskName));
+                throw new ArgumentException($"Parameter {nameof(diskName)} cannot be null or empty", nameof(diskName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="diskName"> The name of the managed disk that is being created. The name can&apos;t be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string diskName, CancellationToken cancellationToken = default)
         {
-            if (diskName == null)
+            if (string.IsNullOrEmpty(diskName))
             {
-                throw new ArgumentNullException(nameof(diskName));
+                throw new ArgumentException($"Parameter {nameof(diskName)} cannot be null or empty", nameof(diskName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskCollection.Exists");

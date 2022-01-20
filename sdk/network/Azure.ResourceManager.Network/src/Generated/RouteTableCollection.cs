@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the route table. </param>
         /// <param name="parameters"> Parameters supplied to the create or update route table operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual RouteTableCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string routeTableName, RouteTableData parameters, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the route table. </param>
         /// <param name="parameters"> Parameters supplied to the create or update route table operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<RouteTableCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string routeTableName, RouteTableData parameters, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the route table. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public virtual Response<RouteTable> Get(string routeTableName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RouteTableCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the route table. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public async virtual Task<Response<RouteTable>> GetAsync(string routeTableName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RouteTableCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the route table. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public virtual Response<RouteTable> GetIfExists(string routeTableName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RouteTableCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the route table. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public async virtual Task<Response<RouteTable>> GetIfExistsAsync(string routeTableName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RouteTableCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the route table. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string routeTableName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RouteTableCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the route table. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string routeTableName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RouteTableCollection.Exists");

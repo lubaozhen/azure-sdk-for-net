@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="natRuleName"> The name of the nat rule. </param>
         /// <param name="natRuleParameters"> Parameters supplied to create or Update a Nat Rule. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="natRuleName"/> or <paramref name="natRuleParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="natRuleName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="natRuleParameters"/> is null. </exception>
         public virtual VirtualNetworkGatewayNatRuleCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string natRuleName, VirtualNetworkGatewayNatRuleData natRuleParameters, CancellationToken cancellationToken = default)
         {
-            if (natRuleName == null)
+            if (string.IsNullOrEmpty(natRuleName))
             {
-                throw new ArgumentNullException(nameof(natRuleName));
+                throw new ArgumentException($"Parameter {nameof(natRuleName)} cannot be null or empty", nameof(natRuleName));
             }
             if (natRuleParameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="natRuleName"> The name of the nat rule. </param>
         /// <param name="natRuleParameters"> Parameters supplied to create or Update a Nat Rule. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="natRuleName"/> or <paramref name="natRuleParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="natRuleName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="natRuleParameters"/> is null. </exception>
         public async virtual Task<VirtualNetworkGatewayNatRuleCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string natRuleName, VirtualNetworkGatewayNatRuleData natRuleParameters, CancellationToken cancellationToken = default)
         {
-            if (natRuleName == null)
+            if (string.IsNullOrEmpty(natRuleName))
             {
-                throw new ArgumentNullException(nameof(natRuleName));
+                throw new ArgumentException($"Parameter {nameof(natRuleName)} cannot be null or empty", nameof(natRuleName));
             }
             if (natRuleParameters == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a nat rule. </summary>
         /// <param name="natRuleName"> The name of the nat rule. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="natRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="natRuleName"/> is null or empty. </exception>
         public virtual Response<VirtualNetworkGatewayNatRule> Get(string natRuleName, CancellationToken cancellationToken = default)
         {
-            if (natRuleName == null)
+            if (string.IsNullOrEmpty(natRuleName))
             {
-                throw new ArgumentNullException(nameof(natRuleName));
+                throw new ArgumentException($"Parameter {nameof(natRuleName)} cannot be null or empty", nameof(natRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkGatewayNatRuleCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a nat rule. </summary>
         /// <param name="natRuleName"> The name of the nat rule. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="natRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="natRuleName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualNetworkGatewayNatRule>> GetAsync(string natRuleName, CancellationToken cancellationToken = default)
         {
-            if (natRuleName == null)
+            if (string.IsNullOrEmpty(natRuleName))
             {
-                throw new ArgumentNullException(nameof(natRuleName));
+                throw new ArgumentException($"Parameter {nameof(natRuleName)} cannot be null or empty", nameof(natRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkGatewayNatRuleCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="natRuleName"> The name of the nat rule. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="natRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="natRuleName"/> is null or empty. </exception>
         public virtual Response<VirtualNetworkGatewayNatRule> GetIfExists(string natRuleName, CancellationToken cancellationToken = default)
         {
-            if (natRuleName == null)
+            if (string.IsNullOrEmpty(natRuleName))
             {
-                throw new ArgumentNullException(nameof(natRuleName));
+                throw new ArgumentException($"Parameter {nameof(natRuleName)} cannot be null or empty", nameof(natRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkGatewayNatRuleCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="natRuleName"> The name of the nat rule. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="natRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="natRuleName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualNetworkGatewayNatRule>> GetIfExistsAsync(string natRuleName, CancellationToken cancellationToken = default)
         {
-            if (natRuleName == null)
+            if (string.IsNullOrEmpty(natRuleName))
             {
-                throw new ArgumentNullException(nameof(natRuleName));
+                throw new ArgumentException($"Parameter {nameof(natRuleName)} cannot be null or empty", nameof(natRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkGatewayNatRuleCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="natRuleName"> The name of the nat rule. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="natRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="natRuleName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string natRuleName, CancellationToken cancellationToken = default)
         {
-            if (natRuleName == null)
+            if (string.IsNullOrEmpty(natRuleName))
             {
-                throw new ArgumentNullException(nameof(natRuleName));
+                throw new ArgumentException($"Parameter {nameof(natRuleName)} cannot be null or empty", nameof(natRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkGatewayNatRuleCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="natRuleName"> The name of the nat rule. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="natRuleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="natRuleName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string natRuleName, CancellationToken cancellationToken = default)
         {
-            if (natRuleName == null)
+            if (string.IsNullOrEmpty(natRuleName))
             {
-                throw new ArgumentNullException(nameof(natRuleName));
+                throw new ArgumentException($"Parameter {nameof(natRuleName)} cannot be null or empty", nameof(natRuleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkGatewayNatRuleCollection.Exists");

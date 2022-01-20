@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryApplicationName"> The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters. </param>
         /// <param name="galleryApplication"> Parameters supplied to the create or update gallery Application operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplicationName"/> or <paramref name="galleryApplication"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryApplicationName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplication"/> is null. </exception>
         public virtual GalleryApplicationCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string galleryApplicationName, GalleryApplicationData galleryApplication, CancellationToken cancellationToken = default)
         {
-            if (galleryApplicationName == null)
+            if (string.IsNullOrEmpty(galleryApplicationName))
             {
-                throw new ArgumentNullException(nameof(galleryApplicationName));
+                throw new ArgumentException($"Parameter {nameof(galleryApplicationName)} cannot be null or empty", nameof(galleryApplicationName));
             }
             if (galleryApplication == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryApplicationName"> The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters. </param>
         /// <param name="galleryApplication"> Parameters supplied to the create or update gallery Application operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplicationName"/> or <paramref name="galleryApplication"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryApplicationName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplication"/> is null. </exception>
         public async virtual Task<GalleryApplicationCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string galleryApplicationName, GalleryApplicationData galleryApplication, CancellationToken cancellationToken = default)
         {
-            if (galleryApplicationName == null)
+            if (string.IsNullOrEmpty(galleryApplicationName))
             {
-                throw new ArgumentNullException(nameof(galleryApplicationName));
+                throw new ArgumentException($"Parameter {nameof(galleryApplicationName)} cannot be null or empty", nameof(galleryApplicationName));
             }
             if (galleryApplication == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Retrieves information about a gallery Application Definition. </summary>
         /// <param name="galleryApplicationName"> The name of the gallery Application Definition to be retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplicationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryApplicationName"/> is null or empty. </exception>
         public virtual Response<GalleryApplication> Get(string galleryApplicationName, CancellationToken cancellationToken = default)
         {
-            if (galleryApplicationName == null)
+            if (string.IsNullOrEmpty(galleryApplicationName))
             {
-                throw new ArgumentNullException(nameof(galleryApplicationName));
+                throw new ArgumentException($"Parameter {nameof(galleryApplicationName)} cannot be null or empty", nameof(galleryApplicationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryApplicationCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Retrieves information about a gallery Application Definition. </summary>
         /// <param name="galleryApplicationName"> The name of the gallery Application Definition to be retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplicationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryApplicationName"/> is null or empty. </exception>
         public async virtual Task<Response<GalleryApplication>> GetAsync(string galleryApplicationName, CancellationToken cancellationToken = default)
         {
-            if (galleryApplicationName == null)
+            if (string.IsNullOrEmpty(galleryApplicationName))
             {
-                throw new ArgumentNullException(nameof(galleryApplicationName));
+                throw new ArgumentException($"Parameter {nameof(galleryApplicationName)} cannot be null or empty", nameof(galleryApplicationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryApplicationCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="galleryApplicationName"> The name of the gallery Application Definition to be retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplicationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryApplicationName"/> is null or empty. </exception>
         public virtual Response<GalleryApplication> GetIfExists(string galleryApplicationName, CancellationToken cancellationToken = default)
         {
-            if (galleryApplicationName == null)
+            if (string.IsNullOrEmpty(galleryApplicationName))
             {
-                throw new ArgumentNullException(nameof(galleryApplicationName));
+                throw new ArgumentException($"Parameter {nameof(galleryApplicationName)} cannot be null or empty", nameof(galleryApplicationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryApplicationCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="galleryApplicationName"> The name of the gallery Application Definition to be retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplicationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryApplicationName"/> is null or empty. </exception>
         public async virtual Task<Response<GalleryApplication>> GetIfExistsAsync(string galleryApplicationName, CancellationToken cancellationToken = default)
         {
-            if (galleryApplicationName == null)
+            if (string.IsNullOrEmpty(galleryApplicationName))
             {
-                throw new ArgumentNullException(nameof(galleryApplicationName));
+                throw new ArgumentException($"Parameter {nameof(galleryApplicationName)} cannot be null or empty", nameof(galleryApplicationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryApplicationCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="galleryApplicationName"> The name of the gallery Application Definition to be retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplicationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryApplicationName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string galleryApplicationName, CancellationToken cancellationToken = default)
         {
-            if (galleryApplicationName == null)
+            if (string.IsNullOrEmpty(galleryApplicationName))
             {
-                throw new ArgumentNullException(nameof(galleryApplicationName));
+                throw new ArgumentException($"Parameter {nameof(galleryApplicationName)} cannot be null or empty", nameof(galleryApplicationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryApplicationCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="galleryApplicationName"> The name of the gallery Application Definition to be retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryApplicationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryApplicationName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string galleryApplicationName, CancellationToken cancellationToken = default)
         {
-            if (galleryApplicationName == null)
+            if (string.IsNullOrEmpty(galleryApplicationName))
             {
-                throw new ArgumentNullException(nameof(galleryApplicationName));
+                throw new ArgumentException($"Parameter {nameof(galleryApplicationName)} cannot be null or empty", nameof(galleryApplicationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryApplicationCollection.Exists");

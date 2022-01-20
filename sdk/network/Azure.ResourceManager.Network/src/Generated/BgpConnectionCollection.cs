@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="connectionName"> The name of the connection. </param>
         /// <param name="parameters"> Parameters of Bgp connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual BgpConnectionCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string connectionName, BgpConnectionData parameters, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="connectionName"> The name of the connection. </param>
         /// <param name="parameters"> Parameters of Bgp connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<BgpConnectionCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string connectionName, BgpConnectionData parameters, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
             if (parameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a Virtual Hub Bgp Connection. </summary>
         /// <param name="connectionName"> The name of the connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public virtual Response<BgpConnection> Get(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("BgpConnectionCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a Virtual Hub Bgp Connection. </summary>
         /// <param name="connectionName"> The name of the connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public async virtual Task<Response<BgpConnection>> GetAsync(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("BgpConnectionCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="connectionName"> The name of the connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public virtual Response<BgpConnection> GetIfExists(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("BgpConnectionCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="connectionName"> The name of the connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public async virtual Task<Response<BgpConnection>> GetIfExistsAsync(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("BgpConnectionCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="connectionName"> The name of the connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("BgpConnectionCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="connectionName"> The name of the connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("BgpConnectionCollection.Exists");

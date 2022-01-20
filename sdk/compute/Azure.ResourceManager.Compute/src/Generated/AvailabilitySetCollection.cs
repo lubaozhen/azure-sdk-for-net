@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="availabilitySetName"> The name of the availability set. </param>
         /// <param name="parameters"> Parameters supplied to the Create Availability Set operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="availabilitySetName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="availabilitySetName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual AvailabilitySetCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string availabilitySetName, AvailabilitySetData parameters, CancellationToken cancellationToken = default)
         {
-            if (availabilitySetName == null)
+            if (string.IsNullOrEmpty(availabilitySetName))
             {
-                throw new ArgumentNullException(nameof(availabilitySetName));
+                throw new ArgumentException($"Parameter {nameof(availabilitySetName)} cannot be null or empty", nameof(availabilitySetName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="availabilitySetName"> The name of the availability set. </param>
         /// <param name="parameters"> Parameters supplied to the Create Availability Set operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="availabilitySetName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="availabilitySetName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<AvailabilitySetCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string availabilitySetName, AvailabilitySetData parameters, CancellationToken cancellationToken = default)
         {
-            if (availabilitySetName == null)
+            if (string.IsNullOrEmpty(availabilitySetName))
             {
-                throw new ArgumentNullException(nameof(availabilitySetName));
+                throw new ArgumentException($"Parameter {nameof(availabilitySetName)} cannot be null or empty", nameof(availabilitySetName));
             }
             if (parameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Retrieves information about an availability set. </summary>
         /// <param name="availabilitySetName"> The name of the availability set. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="availabilitySetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="availabilitySetName"/> is null or empty. </exception>
         public virtual Response<AvailabilitySet> Get(string availabilitySetName, CancellationToken cancellationToken = default)
         {
-            if (availabilitySetName == null)
+            if (string.IsNullOrEmpty(availabilitySetName))
             {
-                throw new ArgumentNullException(nameof(availabilitySetName));
+                throw new ArgumentException($"Parameter {nameof(availabilitySetName)} cannot be null or empty", nameof(availabilitySetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AvailabilitySetCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Retrieves information about an availability set. </summary>
         /// <param name="availabilitySetName"> The name of the availability set. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="availabilitySetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="availabilitySetName"/> is null or empty. </exception>
         public async virtual Task<Response<AvailabilitySet>> GetAsync(string availabilitySetName, CancellationToken cancellationToken = default)
         {
-            if (availabilitySetName == null)
+            if (string.IsNullOrEmpty(availabilitySetName))
             {
-                throw new ArgumentNullException(nameof(availabilitySetName));
+                throw new ArgumentException($"Parameter {nameof(availabilitySetName)} cannot be null or empty", nameof(availabilitySetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AvailabilitySetCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="availabilitySetName"> The name of the availability set. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="availabilitySetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="availabilitySetName"/> is null or empty. </exception>
         public virtual Response<AvailabilitySet> GetIfExists(string availabilitySetName, CancellationToken cancellationToken = default)
         {
-            if (availabilitySetName == null)
+            if (string.IsNullOrEmpty(availabilitySetName))
             {
-                throw new ArgumentNullException(nameof(availabilitySetName));
+                throw new ArgumentException($"Parameter {nameof(availabilitySetName)} cannot be null or empty", nameof(availabilitySetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AvailabilitySetCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="availabilitySetName"> The name of the availability set. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="availabilitySetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="availabilitySetName"/> is null or empty. </exception>
         public async virtual Task<Response<AvailabilitySet>> GetIfExistsAsync(string availabilitySetName, CancellationToken cancellationToken = default)
         {
-            if (availabilitySetName == null)
+            if (string.IsNullOrEmpty(availabilitySetName))
             {
-                throw new ArgumentNullException(nameof(availabilitySetName));
+                throw new ArgumentException($"Parameter {nameof(availabilitySetName)} cannot be null or empty", nameof(availabilitySetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AvailabilitySetCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="availabilitySetName"> The name of the availability set. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="availabilitySetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="availabilitySetName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string availabilitySetName, CancellationToken cancellationToken = default)
         {
-            if (availabilitySetName == null)
+            if (string.IsNullOrEmpty(availabilitySetName))
             {
-                throw new ArgumentNullException(nameof(availabilitySetName));
+                throw new ArgumentException($"Parameter {nameof(availabilitySetName)} cannot be null or empty", nameof(availabilitySetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AvailabilitySetCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="availabilitySetName"> The name of the availability set. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="availabilitySetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="availabilitySetName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string availabilitySetName, CancellationToken cancellationToken = default)
         {
-            if (availabilitySetName == null)
+            if (string.IsNullOrEmpty(availabilitySetName))
             {
-                throw new ArgumentNullException(nameof(availabilitySetName));
+                throw new ArgumentException($"Parameter {nameof(availabilitySetName)} cannot be null or empty", nameof(availabilitySetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AvailabilitySetCollection.Exists");

@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="expressRouteGatewayName"> The name of the ExpressRoute gateway. </param>
         /// <param name="putExpressRouteGatewayParameters"> Parameters required in an ExpressRoute gateway PUT operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteGatewayName"/> or <paramref name="putExpressRouteGatewayParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="expressRouteGatewayName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="putExpressRouteGatewayParameters"/> is null. </exception>
         public virtual ExpressRouteGatewayCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string expressRouteGatewayName, ExpressRouteGatewayData putExpressRouteGatewayParameters, CancellationToken cancellationToken = default)
         {
-            if (expressRouteGatewayName == null)
+            if (string.IsNullOrEmpty(expressRouteGatewayName))
             {
-                throw new ArgumentNullException(nameof(expressRouteGatewayName));
+                throw new ArgumentException($"Parameter {nameof(expressRouteGatewayName)} cannot be null or empty", nameof(expressRouteGatewayName));
             }
             if (putExpressRouteGatewayParameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="expressRouteGatewayName"> The name of the ExpressRoute gateway. </param>
         /// <param name="putExpressRouteGatewayParameters"> Parameters required in an ExpressRoute gateway PUT operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteGatewayName"/> or <paramref name="putExpressRouteGatewayParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="expressRouteGatewayName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="putExpressRouteGatewayParameters"/> is null. </exception>
         public async virtual Task<ExpressRouteGatewayCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string expressRouteGatewayName, ExpressRouteGatewayData putExpressRouteGatewayParameters, CancellationToken cancellationToken = default)
         {
-            if (expressRouteGatewayName == null)
+            if (string.IsNullOrEmpty(expressRouteGatewayName))
             {
-                throw new ArgumentNullException(nameof(expressRouteGatewayName));
+                throw new ArgumentException($"Parameter {nameof(expressRouteGatewayName)} cannot be null or empty", nameof(expressRouteGatewayName));
             }
             if (putExpressRouteGatewayParameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Fetches the details of a ExpressRoute gateway in a resource group. </summary>
         /// <param name="expressRouteGatewayName"> The name of the ExpressRoute gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteGatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="expressRouteGatewayName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteGateway> Get(string expressRouteGatewayName, CancellationToken cancellationToken = default)
         {
-            if (expressRouteGatewayName == null)
+            if (string.IsNullOrEmpty(expressRouteGatewayName))
             {
-                throw new ArgumentNullException(nameof(expressRouteGatewayName));
+                throw new ArgumentException($"Parameter {nameof(expressRouteGatewayName)} cannot be null or empty", nameof(expressRouteGatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteGatewayCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Fetches the details of a ExpressRoute gateway in a resource group. </summary>
         /// <param name="expressRouteGatewayName"> The name of the ExpressRoute gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteGatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="expressRouteGatewayName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteGateway>> GetAsync(string expressRouteGatewayName, CancellationToken cancellationToken = default)
         {
-            if (expressRouteGatewayName == null)
+            if (string.IsNullOrEmpty(expressRouteGatewayName))
             {
-                throw new ArgumentNullException(nameof(expressRouteGatewayName));
+                throw new ArgumentException($"Parameter {nameof(expressRouteGatewayName)} cannot be null or empty", nameof(expressRouteGatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteGatewayCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="expressRouteGatewayName"> The name of the ExpressRoute gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteGatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="expressRouteGatewayName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteGateway> GetIfExists(string expressRouteGatewayName, CancellationToken cancellationToken = default)
         {
-            if (expressRouteGatewayName == null)
+            if (string.IsNullOrEmpty(expressRouteGatewayName))
             {
-                throw new ArgumentNullException(nameof(expressRouteGatewayName));
+                throw new ArgumentException($"Parameter {nameof(expressRouteGatewayName)} cannot be null or empty", nameof(expressRouteGatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteGatewayCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="expressRouteGatewayName"> The name of the ExpressRoute gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteGatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="expressRouteGatewayName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteGateway>> GetIfExistsAsync(string expressRouteGatewayName, CancellationToken cancellationToken = default)
         {
-            if (expressRouteGatewayName == null)
+            if (string.IsNullOrEmpty(expressRouteGatewayName))
             {
-                throw new ArgumentNullException(nameof(expressRouteGatewayName));
+                throw new ArgumentException($"Parameter {nameof(expressRouteGatewayName)} cannot be null or empty", nameof(expressRouteGatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteGatewayCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="expressRouteGatewayName"> The name of the ExpressRoute gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteGatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="expressRouteGatewayName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string expressRouteGatewayName, CancellationToken cancellationToken = default)
         {
-            if (expressRouteGatewayName == null)
+            if (string.IsNullOrEmpty(expressRouteGatewayName))
             {
-                throw new ArgumentNullException(nameof(expressRouteGatewayName));
+                throw new ArgumentException($"Parameter {nameof(expressRouteGatewayName)} cannot be null or empty", nameof(expressRouteGatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteGatewayCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="expressRouteGatewayName"> The name of the ExpressRoute gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteGatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="expressRouteGatewayName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string expressRouteGatewayName, CancellationToken cancellationToken = default)
         {
-            if (expressRouteGatewayName == null)
+            if (string.IsNullOrEmpty(expressRouteGatewayName))
             {
-                throw new ArgumentNullException(nameof(expressRouteGatewayName));
+                throw new ArgumentException($"Parameter {nameof(expressRouteGatewayName)} cannot be null or empty", nameof(expressRouteGatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteGatewayCollection.Exists");

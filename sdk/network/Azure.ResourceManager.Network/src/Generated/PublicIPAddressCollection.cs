@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="publicIpAddressName"> The name of the public IP address. </param>
         /// <param name="parameters"> Parameters supplied to the create or update public IP address operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="publicIpAddressName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="publicIpAddressName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual PublicIPAddressCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string publicIpAddressName, PublicIPAddressData parameters, CancellationToken cancellationToken = default)
         {
-            if (publicIpAddressName == null)
+            if (string.IsNullOrEmpty(publicIpAddressName))
             {
-                throw new ArgumentNullException(nameof(publicIpAddressName));
+                throw new ArgumentException($"Parameter {nameof(publicIpAddressName)} cannot be null or empty", nameof(publicIpAddressName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="publicIpAddressName"> The name of the public IP address. </param>
         /// <param name="parameters"> Parameters supplied to the create or update public IP address operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="publicIpAddressName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="publicIpAddressName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<PublicIPAddressCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string publicIpAddressName, PublicIPAddressData parameters, CancellationToken cancellationToken = default)
         {
-            if (publicIpAddressName == null)
+            if (string.IsNullOrEmpty(publicIpAddressName))
             {
-                throw new ArgumentNullException(nameof(publicIpAddressName));
+                throw new ArgumentException($"Parameter {nameof(publicIpAddressName)} cannot be null or empty", nameof(publicIpAddressName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="publicIpAddressName"> The name of the public IP address. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="publicIpAddressName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="publicIpAddressName"/> is null or empty. </exception>
         public virtual Response<PublicIPAddress> Get(string publicIpAddressName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (publicIpAddressName == null)
+            if (string.IsNullOrEmpty(publicIpAddressName))
             {
-                throw new ArgumentNullException(nameof(publicIpAddressName));
+                throw new ArgumentException($"Parameter {nameof(publicIpAddressName)} cannot be null or empty", nameof(publicIpAddressName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PublicIPAddressCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="publicIpAddressName"> The name of the public IP address. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="publicIpAddressName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="publicIpAddressName"/> is null or empty. </exception>
         public async virtual Task<Response<PublicIPAddress>> GetAsync(string publicIpAddressName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (publicIpAddressName == null)
+            if (string.IsNullOrEmpty(publicIpAddressName))
             {
-                throw new ArgumentNullException(nameof(publicIpAddressName));
+                throw new ArgumentException($"Parameter {nameof(publicIpAddressName)} cannot be null or empty", nameof(publicIpAddressName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PublicIPAddressCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="publicIpAddressName"> The name of the public IP address. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="publicIpAddressName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="publicIpAddressName"/> is null or empty. </exception>
         public virtual Response<PublicIPAddress> GetIfExists(string publicIpAddressName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (publicIpAddressName == null)
+            if (string.IsNullOrEmpty(publicIpAddressName))
             {
-                throw new ArgumentNullException(nameof(publicIpAddressName));
+                throw new ArgumentException($"Parameter {nameof(publicIpAddressName)} cannot be null or empty", nameof(publicIpAddressName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PublicIPAddressCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="publicIpAddressName"> The name of the public IP address. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="publicIpAddressName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="publicIpAddressName"/> is null or empty. </exception>
         public async virtual Task<Response<PublicIPAddress>> GetIfExistsAsync(string publicIpAddressName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (publicIpAddressName == null)
+            if (string.IsNullOrEmpty(publicIpAddressName))
             {
-                throw new ArgumentNullException(nameof(publicIpAddressName));
+                throw new ArgumentException($"Parameter {nameof(publicIpAddressName)} cannot be null or empty", nameof(publicIpAddressName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PublicIPAddressCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="publicIpAddressName"> The name of the public IP address. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="publicIpAddressName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="publicIpAddressName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string publicIpAddressName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (publicIpAddressName == null)
+            if (string.IsNullOrEmpty(publicIpAddressName))
             {
-                throw new ArgumentNullException(nameof(publicIpAddressName));
+                throw new ArgumentException($"Parameter {nameof(publicIpAddressName)} cannot be null or empty", nameof(publicIpAddressName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PublicIPAddressCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="publicIpAddressName"> The name of the public IP address. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="publicIpAddressName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="publicIpAddressName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string publicIpAddressName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (publicIpAddressName == null)
+            if (string.IsNullOrEmpty(publicIpAddressName))
             {
-                throw new ArgumentNullException(nameof(publicIpAddressName));
+                throw new ArgumentException($"Parameter {nameof(publicIpAddressName)} cannot be null or empty", nameof(publicIpAddressName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PublicIPAddressCollection.Exists");

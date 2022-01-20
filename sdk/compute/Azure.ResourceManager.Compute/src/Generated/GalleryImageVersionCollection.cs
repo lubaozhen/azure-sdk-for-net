@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryImageVersionName"> The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: &lt;MajorVersion&gt;.&lt;MinorVersion&gt;.&lt;Patch&gt;. </param>
         /// <param name="galleryImageVersion"> Parameters supplied to the create or update gallery image version operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersionName"/> or <paramref name="galleryImageVersion"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageVersionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersion"/> is null. </exception>
         public virtual GalleryImageVersionCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string galleryImageVersionName, GalleryImageVersionData galleryImageVersion, CancellationToken cancellationToken = default)
         {
-            if (galleryImageVersionName == null)
+            if (string.IsNullOrEmpty(galleryImageVersionName))
             {
-                throw new ArgumentNullException(nameof(galleryImageVersionName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageVersionName)} cannot be null or empty", nameof(galleryImageVersionName));
             }
             if (galleryImageVersion == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryImageVersionName"> The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: &lt;MajorVersion&gt;.&lt;MinorVersion&gt;.&lt;Patch&gt;. </param>
         /// <param name="galleryImageVersion"> Parameters supplied to the create or update gallery image version operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersionName"/> or <paramref name="galleryImageVersion"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageVersionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersion"/> is null. </exception>
         public async virtual Task<GalleryImageVersionCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string galleryImageVersionName, GalleryImageVersionData galleryImageVersion, CancellationToken cancellationToken = default)
         {
-            if (galleryImageVersionName == null)
+            if (string.IsNullOrEmpty(galleryImageVersionName))
             {
-                throw new ArgumentNullException(nameof(galleryImageVersionName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageVersionName)} cannot be null or empty", nameof(galleryImageVersionName));
             }
             if (galleryImageVersion == null)
             {
@@ -123,12 +125,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryImageVersionName"> The name of the gallery image version to be retrieved. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageVersionName"/> is null or empty. </exception>
         public virtual Response<GalleryImageVersion> Get(string galleryImageVersionName, ReplicationStatusTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (galleryImageVersionName == null)
+            if (string.IsNullOrEmpty(galleryImageVersionName))
             {
-                throw new ArgumentNullException(nameof(galleryImageVersionName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageVersionName)} cannot be null or empty", nameof(galleryImageVersionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryImageVersionCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryImageVersionName"> The name of the gallery image version to be retrieved. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageVersionName"/> is null or empty. </exception>
         public async virtual Task<Response<GalleryImageVersion>> GetAsync(string galleryImageVersionName, ReplicationStatusTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (galleryImageVersionName == null)
+            if (string.IsNullOrEmpty(galleryImageVersionName))
             {
-                throw new ArgumentNullException(nameof(galleryImageVersionName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageVersionName)} cannot be null or empty", nameof(galleryImageVersionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryImageVersionCollection.Get");
@@ -179,12 +181,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryImageVersionName"> The name of the gallery image version to be retrieved. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageVersionName"/> is null or empty. </exception>
         public virtual Response<GalleryImageVersion> GetIfExists(string galleryImageVersionName, ReplicationStatusTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (galleryImageVersionName == null)
+            if (string.IsNullOrEmpty(galleryImageVersionName))
             {
-                throw new ArgumentNullException(nameof(galleryImageVersionName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageVersionName)} cannot be null or empty", nameof(galleryImageVersionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryImageVersionCollection.GetIfExists");
@@ -207,12 +209,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryImageVersionName"> The name of the gallery image version to be retrieved. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageVersionName"/> is null or empty. </exception>
         public async virtual Task<Response<GalleryImageVersion>> GetIfExistsAsync(string galleryImageVersionName, ReplicationStatusTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (galleryImageVersionName == null)
+            if (string.IsNullOrEmpty(galleryImageVersionName))
             {
-                throw new ArgumentNullException(nameof(galleryImageVersionName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageVersionName)} cannot be null or empty", nameof(galleryImageVersionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryImageVersionCollection.GetIfExists");
@@ -235,12 +237,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryImageVersionName"> The name of the gallery image version to be retrieved. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageVersionName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string galleryImageVersionName, ReplicationStatusTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (galleryImageVersionName == null)
+            if (string.IsNullOrEmpty(galleryImageVersionName))
             {
-                throw new ArgumentNullException(nameof(galleryImageVersionName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageVersionName)} cannot be null or empty", nameof(galleryImageVersionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryImageVersionCollection.Exists");
@@ -261,12 +263,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="galleryImageVersionName"> The name of the gallery image version to be retrieved. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageVersionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageVersionName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string galleryImageVersionName, ReplicationStatusTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (galleryImageVersionName == null)
+            if (string.IsNullOrEmpty(galleryImageVersionName))
             {
-                throw new ArgumentNullException(nameof(galleryImageVersionName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageVersionName)} cannot be null or empty", nameof(galleryImageVersionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("GalleryImageVersionCollection.Exists");

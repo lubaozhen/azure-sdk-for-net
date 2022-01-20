@@ -55,12 +55,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="ddosCustomPolicyName"> The name of the DDoS custom policy. </param>
         /// <param name="parameters"> Parameters supplied to the create or update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ddosCustomPolicyName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ddosCustomPolicyName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual DdosCustomPolicyCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string ddosCustomPolicyName, DdosCustomPolicyData parameters, CancellationToken cancellationToken = default)
         {
-            if (ddosCustomPolicyName == null)
+            if (string.IsNullOrEmpty(ddosCustomPolicyName))
             {
-                throw new ArgumentNullException(nameof(ddosCustomPolicyName));
+                throw new ArgumentException($"Parameter {nameof(ddosCustomPolicyName)} cannot be null or empty", nameof(ddosCustomPolicyName));
             }
             if (parameters == null)
             {
@@ -89,12 +90,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="ddosCustomPolicyName"> The name of the DDoS custom policy. </param>
         /// <param name="parameters"> Parameters supplied to the create or update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ddosCustomPolicyName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ddosCustomPolicyName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<DdosCustomPolicyCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string ddosCustomPolicyName, DdosCustomPolicyData parameters, CancellationToken cancellationToken = default)
         {
-            if (ddosCustomPolicyName == null)
+            if (string.IsNullOrEmpty(ddosCustomPolicyName))
             {
-                throw new ArgumentNullException(nameof(ddosCustomPolicyName));
+                throw new ArgumentException($"Parameter {nameof(ddosCustomPolicyName)} cannot be null or empty", nameof(ddosCustomPolicyName));
             }
             if (parameters == null)
             {
@@ -121,12 +123,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets information about the specified DDoS custom policy. </summary>
         /// <param name="ddosCustomPolicyName"> The name of the DDoS custom policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ddosCustomPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ddosCustomPolicyName"/> is null or empty. </exception>
         public virtual Response<DdosCustomPolicy> Get(string ddosCustomPolicyName, CancellationToken cancellationToken = default)
         {
-            if (ddosCustomPolicyName == null)
+            if (string.IsNullOrEmpty(ddosCustomPolicyName))
             {
-                throw new ArgumentNullException(nameof(ddosCustomPolicyName));
+                throw new ArgumentException($"Parameter {nameof(ddosCustomPolicyName)} cannot be null or empty", nameof(ddosCustomPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DdosCustomPolicyCollection.Get");
@@ -148,12 +150,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets information about the specified DDoS custom policy. </summary>
         /// <param name="ddosCustomPolicyName"> The name of the DDoS custom policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ddosCustomPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ddosCustomPolicyName"/> is null or empty. </exception>
         public async virtual Task<Response<DdosCustomPolicy>> GetAsync(string ddosCustomPolicyName, CancellationToken cancellationToken = default)
         {
-            if (ddosCustomPolicyName == null)
+            if (string.IsNullOrEmpty(ddosCustomPolicyName))
             {
-                throw new ArgumentNullException(nameof(ddosCustomPolicyName));
+                throw new ArgumentException($"Parameter {nameof(ddosCustomPolicyName)} cannot be null or empty", nameof(ddosCustomPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DdosCustomPolicyCollection.Get");
@@ -175,12 +177,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="ddosCustomPolicyName"> The name of the DDoS custom policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ddosCustomPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ddosCustomPolicyName"/> is null or empty. </exception>
         public virtual Response<DdosCustomPolicy> GetIfExists(string ddosCustomPolicyName, CancellationToken cancellationToken = default)
         {
-            if (ddosCustomPolicyName == null)
+            if (string.IsNullOrEmpty(ddosCustomPolicyName))
             {
-                throw new ArgumentNullException(nameof(ddosCustomPolicyName));
+                throw new ArgumentException($"Parameter {nameof(ddosCustomPolicyName)} cannot be null or empty", nameof(ddosCustomPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DdosCustomPolicyCollection.GetIfExists");
@@ -202,12 +204,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="ddosCustomPolicyName"> The name of the DDoS custom policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ddosCustomPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ddosCustomPolicyName"/> is null or empty. </exception>
         public async virtual Task<Response<DdosCustomPolicy>> GetIfExistsAsync(string ddosCustomPolicyName, CancellationToken cancellationToken = default)
         {
-            if (ddosCustomPolicyName == null)
+            if (string.IsNullOrEmpty(ddosCustomPolicyName))
             {
-                throw new ArgumentNullException(nameof(ddosCustomPolicyName));
+                throw new ArgumentException($"Parameter {nameof(ddosCustomPolicyName)} cannot be null or empty", nameof(ddosCustomPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DdosCustomPolicyCollection.GetIfExists");
@@ -229,12 +231,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="ddosCustomPolicyName"> The name of the DDoS custom policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ddosCustomPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ddosCustomPolicyName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string ddosCustomPolicyName, CancellationToken cancellationToken = default)
         {
-            if (ddosCustomPolicyName == null)
+            if (string.IsNullOrEmpty(ddosCustomPolicyName))
             {
-                throw new ArgumentNullException(nameof(ddosCustomPolicyName));
+                throw new ArgumentException($"Parameter {nameof(ddosCustomPolicyName)} cannot be null or empty", nameof(ddosCustomPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DdosCustomPolicyCollection.Exists");
@@ -254,12 +256,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="ddosCustomPolicyName"> The name of the DDoS custom policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ddosCustomPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ddosCustomPolicyName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string ddosCustomPolicyName, CancellationToken cancellationToken = default)
         {
-            if (ddosCustomPolicyName == null)
+            if (string.IsNullOrEmpty(ddosCustomPolicyName))
             {
-                throw new ArgumentNullException(nameof(ddosCustomPolicyName));
+                throw new ArgumentException($"Parameter {nameof(ddosCustomPolicyName)} cannot be null or empty", nameof(ddosCustomPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DdosCustomPolicyCollection.Exists");

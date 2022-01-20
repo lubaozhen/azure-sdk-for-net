@@ -57,12 +57,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="name"> The name of the azureWebCategory. </param>
         /// <param name="expand"> Expands resourceIds back referenced by the azureWebCategory resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="name"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="name"/> is null or empty. </exception>
         public virtual Response<AzureWebCategory> Get(string name, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (name == null)
+            if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException(nameof(name));
+                throw new ArgumentException($"Parameter {nameof(name)} cannot be null or empty", nameof(name));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureWebCategoryCollection.Get");
@@ -85,12 +85,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="name"> The name of the azureWebCategory. </param>
         /// <param name="expand"> Expands resourceIds back referenced by the azureWebCategory resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="name"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="name"/> is null or empty. </exception>
         public async virtual Task<Response<AzureWebCategory>> GetAsync(string name, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (name == null)
+            if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException(nameof(name));
+                throw new ArgumentException($"Parameter {nameof(name)} cannot be null or empty", nameof(name));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureWebCategoryCollection.Get");
@@ -113,12 +113,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="name"> The name of the azureWebCategory. </param>
         /// <param name="expand"> Expands resourceIds back referenced by the azureWebCategory resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="name"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="name"/> is null or empty. </exception>
         public virtual Response<AzureWebCategory> GetIfExists(string name, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (name == null)
+            if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException(nameof(name));
+                throw new ArgumentException($"Parameter {nameof(name)} cannot be null or empty", nameof(name));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureWebCategoryCollection.GetIfExists");
@@ -141,12 +141,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="name"> The name of the azureWebCategory. </param>
         /// <param name="expand"> Expands resourceIds back referenced by the azureWebCategory resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="name"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="name"/> is null or empty. </exception>
         public async virtual Task<Response<AzureWebCategory>> GetIfExistsAsync(string name, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (name == null)
+            if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException(nameof(name));
+                throw new ArgumentException($"Parameter {nameof(name)} cannot be null or empty", nameof(name));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureWebCategoryCollection.GetIfExists");
@@ -169,12 +169,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="name"> The name of the azureWebCategory. </param>
         /// <param name="expand"> Expands resourceIds back referenced by the azureWebCategory resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="name"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="name"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string name, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (name == null)
+            if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException(nameof(name));
+                throw new ArgumentException($"Parameter {nameof(name)} cannot be null or empty", nameof(name));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureWebCategoryCollection.Exists");
@@ -195,12 +195,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="name"> The name of the azureWebCategory. </param>
         /// <param name="expand"> Expands resourceIds back referenced by the azureWebCategory resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="name"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="name"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string name, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (name == null)
+            if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException(nameof(name));
+                throw new ArgumentException($"Parameter {nameof(name)} cannot be null or empty", nameof(name));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureWebCategoryCollection.Exists");

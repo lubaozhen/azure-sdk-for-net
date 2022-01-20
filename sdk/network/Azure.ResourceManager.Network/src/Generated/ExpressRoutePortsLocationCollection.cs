@@ -56,12 +56,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves a single ExpressRoutePort peering location, including the list of available bandwidths available at said peering location. </summary>
         /// <param name="locationName"> Name of the requested ExpressRoutePort peering location. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="locationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="locationName"/> is null or empty. </exception>
         public virtual Response<ExpressRoutePortsLocation> Get(string locationName, CancellationToken cancellationToken = default)
         {
-            if (locationName == null)
+            if (string.IsNullOrEmpty(locationName))
             {
-                throw new ArgumentNullException(nameof(locationName));
+                throw new ArgumentException($"Parameter {nameof(locationName)} cannot be null or empty", nameof(locationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRoutePortsLocationCollection.Get");
@@ -83,12 +83,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves a single ExpressRoutePort peering location, including the list of available bandwidths available at said peering location. </summary>
         /// <param name="locationName"> Name of the requested ExpressRoutePort peering location. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="locationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="locationName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRoutePortsLocation>> GetAsync(string locationName, CancellationToken cancellationToken = default)
         {
-            if (locationName == null)
+            if (string.IsNullOrEmpty(locationName))
             {
-                throw new ArgumentNullException(nameof(locationName));
+                throw new ArgumentException($"Parameter {nameof(locationName)} cannot be null or empty", nameof(locationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRoutePortsLocationCollection.Get");
@@ -110,12 +110,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="locationName"> Name of the requested ExpressRoutePort peering location. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="locationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="locationName"/> is null or empty. </exception>
         public virtual Response<ExpressRoutePortsLocation> GetIfExists(string locationName, CancellationToken cancellationToken = default)
         {
-            if (locationName == null)
+            if (string.IsNullOrEmpty(locationName))
             {
-                throw new ArgumentNullException(nameof(locationName));
+                throw new ArgumentException($"Parameter {nameof(locationName)} cannot be null or empty", nameof(locationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRoutePortsLocationCollection.GetIfExists");
@@ -137,12 +137,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="locationName"> Name of the requested ExpressRoutePort peering location. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="locationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="locationName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRoutePortsLocation>> GetIfExistsAsync(string locationName, CancellationToken cancellationToken = default)
         {
-            if (locationName == null)
+            if (string.IsNullOrEmpty(locationName))
             {
-                throw new ArgumentNullException(nameof(locationName));
+                throw new ArgumentException($"Parameter {nameof(locationName)} cannot be null or empty", nameof(locationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRoutePortsLocationCollection.GetIfExists");
@@ -164,12 +164,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="locationName"> Name of the requested ExpressRoutePort peering location. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="locationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="locationName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string locationName, CancellationToken cancellationToken = default)
         {
-            if (locationName == null)
+            if (string.IsNullOrEmpty(locationName))
             {
-                throw new ArgumentNullException(nameof(locationName));
+                throw new ArgumentException($"Parameter {nameof(locationName)} cannot be null or empty", nameof(locationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRoutePortsLocationCollection.Exists");
@@ -189,12 +189,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="locationName"> Name of the requested ExpressRoutePort peering location. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="locationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="locationName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string locationName, CancellationToken cancellationToken = default)
         {
-            if (locationName == null)
+            if (string.IsNullOrEmpty(locationName))
             {
-                throw new ArgumentNullException(nameof(locationName));
+                throw new ArgumentException($"Parameter {nameof(locationName)} cannot be null or empty", nameof(locationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRoutePortsLocationCollection.Exists");

@@ -54,12 +54,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Gets a role from a cloud service. </summary>
         /// <param name="roleName"> Name of the role. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleName"/> is null or empty. </exception>
         public virtual Response<CloudServiceRole> Get(string roleName, CancellationToken cancellationToken = default)
         {
-            if (roleName == null)
+            if (string.IsNullOrEmpty(roleName))
             {
-                throw new ArgumentNullException(nameof(roleName));
+                throw new ArgumentException($"Parameter {nameof(roleName)} cannot be null or empty", nameof(roleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceRoleCollection.Get");
@@ -81,12 +81,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Gets a role from a cloud service. </summary>
         /// <param name="roleName"> Name of the role. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleName"/> is null or empty. </exception>
         public async virtual Task<Response<CloudServiceRole>> GetAsync(string roleName, CancellationToken cancellationToken = default)
         {
-            if (roleName == null)
+            if (string.IsNullOrEmpty(roleName))
             {
-                throw new ArgumentNullException(nameof(roleName));
+                throw new ArgumentException($"Parameter {nameof(roleName)} cannot be null or empty", nameof(roleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceRoleCollection.Get");
@@ -108,12 +108,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="roleName"> Name of the role. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleName"/> is null or empty. </exception>
         public virtual Response<CloudServiceRole> GetIfExists(string roleName, CancellationToken cancellationToken = default)
         {
-            if (roleName == null)
+            if (string.IsNullOrEmpty(roleName))
             {
-                throw new ArgumentNullException(nameof(roleName));
+                throw new ArgumentException($"Parameter {nameof(roleName)} cannot be null or empty", nameof(roleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceRoleCollection.GetIfExists");
@@ -135,12 +135,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="roleName"> Name of the role. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleName"/> is null or empty. </exception>
         public async virtual Task<Response<CloudServiceRole>> GetIfExistsAsync(string roleName, CancellationToken cancellationToken = default)
         {
-            if (roleName == null)
+            if (string.IsNullOrEmpty(roleName))
             {
-                throw new ArgumentNullException(nameof(roleName));
+                throw new ArgumentException($"Parameter {nameof(roleName)} cannot be null or empty", nameof(roleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceRoleCollection.GetIfExists");
@@ -162,12 +162,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="roleName"> Name of the role. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string roleName, CancellationToken cancellationToken = default)
         {
-            if (roleName == null)
+            if (string.IsNullOrEmpty(roleName))
             {
-                throw new ArgumentNullException(nameof(roleName));
+                throw new ArgumentException($"Parameter {nameof(roleName)} cannot be null or empty", nameof(roleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceRoleCollection.Exists");
@@ -187,12 +187,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="roleName"> Name of the role. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string roleName, CancellationToken cancellationToken = default)
         {
-            if (roleName == null)
+            if (string.IsNullOrEmpty(roleName))
             {
-                throw new ArgumentNullException(nameof(roleName));
+                throw new ArgumentException($"Parameter {nameof(roleName)} cannot be null or empty", nameof(roleName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceRoleCollection.Exists");

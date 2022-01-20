@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="imageName"> The name of the image. </param>
         /// <param name="parameters"> Parameters supplied to the Create Image operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="imageName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="imageName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual ImageCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string imageName, ImageData parameters, CancellationToken cancellationToken = default)
         {
-            if (imageName == null)
+            if (string.IsNullOrEmpty(imageName))
             {
-                throw new ArgumentNullException(nameof(imageName));
+                throw new ArgumentException($"Parameter {nameof(imageName)} cannot be null or empty", nameof(imageName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="imageName"> The name of the image. </param>
         /// <param name="parameters"> Parameters supplied to the Create Image operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="imageName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="imageName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<ImageCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string imageName, ImageData parameters, CancellationToken cancellationToken = default)
         {
-            if (imageName == null)
+            if (string.IsNullOrEmpty(imageName))
             {
-                throw new ArgumentNullException(nameof(imageName));
+                throw new ArgumentException($"Parameter {nameof(imageName)} cannot be null or empty", nameof(imageName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="imageName"> The name of the image. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="imageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="imageName"/> is null or empty. </exception>
         public virtual Response<Image> Get(string imageName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (imageName == null)
+            if (string.IsNullOrEmpty(imageName))
             {
-                throw new ArgumentNullException(nameof(imageName));
+                throw new ArgumentException($"Parameter {nameof(imageName)} cannot be null or empty", nameof(imageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ImageCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="imageName"> The name of the image. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="imageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="imageName"/> is null or empty. </exception>
         public async virtual Task<Response<Image>> GetAsync(string imageName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (imageName == null)
+            if (string.IsNullOrEmpty(imageName))
             {
-                throw new ArgumentNullException(nameof(imageName));
+                throw new ArgumentException($"Parameter {nameof(imageName)} cannot be null or empty", nameof(imageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ImageCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="imageName"> The name of the image. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="imageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="imageName"/> is null or empty. </exception>
         public virtual Response<Image> GetIfExists(string imageName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (imageName == null)
+            if (string.IsNullOrEmpty(imageName))
             {
-                throw new ArgumentNullException(nameof(imageName));
+                throw new ArgumentException($"Parameter {nameof(imageName)} cannot be null or empty", nameof(imageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ImageCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="imageName"> The name of the image. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="imageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="imageName"/> is null or empty. </exception>
         public async virtual Task<Response<Image>> GetIfExistsAsync(string imageName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (imageName == null)
+            if (string.IsNullOrEmpty(imageName))
             {
-                throw new ArgumentNullException(nameof(imageName));
+                throw new ArgumentException($"Parameter {nameof(imageName)} cannot be null or empty", nameof(imageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ImageCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="imageName"> The name of the image. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="imageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="imageName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string imageName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (imageName == null)
+            if (string.IsNullOrEmpty(imageName))
             {
-                throw new ArgumentNullException(nameof(imageName));
+                throw new ArgumentException($"Parameter {nameof(imageName)} cannot be null or empty", nameof(imageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ImageCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="imageName"> The name of the image. </param>
         /// <param name="expand"> The expand expression to apply on the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="imageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="imageName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string imageName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (imageName == null)
+            if (string.IsNullOrEmpty(imageName))
             {
-                throw new ArgumentNullException(nameof(imageName));
+                throw new ArgumentException($"Parameter {nameof(imageName)} cannot be null or empty", nameof(imageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ImageCollection.Exists");

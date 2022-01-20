@@ -55,12 +55,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="roleInstanceName"> Name of the role instance. </param>
         /// <param name="expand"> The expand expression to apply to the operation. &apos;UserData&apos; is not supported for cloud services. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleInstanceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleInstanceName"/> is null or empty. </exception>
         public virtual Response<RoleInstance> Get(string roleInstanceName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (roleInstanceName == null)
+            if (string.IsNullOrEmpty(roleInstanceName))
             {
-                throw new ArgumentNullException(nameof(roleInstanceName));
+                throw new ArgumentException($"Parameter {nameof(roleInstanceName)} cannot be null or empty", nameof(roleInstanceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RoleInstanceCollection.Get");
@@ -83,12 +83,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="roleInstanceName"> Name of the role instance. </param>
         /// <param name="expand"> The expand expression to apply to the operation. &apos;UserData&apos; is not supported for cloud services. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleInstanceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleInstanceName"/> is null or empty. </exception>
         public async virtual Task<Response<RoleInstance>> GetAsync(string roleInstanceName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (roleInstanceName == null)
+            if (string.IsNullOrEmpty(roleInstanceName))
             {
-                throw new ArgumentNullException(nameof(roleInstanceName));
+                throw new ArgumentException($"Parameter {nameof(roleInstanceName)} cannot be null or empty", nameof(roleInstanceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RoleInstanceCollection.Get");
@@ -111,12 +111,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="roleInstanceName"> Name of the role instance. </param>
         /// <param name="expand"> The expand expression to apply to the operation. &apos;UserData&apos; is not supported for cloud services. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleInstanceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleInstanceName"/> is null or empty. </exception>
         public virtual Response<RoleInstance> GetIfExists(string roleInstanceName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (roleInstanceName == null)
+            if (string.IsNullOrEmpty(roleInstanceName))
             {
-                throw new ArgumentNullException(nameof(roleInstanceName));
+                throw new ArgumentException($"Parameter {nameof(roleInstanceName)} cannot be null or empty", nameof(roleInstanceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RoleInstanceCollection.GetIfExists");
@@ -139,12 +139,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="roleInstanceName"> Name of the role instance. </param>
         /// <param name="expand"> The expand expression to apply to the operation. &apos;UserData&apos; is not supported for cloud services. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleInstanceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleInstanceName"/> is null or empty. </exception>
         public async virtual Task<Response<RoleInstance>> GetIfExistsAsync(string roleInstanceName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (roleInstanceName == null)
+            if (string.IsNullOrEmpty(roleInstanceName))
             {
-                throw new ArgumentNullException(nameof(roleInstanceName));
+                throw new ArgumentException($"Parameter {nameof(roleInstanceName)} cannot be null or empty", nameof(roleInstanceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RoleInstanceCollection.GetIfExists");
@@ -167,12 +167,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="roleInstanceName"> Name of the role instance. </param>
         /// <param name="expand"> The expand expression to apply to the operation. &apos;UserData&apos; is not supported for cloud services. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleInstanceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleInstanceName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string roleInstanceName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (roleInstanceName == null)
+            if (string.IsNullOrEmpty(roleInstanceName))
             {
-                throw new ArgumentNullException(nameof(roleInstanceName));
+                throw new ArgumentException($"Parameter {nameof(roleInstanceName)} cannot be null or empty", nameof(roleInstanceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RoleInstanceCollection.Exists");
@@ -193,12 +193,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="roleInstanceName"> Name of the role instance. </param>
         /// <param name="expand"> The expand expression to apply to the operation. &apos;UserData&apos; is not supported for cloud services. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="roleInstanceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="roleInstanceName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string roleInstanceName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (roleInstanceName == null)
+            if (string.IsNullOrEmpty(roleInstanceName))
             {
-                throw new ArgumentNullException(nameof(roleInstanceName));
+                throw new ArgumentException($"Parameter {nameof(roleInstanceName)} cannot be null or empty", nameof(roleInstanceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("RoleInstanceCollection.Exists");

@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualRouterName"> The name of the Virtual Router. </param>
         /// <param name="parameters"> Parameters supplied to the create or update Virtual Router. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualRouterName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualRouterName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual VirtualRouterCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string virtualRouterName, VirtualRouterData parameters, CancellationToken cancellationToken = default)
         {
-            if (virtualRouterName == null)
+            if (string.IsNullOrEmpty(virtualRouterName))
             {
-                throw new ArgumentNullException(nameof(virtualRouterName));
+                throw new ArgumentException($"Parameter {nameof(virtualRouterName)} cannot be null or empty", nameof(virtualRouterName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualRouterName"> The name of the Virtual Router. </param>
         /// <param name="parameters"> Parameters supplied to the create or update Virtual Router. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualRouterName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualRouterName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<VirtualRouterCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string virtualRouterName, VirtualRouterData parameters, CancellationToken cancellationToken = default)
         {
-            if (virtualRouterName == null)
+            if (string.IsNullOrEmpty(virtualRouterName))
             {
-                throw new ArgumentNullException(nameof(virtualRouterName));
+                throw new ArgumentException($"Parameter {nameof(virtualRouterName)} cannot be null or empty", nameof(virtualRouterName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualRouterName"> The name of the Virtual Router. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualRouterName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualRouterName"/> is null or empty. </exception>
         public virtual Response<VirtualRouter> Get(string virtualRouterName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (virtualRouterName == null)
+            if (string.IsNullOrEmpty(virtualRouterName))
             {
-                throw new ArgumentNullException(nameof(virtualRouterName));
+                throw new ArgumentException($"Parameter {nameof(virtualRouterName)} cannot be null or empty", nameof(virtualRouterName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualRouterCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualRouterName"> The name of the Virtual Router. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualRouterName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualRouterName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualRouter>> GetAsync(string virtualRouterName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (virtualRouterName == null)
+            if (string.IsNullOrEmpty(virtualRouterName))
             {
-                throw new ArgumentNullException(nameof(virtualRouterName));
+                throw new ArgumentException($"Parameter {nameof(virtualRouterName)} cannot be null or empty", nameof(virtualRouterName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualRouterCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualRouterName"> The name of the Virtual Router. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualRouterName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualRouterName"/> is null or empty. </exception>
         public virtual Response<VirtualRouter> GetIfExists(string virtualRouterName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (virtualRouterName == null)
+            if (string.IsNullOrEmpty(virtualRouterName))
             {
-                throw new ArgumentNullException(nameof(virtualRouterName));
+                throw new ArgumentException($"Parameter {nameof(virtualRouterName)} cannot be null or empty", nameof(virtualRouterName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualRouterCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualRouterName"> The name of the Virtual Router. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualRouterName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualRouterName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualRouter>> GetIfExistsAsync(string virtualRouterName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (virtualRouterName == null)
+            if (string.IsNullOrEmpty(virtualRouterName))
             {
-                throw new ArgumentNullException(nameof(virtualRouterName));
+                throw new ArgumentException($"Parameter {nameof(virtualRouterName)} cannot be null or empty", nameof(virtualRouterName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualRouterCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualRouterName"> The name of the Virtual Router. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualRouterName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualRouterName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string virtualRouterName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (virtualRouterName == null)
+            if (string.IsNullOrEmpty(virtualRouterName))
             {
-                throw new ArgumentNullException(nameof(virtualRouterName));
+                throw new ArgumentException($"Parameter {nameof(virtualRouterName)} cannot be null or empty", nameof(virtualRouterName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualRouterCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualRouterName"> The name of the Virtual Router. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualRouterName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualRouterName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string virtualRouterName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (virtualRouterName == null)
+            if (string.IsNullOrEmpty(virtualRouterName))
             {
-                throw new ArgumentNullException(nameof(virtualRouterName));
+                throw new ArgumentException($"Parameter {nameof(virtualRouterName)} cannot be null or empty", nameof(virtualRouterName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualRouterCollection.Exists");

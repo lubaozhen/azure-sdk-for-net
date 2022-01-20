@@ -54,12 +54,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets load balancer probe. </summary>
         /// <param name="probeName"> The name of the probe. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="probeName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="probeName"/> is null or empty. </exception>
         public virtual Response<Probe> Get(string probeName, CancellationToken cancellationToken = default)
         {
-            if (probeName == null)
+            if (string.IsNullOrEmpty(probeName))
             {
-                throw new ArgumentNullException(nameof(probeName));
+                throw new ArgumentException($"Parameter {nameof(probeName)} cannot be null or empty", nameof(probeName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ProbeCollection.Get");
@@ -81,12 +81,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets load balancer probe. </summary>
         /// <param name="probeName"> The name of the probe. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="probeName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="probeName"/> is null or empty. </exception>
         public async virtual Task<Response<Probe>> GetAsync(string probeName, CancellationToken cancellationToken = default)
         {
-            if (probeName == null)
+            if (string.IsNullOrEmpty(probeName))
             {
-                throw new ArgumentNullException(nameof(probeName));
+                throw new ArgumentException($"Parameter {nameof(probeName)} cannot be null or empty", nameof(probeName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ProbeCollection.Get");
@@ -108,12 +108,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="probeName"> The name of the probe. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="probeName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="probeName"/> is null or empty. </exception>
         public virtual Response<Probe> GetIfExists(string probeName, CancellationToken cancellationToken = default)
         {
-            if (probeName == null)
+            if (string.IsNullOrEmpty(probeName))
             {
-                throw new ArgumentNullException(nameof(probeName));
+                throw new ArgumentException($"Parameter {nameof(probeName)} cannot be null or empty", nameof(probeName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ProbeCollection.GetIfExists");
@@ -135,12 +135,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="probeName"> The name of the probe. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="probeName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="probeName"/> is null or empty. </exception>
         public async virtual Task<Response<Probe>> GetIfExistsAsync(string probeName, CancellationToken cancellationToken = default)
         {
-            if (probeName == null)
+            if (string.IsNullOrEmpty(probeName))
             {
-                throw new ArgumentNullException(nameof(probeName));
+                throw new ArgumentException($"Parameter {nameof(probeName)} cannot be null or empty", nameof(probeName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ProbeCollection.GetIfExists");
@@ -162,12 +162,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="probeName"> The name of the probe. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="probeName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="probeName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string probeName, CancellationToken cancellationToken = default)
         {
-            if (probeName == null)
+            if (string.IsNullOrEmpty(probeName))
             {
-                throw new ArgumentNullException(nameof(probeName));
+                throw new ArgumentException($"Parameter {nameof(probeName)} cannot be null or empty", nameof(probeName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ProbeCollection.Exists");
@@ -187,12 +187,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="probeName"> The name of the probe. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="probeName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="probeName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string probeName, CancellationToken cancellationToken = default)
         {
-            if (probeName == null)
+            if (string.IsNullOrEmpty(probeName))
             {
-                throw new ArgumentNullException(nameof(probeName));
+                throw new ArgumentException($"Parameter {nameof(probeName)} cannot be null or empty", nameof(probeName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ProbeCollection.Exists");

@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceEndpointPolicyDefinitionName"> The name of the service endpoint policy definition name. </param>
         /// <param name="serviceEndpointPolicyDefinitions"> Parameters supplied to the create or update service endpoint policy operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitionName"/> or <paramref name="serviceEndpointPolicyDefinitions"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitions"/> is null. </exception>
         public virtual ServiceEndpointPolicyDefinitionCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string serviceEndpointPolicyDefinitionName, ServiceEndpointPolicyDefinitionData serviceEndpointPolicyDefinitions, CancellationToken cancellationToken = default)
         {
-            if (serviceEndpointPolicyDefinitionName == null)
+            if (string.IsNullOrEmpty(serviceEndpointPolicyDefinitionName))
             {
-                throw new ArgumentNullException(nameof(serviceEndpointPolicyDefinitionName));
+                throw new ArgumentException($"Parameter {nameof(serviceEndpointPolicyDefinitionName)} cannot be null or empty", nameof(serviceEndpointPolicyDefinitionName));
             }
             if (serviceEndpointPolicyDefinitions == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceEndpointPolicyDefinitionName"> The name of the service endpoint policy definition name. </param>
         /// <param name="serviceEndpointPolicyDefinitions"> Parameters supplied to the create or update service endpoint policy operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitionName"/> or <paramref name="serviceEndpointPolicyDefinitions"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitions"/> is null. </exception>
         public async virtual Task<ServiceEndpointPolicyDefinitionCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string serviceEndpointPolicyDefinitionName, ServiceEndpointPolicyDefinitionData serviceEndpointPolicyDefinitions, CancellationToken cancellationToken = default)
         {
-            if (serviceEndpointPolicyDefinitionName == null)
+            if (string.IsNullOrEmpty(serviceEndpointPolicyDefinitionName))
             {
-                throw new ArgumentNullException(nameof(serviceEndpointPolicyDefinitionName));
+                throw new ArgumentException($"Parameter {nameof(serviceEndpointPolicyDefinitionName)} cannot be null or empty", nameof(serviceEndpointPolicyDefinitionName));
             }
             if (serviceEndpointPolicyDefinitions == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Get the specified service endpoint policy definitions from service endpoint policy. </summary>
         /// <param name="serviceEndpointPolicyDefinitionName"> The name of the service endpoint policy definition name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null or empty. </exception>
         public virtual Response<ServiceEndpointPolicyDefinition> Get(string serviceEndpointPolicyDefinitionName, CancellationToken cancellationToken = default)
         {
-            if (serviceEndpointPolicyDefinitionName == null)
+            if (string.IsNullOrEmpty(serviceEndpointPolicyDefinitionName))
             {
-                throw new ArgumentNullException(nameof(serviceEndpointPolicyDefinitionName));
+                throw new ArgumentException($"Parameter {nameof(serviceEndpointPolicyDefinitionName)} cannot be null or empty", nameof(serviceEndpointPolicyDefinitionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ServiceEndpointPolicyDefinitionCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Get the specified service endpoint policy definitions from service endpoint policy. </summary>
         /// <param name="serviceEndpointPolicyDefinitionName"> The name of the service endpoint policy definition name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null or empty. </exception>
         public async virtual Task<Response<ServiceEndpointPolicyDefinition>> GetAsync(string serviceEndpointPolicyDefinitionName, CancellationToken cancellationToken = default)
         {
-            if (serviceEndpointPolicyDefinitionName == null)
+            if (string.IsNullOrEmpty(serviceEndpointPolicyDefinitionName))
             {
-                throw new ArgumentNullException(nameof(serviceEndpointPolicyDefinitionName));
+                throw new ArgumentException($"Parameter {nameof(serviceEndpointPolicyDefinitionName)} cannot be null or empty", nameof(serviceEndpointPolicyDefinitionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ServiceEndpointPolicyDefinitionCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="serviceEndpointPolicyDefinitionName"> The name of the service endpoint policy definition name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null or empty. </exception>
         public virtual Response<ServiceEndpointPolicyDefinition> GetIfExists(string serviceEndpointPolicyDefinitionName, CancellationToken cancellationToken = default)
         {
-            if (serviceEndpointPolicyDefinitionName == null)
+            if (string.IsNullOrEmpty(serviceEndpointPolicyDefinitionName))
             {
-                throw new ArgumentNullException(nameof(serviceEndpointPolicyDefinitionName));
+                throw new ArgumentException($"Parameter {nameof(serviceEndpointPolicyDefinitionName)} cannot be null or empty", nameof(serviceEndpointPolicyDefinitionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ServiceEndpointPolicyDefinitionCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="serviceEndpointPolicyDefinitionName"> The name of the service endpoint policy definition name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null or empty. </exception>
         public async virtual Task<Response<ServiceEndpointPolicyDefinition>> GetIfExistsAsync(string serviceEndpointPolicyDefinitionName, CancellationToken cancellationToken = default)
         {
-            if (serviceEndpointPolicyDefinitionName == null)
+            if (string.IsNullOrEmpty(serviceEndpointPolicyDefinitionName))
             {
-                throw new ArgumentNullException(nameof(serviceEndpointPolicyDefinitionName));
+                throw new ArgumentException($"Parameter {nameof(serviceEndpointPolicyDefinitionName)} cannot be null or empty", nameof(serviceEndpointPolicyDefinitionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ServiceEndpointPolicyDefinitionCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="serviceEndpointPolicyDefinitionName"> The name of the service endpoint policy definition name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string serviceEndpointPolicyDefinitionName, CancellationToken cancellationToken = default)
         {
-            if (serviceEndpointPolicyDefinitionName == null)
+            if (string.IsNullOrEmpty(serviceEndpointPolicyDefinitionName))
             {
-                throw new ArgumentNullException(nameof(serviceEndpointPolicyDefinitionName));
+                throw new ArgumentException($"Parameter {nameof(serviceEndpointPolicyDefinitionName)} cannot be null or empty", nameof(serviceEndpointPolicyDefinitionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ServiceEndpointPolicyDefinitionCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="serviceEndpointPolicyDefinitionName"> The name of the service endpoint policy definition name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceEndpointPolicyDefinitionName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string serviceEndpointPolicyDefinitionName, CancellationToken cancellationToken = default)
         {
-            if (serviceEndpointPolicyDefinitionName == null)
+            if (string.IsNullOrEmpty(serviceEndpointPolicyDefinitionName))
             {
-                throw new ArgumentNullException(nameof(serviceEndpointPolicyDefinitionName));
+                throw new ArgumentException($"Parameter {nameof(serviceEndpointPolicyDefinitionName)} cannot be null or empty", nameof(serviceEndpointPolicyDefinitionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ServiceEndpointPolicyDefinitionCollection.Exists");

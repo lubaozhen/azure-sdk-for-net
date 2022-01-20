@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="capacityReservationName"> The name of the capacity reservation. </param>
         /// <param name="parameters"> Parameters supplied to the Create capacity reservation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="capacityReservationName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="capacityReservationName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual CapacityReservationCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string capacityReservationName, CapacityReservationData parameters, CancellationToken cancellationToken = default)
         {
-            if (capacityReservationName == null)
+            if (string.IsNullOrEmpty(capacityReservationName))
             {
-                throw new ArgumentNullException(nameof(capacityReservationName));
+                throw new ArgumentException($"Parameter {nameof(capacityReservationName)} cannot be null or empty", nameof(capacityReservationName));
             }
             if (parameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="capacityReservationName"> The name of the capacity reservation. </param>
         /// <param name="parameters"> Parameters supplied to the Create capacity reservation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="capacityReservationName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="capacityReservationName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<CapacityReservationCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string capacityReservationName, CapacityReservationData parameters, CancellationToken cancellationToken = default)
         {
-            if (capacityReservationName == null)
+            if (string.IsNullOrEmpty(capacityReservationName))
             {
-                throw new ArgumentNullException(nameof(capacityReservationName));
+                throw new ArgumentException($"Parameter {nameof(capacityReservationName)} cannot be null or empty", nameof(capacityReservationName));
             }
             if (parameters == null)
             {
@@ -123,12 +125,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="capacityReservationName"> The name of the capacity reservation. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="capacityReservationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="capacityReservationName"/> is null or empty. </exception>
         public virtual Response<CapacityReservation> Get(string capacityReservationName, CapacityReservationInstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (capacityReservationName == null)
+            if (string.IsNullOrEmpty(capacityReservationName))
             {
-                throw new ArgumentNullException(nameof(capacityReservationName));
+                throw new ArgumentException($"Parameter {nameof(capacityReservationName)} cannot be null or empty", nameof(capacityReservationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CapacityReservationCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="capacityReservationName"> The name of the capacity reservation. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="capacityReservationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="capacityReservationName"/> is null or empty. </exception>
         public async virtual Task<Response<CapacityReservation>> GetAsync(string capacityReservationName, CapacityReservationInstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (capacityReservationName == null)
+            if (string.IsNullOrEmpty(capacityReservationName))
             {
-                throw new ArgumentNullException(nameof(capacityReservationName));
+                throw new ArgumentException($"Parameter {nameof(capacityReservationName)} cannot be null or empty", nameof(capacityReservationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CapacityReservationCollection.Get");
@@ -179,12 +181,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="capacityReservationName"> The name of the capacity reservation. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="capacityReservationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="capacityReservationName"/> is null or empty. </exception>
         public virtual Response<CapacityReservation> GetIfExists(string capacityReservationName, CapacityReservationInstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (capacityReservationName == null)
+            if (string.IsNullOrEmpty(capacityReservationName))
             {
-                throw new ArgumentNullException(nameof(capacityReservationName));
+                throw new ArgumentException($"Parameter {nameof(capacityReservationName)} cannot be null or empty", nameof(capacityReservationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CapacityReservationCollection.GetIfExists");
@@ -207,12 +209,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="capacityReservationName"> The name of the capacity reservation. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="capacityReservationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="capacityReservationName"/> is null or empty. </exception>
         public async virtual Task<Response<CapacityReservation>> GetIfExistsAsync(string capacityReservationName, CapacityReservationInstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (capacityReservationName == null)
+            if (string.IsNullOrEmpty(capacityReservationName))
             {
-                throw new ArgumentNullException(nameof(capacityReservationName));
+                throw new ArgumentException($"Parameter {nameof(capacityReservationName)} cannot be null or empty", nameof(capacityReservationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CapacityReservationCollection.GetIfExists");
@@ -235,12 +237,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="capacityReservationName"> The name of the capacity reservation. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="capacityReservationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="capacityReservationName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string capacityReservationName, CapacityReservationInstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (capacityReservationName == null)
+            if (string.IsNullOrEmpty(capacityReservationName))
             {
-                throw new ArgumentNullException(nameof(capacityReservationName));
+                throw new ArgumentException($"Parameter {nameof(capacityReservationName)} cannot be null or empty", nameof(capacityReservationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CapacityReservationCollection.Exists");
@@ -261,12 +263,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="capacityReservationName"> The name of the capacity reservation. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="capacityReservationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="capacityReservationName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string capacityReservationName, CapacityReservationInstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (capacityReservationName == null)
+            if (string.IsNullOrEmpty(capacityReservationName))
             {
-                throw new ArgumentNullException(nameof(capacityReservationName));
+                throw new ArgumentException($"Parameter {nameof(capacityReservationName)} cannot be null or empty", nameof(capacityReservationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CapacityReservationCollection.Exists");

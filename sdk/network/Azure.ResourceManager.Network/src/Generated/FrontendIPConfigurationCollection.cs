@@ -54,12 +54,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets load balancer frontend IP configuration. </summary>
         /// <param name="frontendIPConfigurationName"> The name of the frontend IP configuration. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="frontendIPConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="frontendIPConfigurationName"/> is null or empty. </exception>
         public virtual Response<FrontendIPConfiguration> Get(string frontendIPConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (frontendIPConfigurationName == null)
+            if (string.IsNullOrEmpty(frontendIPConfigurationName))
             {
-                throw new ArgumentNullException(nameof(frontendIPConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(frontendIPConfigurationName)} cannot be null or empty", nameof(frontendIPConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FrontendIPConfigurationCollection.Get");
@@ -81,12 +81,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets load balancer frontend IP configuration. </summary>
         /// <param name="frontendIPConfigurationName"> The name of the frontend IP configuration. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="frontendIPConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="frontendIPConfigurationName"/> is null or empty. </exception>
         public async virtual Task<Response<FrontendIPConfiguration>> GetAsync(string frontendIPConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (frontendIPConfigurationName == null)
+            if (string.IsNullOrEmpty(frontendIPConfigurationName))
             {
-                throw new ArgumentNullException(nameof(frontendIPConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(frontendIPConfigurationName)} cannot be null or empty", nameof(frontendIPConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FrontendIPConfigurationCollection.Get");
@@ -108,12 +108,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="frontendIPConfigurationName"> The name of the frontend IP configuration. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="frontendIPConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="frontendIPConfigurationName"/> is null or empty. </exception>
         public virtual Response<FrontendIPConfiguration> GetIfExists(string frontendIPConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (frontendIPConfigurationName == null)
+            if (string.IsNullOrEmpty(frontendIPConfigurationName))
             {
-                throw new ArgumentNullException(nameof(frontendIPConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(frontendIPConfigurationName)} cannot be null or empty", nameof(frontendIPConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FrontendIPConfigurationCollection.GetIfExists");
@@ -135,12 +135,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="frontendIPConfigurationName"> The name of the frontend IP configuration. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="frontendIPConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="frontendIPConfigurationName"/> is null or empty. </exception>
         public async virtual Task<Response<FrontendIPConfiguration>> GetIfExistsAsync(string frontendIPConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (frontendIPConfigurationName == null)
+            if (string.IsNullOrEmpty(frontendIPConfigurationName))
             {
-                throw new ArgumentNullException(nameof(frontendIPConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(frontendIPConfigurationName)} cannot be null or empty", nameof(frontendIPConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FrontendIPConfigurationCollection.GetIfExists");
@@ -162,12 +162,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="frontendIPConfigurationName"> The name of the frontend IP configuration. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="frontendIPConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="frontendIPConfigurationName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string frontendIPConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (frontendIPConfigurationName == null)
+            if (string.IsNullOrEmpty(frontendIPConfigurationName))
             {
-                throw new ArgumentNullException(nameof(frontendIPConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(frontendIPConfigurationName)} cannot be null or empty", nameof(frontendIPConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FrontendIPConfigurationCollection.Exists");
@@ -187,12 +187,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="frontendIPConfigurationName"> The name of the frontend IP configuration. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="frontendIPConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="frontendIPConfigurationName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string frontendIPConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (frontendIPConfigurationName == null)
+            if (string.IsNullOrEmpty(frontendIPConfigurationName))
             {
-                throw new ArgumentNullException(nameof(frontendIPConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(frontendIPConfigurationName)} cannot be null or empty", nameof(frontendIPConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FrontendIPConfigurationCollection.Exists");

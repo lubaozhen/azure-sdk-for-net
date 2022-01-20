@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="snapshotName"> The name of the snapshot that is being created. The name can&apos;t be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters. </param>
         /// <param name="snapshot"> Snapshot object supplied in the body of the Put disk operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="snapshotName"/> or <paramref name="snapshot"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="snapshotName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="snapshot"/> is null. </exception>
         public virtual SnapshotCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string snapshotName, SnapshotData snapshot, CancellationToken cancellationToken = default)
         {
-            if (snapshotName == null)
+            if (string.IsNullOrEmpty(snapshotName))
             {
-                throw new ArgumentNullException(nameof(snapshotName));
+                throw new ArgumentException($"Parameter {nameof(snapshotName)} cannot be null or empty", nameof(snapshotName));
             }
             if (snapshot == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="snapshotName"> The name of the snapshot that is being created. The name can&apos;t be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters. </param>
         /// <param name="snapshot"> Snapshot object supplied in the body of the Put disk operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="snapshotName"/> or <paramref name="snapshot"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="snapshotName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="snapshot"/> is null. </exception>
         public async virtual Task<SnapshotCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string snapshotName, SnapshotData snapshot, CancellationToken cancellationToken = default)
         {
-            if (snapshotName == null)
+            if (string.IsNullOrEmpty(snapshotName))
             {
-                throw new ArgumentNullException(nameof(snapshotName));
+                throw new ArgumentException($"Parameter {nameof(snapshotName)} cannot be null or empty", nameof(snapshotName));
             }
             if (snapshot == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Gets information about a snapshot. </summary>
         /// <param name="snapshotName"> The name of the snapshot that is being created. The name can&apos;t be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="snapshotName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="snapshotName"/> is null or empty. </exception>
         public virtual Response<Snapshot> Get(string snapshotName, CancellationToken cancellationToken = default)
         {
-            if (snapshotName == null)
+            if (string.IsNullOrEmpty(snapshotName))
             {
-                throw new ArgumentNullException(nameof(snapshotName));
+                throw new ArgumentException($"Parameter {nameof(snapshotName)} cannot be null or empty", nameof(snapshotName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SnapshotCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Gets information about a snapshot. </summary>
         /// <param name="snapshotName"> The name of the snapshot that is being created. The name can&apos;t be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="snapshotName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="snapshotName"/> is null or empty. </exception>
         public async virtual Task<Response<Snapshot>> GetAsync(string snapshotName, CancellationToken cancellationToken = default)
         {
-            if (snapshotName == null)
+            if (string.IsNullOrEmpty(snapshotName))
             {
-                throw new ArgumentNullException(nameof(snapshotName));
+                throw new ArgumentException($"Parameter {nameof(snapshotName)} cannot be null or empty", nameof(snapshotName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SnapshotCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="snapshotName"> The name of the snapshot that is being created. The name can&apos;t be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="snapshotName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="snapshotName"/> is null or empty. </exception>
         public virtual Response<Snapshot> GetIfExists(string snapshotName, CancellationToken cancellationToken = default)
         {
-            if (snapshotName == null)
+            if (string.IsNullOrEmpty(snapshotName))
             {
-                throw new ArgumentNullException(nameof(snapshotName));
+                throw new ArgumentException($"Parameter {nameof(snapshotName)} cannot be null or empty", nameof(snapshotName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SnapshotCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="snapshotName"> The name of the snapshot that is being created. The name can&apos;t be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="snapshotName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="snapshotName"/> is null or empty. </exception>
         public async virtual Task<Response<Snapshot>> GetIfExistsAsync(string snapshotName, CancellationToken cancellationToken = default)
         {
-            if (snapshotName == null)
+            if (string.IsNullOrEmpty(snapshotName))
             {
-                throw new ArgumentNullException(nameof(snapshotName));
+                throw new ArgumentException($"Parameter {nameof(snapshotName)} cannot be null or empty", nameof(snapshotName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SnapshotCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="snapshotName"> The name of the snapshot that is being created. The name can&apos;t be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="snapshotName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="snapshotName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string snapshotName, CancellationToken cancellationToken = default)
         {
-            if (snapshotName == null)
+            if (string.IsNullOrEmpty(snapshotName))
             {
-                throw new ArgumentNullException(nameof(snapshotName));
+                throw new ArgumentException($"Parameter {nameof(snapshotName)} cannot be null or empty", nameof(snapshotName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SnapshotCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="snapshotName"> The name of the snapshot that is being created. The name can&apos;t be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="snapshotName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="snapshotName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string snapshotName, CancellationToken cancellationToken = default)
         {
-            if (snapshotName == null)
+            if (string.IsNullOrEmpty(snapshotName))
             {
-                throw new ArgumentNullException(nameof(snapshotName));
+                throw new ArgumentException($"Parameter {nameof(snapshotName)} cannot be null or empty", nameof(snapshotName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SnapshotCollection.Exists");

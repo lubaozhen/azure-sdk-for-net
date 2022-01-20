@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="packetCaptureName"> The name of the packet capture session. </param>
         /// <param name="parameters"> Parameters that define the create packet capture operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="packetCaptureName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="packetCaptureName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual PacketCaptureCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string packetCaptureName, PacketCaptureInput parameters, CancellationToken cancellationToken = default)
         {
-            if (packetCaptureName == null)
+            if (string.IsNullOrEmpty(packetCaptureName))
             {
-                throw new ArgumentNullException(nameof(packetCaptureName));
+                throw new ArgumentException($"Parameter {nameof(packetCaptureName)} cannot be null or empty", nameof(packetCaptureName));
             }
             if (parameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="packetCaptureName"> The name of the packet capture session. </param>
         /// <param name="parameters"> Parameters that define the create packet capture operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="packetCaptureName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="packetCaptureName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<PacketCaptureCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string packetCaptureName, PacketCaptureInput parameters, CancellationToken cancellationToken = default)
         {
-            if (packetCaptureName == null)
+            if (string.IsNullOrEmpty(packetCaptureName))
             {
-                throw new ArgumentNullException(nameof(packetCaptureName));
+                throw new ArgumentException($"Parameter {nameof(packetCaptureName)} cannot be null or empty", nameof(packetCaptureName));
             }
             if (parameters == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets a packet capture session by name. </summary>
         /// <param name="packetCaptureName"> The name of the packet capture session. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="packetCaptureName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="packetCaptureName"/> is null or empty. </exception>
         public virtual Response<PacketCapture> Get(string packetCaptureName, CancellationToken cancellationToken = default)
         {
-            if (packetCaptureName == null)
+            if (string.IsNullOrEmpty(packetCaptureName))
             {
-                throw new ArgumentNullException(nameof(packetCaptureName));
+                throw new ArgumentException($"Parameter {nameof(packetCaptureName)} cannot be null or empty", nameof(packetCaptureName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PacketCaptureCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets a packet capture session by name. </summary>
         /// <param name="packetCaptureName"> The name of the packet capture session. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="packetCaptureName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="packetCaptureName"/> is null or empty. </exception>
         public async virtual Task<Response<PacketCapture>> GetAsync(string packetCaptureName, CancellationToken cancellationToken = default)
         {
-            if (packetCaptureName == null)
+            if (string.IsNullOrEmpty(packetCaptureName))
             {
-                throw new ArgumentNullException(nameof(packetCaptureName));
+                throw new ArgumentException($"Parameter {nameof(packetCaptureName)} cannot be null or empty", nameof(packetCaptureName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PacketCaptureCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="packetCaptureName"> The name of the packet capture session. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="packetCaptureName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="packetCaptureName"/> is null or empty. </exception>
         public virtual Response<PacketCapture> GetIfExists(string packetCaptureName, CancellationToken cancellationToken = default)
         {
-            if (packetCaptureName == null)
+            if (string.IsNullOrEmpty(packetCaptureName))
             {
-                throw new ArgumentNullException(nameof(packetCaptureName));
+                throw new ArgumentException($"Parameter {nameof(packetCaptureName)} cannot be null or empty", nameof(packetCaptureName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PacketCaptureCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="packetCaptureName"> The name of the packet capture session. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="packetCaptureName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="packetCaptureName"/> is null or empty. </exception>
         public async virtual Task<Response<PacketCapture>> GetIfExistsAsync(string packetCaptureName, CancellationToken cancellationToken = default)
         {
-            if (packetCaptureName == null)
+            if (string.IsNullOrEmpty(packetCaptureName))
             {
-                throw new ArgumentNullException(nameof(packetCaptureName));
+                throw new ArgumentException($"Parameter {nameof(packetCaptureName)} cannot be null or empty", nameof(packetCaptureName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PacketCaptureCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="packetCaptureName"> The name of the packet capture session. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="packetCaptureName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="packetCaptureName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string packetCaptureName, CancellationToken cancellationToken = default)
         {
-            if (packetCaptureName == null)
+            if (string.IsNullOrEmpty(packetCaptureName))
             {
-                throw new ArgumentNullException(nameof(packetCaptureName));
+                throw new ArgumentException($"Parameter {nameof(packetCaptureName)} cannot be null or empty", nameof(packetCaptureName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PacketCaptureCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="packetCaptureName"> The name of the packet capture session. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="packetCaptureName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="packetCaptureName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string packetCaptureName, CancellationToken cancellationToken = default)
         {
-            if (packetCaptureName == null)
+            if (string.IsNullOrEmpty(packetCaptureName))
             {
-                throw new ArgumentNullException(nameof(packetCaptureName));
+                throw new ArgumentException($"Parameter {nameof(packetCaptureName)} cannot be null or empty", nameof(packetCaptureName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PacketCaptureCollection.Exists");

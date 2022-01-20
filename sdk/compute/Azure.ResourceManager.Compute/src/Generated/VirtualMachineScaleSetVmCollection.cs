@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="instanceId"> The instance ID of the virtual machine. </param>
         /// <param name="parameters"> Parameters supplied to the Update Virtual Machine Scale Sets VM operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="instanceId"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="instanceId"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual VirtualMachineScaleSetVmCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string instanceId, VirtualMachineScaleSetVmData parameters, CancellationToken cancellationToken = default)
         {
-            if (instanceId == null)
+            if (string.IsNullOrEmpty(instanceId))
             {
-                throw new ArgumentNullException(nameof(instanceId));
+                throw new ArgumentException($"Parameter {nameof(instanceId)} cannot be null or empty", nameof(instanceId));
             }
             if (parameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="instanceId"> The instance ID of the virtual machine. </param>
         /// <param name="parameters"> Parameters supplied to the Update Virtual Machine Scale Sets VM operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="instanceId"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="instanceId"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<VirtualMachineScaleSetVmCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string instanceId, VirtualMachineScaleSetVmData parameters, CancellationToken cancellationToken = default)
         {
-            if (instanceId == null)
+            if (string.IsNullOrEmpty(instanceId))
             {
-                throw new ArgumentNullException(nameof(instanceId));
+                throw new ArgumentException($"Parameter {nameof(instanceId)} cannot be null or empty", nameof(instanceId));
             }
             if (parameters == null)
             {
@@ -123,12 +125,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="instanceId"> The instance ID of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the instance view of the virtual machine. &apos;UserData&apos; will retrieve the UserData of the virtual machine. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="instanceId"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="instanceId"/> is null or empty. </exception>
         public virtual Response<VirtualMachineScaleSetVm> Get(string instanceId, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (instanceId == null)
+            if (string.IsNullOrEmpty(instanceId))
             {
-                throw new ArgumentNullException(nameof(instanceId));
+                throw new ArgumentException($"Parameter {nameof(instanceId)} cannot be null or empty", nameof(instanceId));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetVmCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="instanceId"> The instance ID of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the instance view of the virtual machine. &apos;UserData&apos; will retrieve the UserData of the virtual machine. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="instanceId"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="instanceId"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualMachineScaleSetVm>> GetAsync(string instanceId, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (instanceId == null)
+            if (string.IsNullOrEmpty(instanceId))
             {
-                throw new ArgumentNullException(nameof(instanceId));
+                throw new ArgumentException($"Parameter {nameof(instanceId)} cannot be null or empty", nameof(instanceId));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetVmCollection.Get");
@@ -179,12 +181,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="instanceId"> The instance ID of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the instance view of the virtual machine. &apos;UserData&apos; will retrieve the UserData of the virtual machine. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="instanceId"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="instanceId"/> is null or empty. </exception>
         public virtual Response<VirtualMachineScaleSetVm> GetIfExists(string instanceId, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (instanceId == null)
+            if (string.IsNullOrEmpty(instanceId))
             {
-                throw new ArgumentNullException(nameof(instanceId));
+                throw new ArgumentException($"Parameter {nameof(instanceId)} cannot be null or empty", nameof(instanceId));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetVmCollection.GetIfExists");
@@ -207,12 +209,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="instanceId"> The instance ID of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the instance view of the virtual machine. &apos;UserData&apos; will retrieve the UserData of the virtual machine. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="instanceId"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="instanceId"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualMachineScaleSetVm>> GetIfExistsAsync(string instanceId, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (instanceId == null)
+            if (string.IsNullOrEmpty(instanceId))
             {
-                throw new ArgumentNullException(nameof(instanceId));
+                throw new ArgumentException($"Parameter {nameof(instanceId)} cannot be null or empty", nameof(instanceId));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetVmCollection.GetIfExists");
@@ -235,12 +237,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="instanceId"> The instance ID of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the instance view of the virtual machine. &apos;UserData&apos; will retrieve the UserData of the virtual machine. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="instanceId"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="instanceId"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string instanceId, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (instanceId == null)
+            if (string.IsNullOrEmpty(instanceId))
             {
-                throw new ArgumentNullException(nameof(instanceId));
+                throw new ArgumentException($"Parameter {nameof(instanceId)} cannot be null or empty", nameof(instanceId));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetVmCollection.Exists");
@@ -261,12 +263,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="instanceId"> The instance ID of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the instance view of the virtual machine. &apos;UserData&apos; will retrieve the UserData of the virtual machine. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="instanceId"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="instanceId"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string instanceId, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (instanceId == null)
+            if (string.IsNullOrEmpty(instanceId))
             {
-                throw new ArgumentNullException(nameof(instanceId));
+                throw new ArgumentException($"Parameter {nameof(instanceId)} cannot be null or empty", nameof(instanceId));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetVmCollection.Exists");

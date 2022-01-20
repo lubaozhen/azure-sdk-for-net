@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="ruleCollectionGroupName"> The name of the FirewallPolicyRuleCollectionGroup. </param>
         /// <param name="parameters"> Parameters supplied to the create or update FirewallPolicyRuleCollectionGroup operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionGroupName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionGroupName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual FirewallPolicyRuleCollectionGroupCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string ruleCollectionGroupName, FirewallPolicyRuleCollectionGroupData parameters, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionGroupName == null)
+            if (string.IsNullOrEmpty(ruleCollectionGroupName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionGroupName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionGroupName)} cannot be null or empty", nameof(ruleCollectionGroupName));
             }
             if (parameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="ruleCollectionGroupName"> The name of the FirewallPolicyRuleCollectionGroup. </param>
         /// <param name="parameters"> Parameters supplied to the create or update FirewallPolicyRuleCollectionGroup operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionGroupName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionGroupName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<FirewallPolicyRuleCollectionGroupCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string ruleCollectionGroupName, FirewallPolicyRuleCollectionGroupData parameters, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionGroupName == null)
+            if (string.IsNullOrEmpty(ruleCollectionGroupName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionGroupName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionGroupName)} cannot be null or empty", nameof(ruleCollectionGroupName));
             }
             if (parameters == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified FirewallPolicyRuleCollectionGroup. </summary>
         /// <param name="ruleCollectionGroupName"> The name of the FirewallPolicyRuleCollectionGroup. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionGroupName"/> is null or empty. </exception>
         public virtual Response<FirewallPolicyRuleCollectionGroup> Get(string ruleCollectionGroupName, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionGroupName == null)
+            if (string.IsNullOrEmpty(ruleCollectionGroupName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionGroupName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionGroupName)} cannot be null or empty", nameof(ruleCollectionGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyRuleCollectionGroupCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified FirewallPolicyRuleCollectionGroup. </summary>
         /// <param name="ruleCollectionGroupName"> The name of the FirewallPolicyRuleCollectionGroup. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionGroupName"/> is null or empty. </exception>
         public async virtual Task<Response<FirewallPolicyRuleCollectionGroup>> GetAsync(string ruleCollectionGroupName, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionGroupName == null)
+            if (string.IsNullOrEmpty(ruleCollectionGroupName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionGroupName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionGroupName)} cannot be null or empty", nameof(ruleCollectionGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyRuleCollectionGroupCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="ruleCollectionGroupName"> The name of the FirewallPolicyRuleCollectionGroup. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionGroupName"/> is null or empty. </exception>
         public virtual Response<FirewallPolicyRuleCollectionGroup> GetIfExists(string ruleCollectionGroupName, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionGroupName == null)
+            if (string.IsNullOrEmpty(ruleCollectionGroupName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionGroupName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionGroupName)} cannot be null or empty", nameof(ruleCollectionGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyRuleCollectionGroupCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="ruleCollectionGroupName"> The name of the FirewallPolicyRuleCollectionGroup. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionGroupName"/> is null or empty. </exception>
         public async virtual Task<Response<FirewallPolicyRuleCollectionGroup>> GetIfExistsAsync(string ruleCollectionGroupName, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionGroupName == null)
+            if (string.IsNullOrEmpty(ruleCollectionGroupName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionGroupName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionGroupName)} cannot be null or empty", nameof(ruleCollectionGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyRuleCollectionGroupCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="ruleCollectionGroupName"> The name of the FirewallPolicyRuleCollectionGroup. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionGroupName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string ruleCollectionGroupName, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionGroupName == null)
+            if (string.IsNullOrEmpty(ruleCollectionGroupName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionGroupName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionGroupName)} cannot be null or empty", nameof(ruleCollectionGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyRuleCollectionGroupCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="ruleCollectionGroupName"> The name of the FirewallPolicyRuleCollectionGroup. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionGroupName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string ruleCollectionGroupName, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionGroupName == null)
+            if (string.IsNullOrEmpty(ruleCollectionGroupName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionGroupName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionGroupName)} cannot be null or empty", nameof(ruleCollectionGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyRuleCollectionGroupCollection.Exists");

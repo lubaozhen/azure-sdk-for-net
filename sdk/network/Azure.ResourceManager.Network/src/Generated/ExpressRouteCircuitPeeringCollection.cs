@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="peeringName"> The name of the peering. </param>
         /// <param name="peeringParameters"> Parameters supplied to the create or update express route circuit peering operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="peeringName"/> or <paramref name="peeringParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="peeringName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="peeringParameters"/> is null. </exception>
         public virtual ExpressRouteCircuitPeeringCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string peeringName, ExpressRouteCircuitPeeringData peeringParameters, CancellationToken cancellationToken = default)
         {
-            if (peeringName == null)
+            if (string.IsNullOrEmpty(peeringName))
             {
-                throw new ArgumentNullException(nameof(peeringName));
+                throw new ArgumentException($"Parameter {nameof(peeringName)} cannot be null or empty", nameof(peeringName));
             }
             if (peeringParameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="peeringName"> The name of the peering. </param>
         /// <param name="peeringParameters"> Parameters supplied to the create or update express route circuit peering operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="peeringName"/> or <paramref name="peeringParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="peeringName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="peeringParameters"/> is null. </exception>
         public async virtual Task<ExpressRouteCircuitPeeringCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string peeringName, ExpressRouteCircuitPeeringData peeringParameters, CancellationToken cancellationToken = default)
         {
-            if (peeringName == null)
+            if (string.IsNullOrEmpty(peeringName))
             {
-                throw new ArgumentNullException(nameof(peeringName));
+                throw new ArgumentException($"Parameter {nameof(peeringName)} cannot be null or empty", nameof(peeringName));
             }
             if (peeringParameters == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified peering for the express route circuit. </summary>
         /// <param name="peeringName"> The name of the peering. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="peeringName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="peeringName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteCircuitPeering> Get(string peeringName, CancellationToken cancellationToken = default)
         {
-            if (peeringName == null)
+            if (string.IsNullOrEmpty(peeringName))
             {
-                throw new ArgumentNullException(nameof(peeringName));
+                throw new ArgumentException($"Parameter {nameof(peeringName)} cannot be null or empty", nameof(peeringName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeeringCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified peering for the express route circuit. </summary>
         /// <param name="peeringName"> The name of the peering. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="peeringName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="peeringName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteCircuitPeering>> GetAsync(string peeringName, CancellationToken cancellationToken = default)
         {
-            if (peeringName == null)
+            if (string.IsNullOrEmpty(peeringName))
             {
-                throw new ArgumentNullException(nameof(peeringName));
+                throw new ArgumentException($"Parameter {nameof(peeringName)} cannot be null or empty", nameof(peeringName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeeringCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="peeringName"> The name of the peering. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="peeringName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="peeringName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteCircuitPeering> GetIfExists(string peeringName, CancellationToken cancellationToken = default)
         {
-            if (peeringName == null)
+            if (string.IsNullOrEmpty(peeringName))
             {
-                throw new ArgumentNullException(nameof(peeringName));
+                throw new ArgumentException($"Parameter {nameof(peeringName)} cannot be null or empty", nameof(peeringName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeeringCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="peeringName"> The name of the peering. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="peeringName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="peeringName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteCircuitPeering>> GetIfExistsAsync(string peeringName, CancellationToken cancellationToken = default)
         {
-            if (peeringName == null)
+            if (string.IsNullOrEmpty(peeringName))
             {
-                throw new ArgumentNullException(nameof(peeringName));
+                throw new ArgumentException($"Parameter {nameof(peeringName)} cannot be null or empty", nameof(peeringName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeeringCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="peeringName"> The name of the peering. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="peeringName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="peeringName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string peeringName, CancellationToken cancellationToken = default)
         {
-            if (peeringName == null)
+            if (string.IsNullOrEmpty(peeringName))
             {
-                throw new ArgumentNullException(nameof(peeringName));
+                throw new ArgumentException($"Parameter {nameof(peeringName)} cannot be null or empty", nameof(peeringName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeeringCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="peeringName"> The name of the peering. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="peeringName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="peeringName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string peeringName, CancellationToken cancellationToken = default)
         {
-            if (peeringName == null)
+            if (string.IsNullOrEmpty(peeringName))
             {
-                throw new ArgumentNullException(nameof(peeringName));
+                throw new ArgumentException($"Parameter {nameof(peeringName)} cannot be null or empty", nameof(peeringName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeeringCollection.Exists");

@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="tapName"> The name of the virtual network tap. </param>
         /// <param name="parameters"> Parameters supplied to the create or update virtual network tap operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="tapName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="tapName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual VirtualNetworkTapCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string tapName, VirtualNetworkTapData parameters, CancellationToken cancellationToken = default)
         {
-            if (tapName == null)
+            if (string.IsNullOrEmpty(tapName))
             {
-                throw new ArgumentNullException(nameof(tapName));
+                throw new ArgumentException($"Parameter {nameof(tapName)} cannot be null or empty", nameof(tapName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="tapName"> The name of the virtual network tap. </param>
         /// <param name="parameters"> Parameters supplied to the create or update virtual network tap operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="tapName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="tapName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<VirtualNetworkTapCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string tapName, VirtualNetworkTapData parameters, CancellationToken cancellationToken = default)
         {
-            if (tapName == null)
+            if (string.IsNullOrEmpty(tapName))
             {
-                throw new ArgumentNullException(nameof(tapName));
+                throw new ArgumentException($"Parameter {nameof(tapName)} cannot be null or empty", nameof(tapName));
             }
             if (parameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets information about the specified virtual network tap. </summary>
         /// <param name="tapName"> The name of virtual network tap. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="tapName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="tapName"/> is null or empty. </exception>
         public virtual Response<VirtualNetworkTap> Get(string tapName, CancellationToken cancellationToken = default)
         {
-            if (tapName == null)
+            if (string.IsNullOrEmpty(tapName))
             {
-                throw new ArgumentNullException(nameof(tapName));
+                throw new ArgumentException($"Parameter {nameof(tapName)} cannot be null or empty", nameof(tapName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkTapCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets information about the specified virtual network tap. </summary>
         /// <param name="tapName"> The name of virtual network tap. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="tapName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="tapName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualNetworkTap>> GetAsync(string tapName, CancellationToken cancellationToken = default)
         {
-            if (tapName == null)
+            if (string.IsNullOrEmpty(tapName))
             {
-                throw new ArgumentNullException(nameof(tapName));
+                throw new ArgumentException($"Parameter {nameof(tapName)} cannot be null or empty", nameof(tapName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkTapCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="tapName"> The name of virtual network tap. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="tapName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="tapName"/> is null or empty. </exception>
         public virtual Response<VirtualNetworkTap> GetIfExists(string tapName, CancellationToken cancellationToken = default)
         {
-            if (tapName == null)
+            if (string.IsNullOrEmpty(tapName))
             {
-                throw new ArgumentNullException(nameof(tapName));
+                throw new ArgumentException($"Parameter {nameof(tapName)} cannot be null or empty", nameof(tapName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkTapCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="tapName"> The name of virtual network tap. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="tapName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="tapName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualNetworkTap>> GetIfExistsAsync(string tapName, CancellationToken cancellationToken = default)
         {
-            if (tapName == null)
+            if (string.IsNullOrEmpty(tapName))
             {
-                throw new ArgumentNullException(nameof(tapName));
+                throw new ArgumentException($"Parameter {nameof(tapName)} cannot be null or empty", nameof(tapName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkTapCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="tapName"> The name of virtual network tap. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="tapName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="tapName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string tapName, CancellationToken cancellationToken = default)
         {
-            if (tapName == null)
+            if (string.IsNullOrEmpty(tapName))
             {
-                throw new ArgumentNullException(nameof(tapName));
+                throw new ArgumentException($"Parameter {nameof(tapName)} cannot be null or empty", nameof(tapName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkTapCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="tapName"> The name of virtual network tap. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="tapName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="tapName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string tapName, CancellationToken cancellationToken = default)
         {
-            if (tapName == null)
+            if (string.IsNullOrEmpty(tapName))
             {
-                throw new ArgumentNullException(nameof(tapName));
+                throw new ArgumentException($"Parameter {nameof(tapName)} cannot be null or empty", nameof(tapName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualNetworkTapCollection.Exists");

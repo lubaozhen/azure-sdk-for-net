@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the RouteTable. </param>
         /// <param name="routeTableParameters"> Parameters supplied to create or update RouteTable. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> or <paramref name="routeTableParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="routeTableParameters"/> is null. </exception>
         public virtual HubRouteTableCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string routeTableName, HubRouteTableData routeTableParameters, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
             if (routeTableParameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="routeTableName"> The name of the RouteTable. </param>
         /// <param name="routeTableParameters"> Parameters supplied to create or update RouteTable. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> or <paramref name="routeTableParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="routeTableParameters"/> is null. </exception>
         public async virtual Task<HubRouteTableCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string routeTableName, HubRouteTableData routeTableParameters, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
             if (routeTableParameters == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a RouteTable. </summary>
         /// <param name="routeTableName"> The name of the RouteTable. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public virtual Response<HubRouteTable> Get(string routeTableName, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("HubRouteTableCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a RouteTable. </summary>
         /// <param name="routeTableName"> The name of the RouteTable. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public async virtual Task<Response<HubRouteTable>> GetAsync(string routeTableName, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("HubRouteTableCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="routeTableName"> The name of the RouteTable. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public virtual Response<HubRouteTable> GetIfExists(string routeTableName, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("HubRouteTableCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="routeTableName"> The name of the RouteTable. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public async virtual Task<Response<HubRouteTable>> GetIfExistsAsync(string routeTableName, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("HubRouteTableCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="routeTableName"> The name of the RouteTable. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string routeTableName, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("HubRouteTableCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="routeTableName"> The name of the RouteTable. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="routeTableName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="routeTableName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string routeTableName, CancellationToken cancellationToken = default)
         {
-            if (routeTableName == null)
+            if (string.IsNullOrEmpty(routeTableName))
             {
-                throw new ArgumentNullException(nameof(routeTableName));
+                throw new ArgumentException($"Parameter {nameof(routeTableName)} cannot be null or empty", nameof(routeTableName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("HubRouteTableCollection.Exists");

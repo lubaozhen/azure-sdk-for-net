@@ -233,12 +233,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="waitForCompletion"> Waits for the completion of the long running operations. </param>
         /// <param name="devicePath"> The path of the device. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="devicePath"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="devicePath"/> is null or empty. </exception>
         public async virtual Task<ExpressRouteCircuitPeeringGetArpTableExpressRouteCircuitOperation> GetArpTableExpressRouteCircuitAsync(bool waitForCompletion, string devicePath, CancellationToken cancellationToken = default)
         {
-            if (devicePath == null)
+            if (string.IsNullOrEmpty(devicePath))
             {
-                throw new ArgumentNullException(nameof(devicePath));
+                throw new ArgumentException($"Parameter {nameof(devicePath)} cannot be null or empty", nameof(devicePath));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeering.GetArpTableExpressRouteCircuit");
@@ -262,12 +262,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="waitForCompletion"> Waits for the completion of the long running operations. </param>
         /// <param name="devicePath"> The path of the device. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="devicePath"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="devicePath"/> is null or empty. </exception>
         public virtual ExpressRouteCircuitPeeringGetArpTableExpressRouteCircuitOperation GetArpTableExpressRouteCircuit(bool waitForCompletion, string devicePath, CancellationToken cancellationToken = default)
         {
-            if (devicePath == null)
+            if (string.IsNullOrEmpty(devicePath))
             {
-                throw new ArgumentNullException(nameof(devicePath));
+                throw new ArgumentException($"Parameter {nameof(devicePath)} cannot be null or empty", nameof(devicePath));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeering.GetArpTableExpressRouteCircuit");
@@ -291,12 +291,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="waitForCompletion"> Waits for the completion of the long running operations. </param>
         /// <param name="devicePath"> The path of the device. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="devicePath"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="devicePath"/> is null or empty. </exception>
         public async virtual Task<ExpressRouteCircuitPeeringGetRoutesTableExpressRouteCircuitOperation> GetRoutesTableExpressRouteCircuitAsync(bool waitForCompletion, string devicePath, CancellationToken cancellationToken = default)
         {
-            if (devicePath == null)
+            if (string.IsNullOrEmpty(devicePath))
             {
-                throw new ArgumentNullException(nameof(devicePath));
+                throw new ArgumentException($"Parameter {nameof(devicePath)} cannot be null or empty", nameof(devicePath));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeering.GetRoutesTableExpressRouteCircuit");
@@ -320,12 +320,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="waitForCompletion"> Waits for the completion of the long running operations. </param>
         /// <param name="devicePath"> The path of the device. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="devicePath"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="devicePath"/> is null or empty. </exception>
         public virtual ExpressRouteCircuitPeeringGetRoutesTableExpressRouteCircuitOperation GetRoutesTableExpressRouteCircuit(bool waitForCompletion, string devicePath, CancellationToken cancellationToken = default)
         {
-            if (devicePath == null)
+            if (string.IsNullOrEmpty(devicePath))
             {
-                throw new ArgumentNullException(nameof(devicePath));
+                throw new ArgumentException($"Parameter {nameof(devicePath)} cannot be null or empty", nameof(devicePath));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeering.GetRoutesTableExpressRouteCircuit");
@@ -349,12 +349,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="waitForCompletion"> Waits for the completion of the long running operations. </param>
         /// <param name="devicePath"> The path of the device. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="devicePath"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="devicePath"/> is null or empty. </exception>
         public async virtual Task<ExpressRouteCircuitPeeringGetRoutesTableSummaryExpressRouteCircuitOperation> GetRoutesTableSummaryExpressRouteCircuitAsync(bool waitForCompletion, string devicePath, CancellationToken cancellationToken = default)
         {
-            if (devicePath == null)
+            if (string.IsNullOrEmpty(devicePath))
             {
-                throw new ArgumentNullException(nameof(devicePath));
+                throw new ArgumentException($"Parameter {nameof(devicePath)} cannot be null or empty", nameof(devicePath));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeering.GetRoutesTableSummaryExpressRouteCircuit");
@@ -378,12 +378,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="waitForCompletion"> Waits for the completion of the long running operations. </param>
         /// <param name="devicePath"> The path of the device. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="devicePath"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="devicePath"/> is null or empty. </exception>
         public virtual ExpressRouteCircuitPeeringGetRoutesTableSummaryExpressRouteCircuitOperation GetRoutesTableSummaryExpressRouteCircuit(bool waitForCompletion, string devicePath, CancellationToken cancellationToken = default)
         {
-            if (devicePath == null)
+            if (string.IsNullOrEmpty(devicePath))
             {
-                throw new ArgumentNullException(nameof(devicePath));
+                throw new ArgumentException($"Parameter {nameof(devicePath)} cannot be null or empty", nameof(devicePath));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitPeering.GetRoutesTableSummaryExpressRouteCircuit");

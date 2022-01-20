@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="authorizationName"> The name of the authorization. </param>
         /// <param name="authorizationParameters"> Parameters supplied to the create or update express route circuit authorization operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="authorizationName"/> or <paramref name="authorizationParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="authorizationName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="authorizationParameters"/> is null. </exception>
         public virtual ExpressRouteCircuitAuthorizationCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string authorizationName, ExpressRouteCircuitAuthorizationData authorizationParameters, CancellationToken cancellationToken = default)
         {
-            if (authorizationName == null)
+            if (string.IsNullOrEmpty(authorizationName))
             {
-                throw new ArgumentNullException(nameof(authorizationName));
+                throw new ArgumentException($"Parameter {nameof(authorizationName)} cannot be null or empty", nameof(authorizationName));
             }
             if (authorizationParameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="authorizationName"> The name of the authorization. </param>
         /// <param name="authorizationParameters"> Parameters supplied to the create or update express route circuit authorization operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="authorizationName"/> or <paramref name="authorizationParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="authorizationName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="authorizationParameters"/> is null. </exception>
         public async virtual Task<ExpressRouteCircuitAuthorizationCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string authorizationName, ExpressRouteCircuitAuthorizationData authorizationParameters, CancellationToken cancellationToken = default)
         {
-            if (authorizationName == null)
+            if (string.IsNullOrEmpty(authorizationName))
             {
-                throw new ArgumentNullException(nameof(authorizationName));
+                throw new ArgumentException($"Parameter {nameof(authorizationName)} cannot be null or empty", nameof(authorizationName));
             }
             if (authorizationParameters == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified authorization from the specified express route circuit. </summary>
         /// <param name="authorizationName"> The name of the authorization. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="authorizationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="authorizationName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteCircuitAuthorization> Get(string authorizationName, CancellationToken cancellationToken = default)
         {
-            if (authorizationName == null)
+            if (string.IsNullOrEmpty(authorizationName))
             {
-                throw new ArgumentNullException(nameof(authorizationName));
+                throw new ArgumentException($"Parameter {nameof(authorizationName)} cannot be null or empty", nameof(authorizationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitAuthorizationCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified authorization from the specified express route circuit. </summary>
         /// <param name="authorizationName"> The name of the authorization. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="authorizationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="authorizationName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteCircuitAuthorization>> GetAsync(string authorizationName, CancellationToken cancellationToken = default)
         {
-            if (authorizationName == null)
+            if (string.IsNullOrEmpty(authorizationName))
             {
-                throw new ArgumentNullException(nameof(authorizationName));
+                throw new ArgumentException($"Parameter {nameof(authorizationName)} cannot be null or empty", nameof(authorizationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitAuthorizationCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="authorizationName"> The name of the authorization. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="authorizationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="authorizationName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteCircuitAuthorization> GetIfExists(string authorizationName, CancellationToken cancellationToken = default)
         {
-            if (authorizationName == null)
+            if (string.IsNullOrEmpty(authorizationName))
             {
-                throw new ArgumentNullException(nameof(authorizationName));
+                throw new ArgumentException($"Parameter {nameof(authorizationName)} cannot be null or empty", nameof(authorizationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitAuthorizationCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="authorizationName"> The name of the authorization. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="authorizationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="authorizationName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteCircuitAuthorization>> GetIfExistsAsync(string authorizationName, CancellationToken cancellationToken = default)
         {
-            if (authorizationName == null)
+            if (string.IsNullOrEmpty(authorizationName))
             {
-                throw new ArgumentNullException(nameof(authorizationName));
+                throw new ArgumentException($"Parameter {nameof(authorizationName)} cannot be null or empty", nameof(authorizationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitAuthorizationCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="authorizationName"> The name of the authorization. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="authorizationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="authorizationName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string authorizationName, CancellationToken cancellationToken = default)
         {
-            if (authorizationName == null)
+            if (string.IsNullOrEmpty(authorizationName))
             {
-                throw new ArgumentNullException(nameof(authorizationName));
+                throw new ArgumentException($"Parameter {nameof(authorizationName)} cannot be null or empty", nameof(authorizationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitAuthorizationCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="authorizationName"> The name of the authorization. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="authorizationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="authorizationName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string authorizationName, CancellationToken cancellationToken = default)
         {
-            if (authorizationName == null)
+            if (string.IsNullOrEmpty(authorizationName))
             {
-                throw new ArgumentNullException(nameof(authorizationName));
+                throw new ArgumentException($"Parameter {nameof(authorizationName)} cannot be null or empty", nameof(authorizationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitAuthorizationCollection.Exists");

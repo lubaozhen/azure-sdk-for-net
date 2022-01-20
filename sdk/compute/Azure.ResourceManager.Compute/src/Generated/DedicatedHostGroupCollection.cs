@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="hostGroupName"> The name of the dedicated host group. </param>
         /// <param name="parameters"> Parameters supplied to the Create Dedicated Host Group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="hostGroupName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="hostGroupName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual DedicatedHostGroupCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string hostGroupName, DedicatedHostGroupData parameters, CancellationToken cancellationToken = default)
         {
-            if (hostGroupName == null)
+            if (string.IsNullOrEmpty(hostGroupName))
             {
-                throw new ArgumentNullException(nameof(hostGroupName));
+                throw new ArgumentException($"Parameter {nameof(hostGroupName)} cannot be null or empty", nameof(hostGroupName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="hostGroupName"> The name of the dedicated host group. </param>
         /// <param name="parameters"> Parameters supplied to the Create Dedicated Host Group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="hostGroupName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="hostGroupName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<DedicatedHostGroupCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string hostGroupName, DedicatedHostGroupData parameters, CancellationToken cancellationToken = default)
         {
-            if (hostGroupName == null)
+            if (string.IsNullOrEmpty(hostGroupName))
             {
-                throw new ArgumentNullException(nameof(hostGroupName));
+                throw new ArgumentException($"Parameter {nameof(hostGroupName)} cannot be null or empty", nameof(hostGroupName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="hostGroupName"> The name of the dedicated host group. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the list of instance views of the dedicated hosts under the dedicated host group. &apos;UserData&apos; is not supported for dedicated host group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="hostGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="hostGroupName"/> is null or empty. </exception>
         public virtual Response<DedicatedHostGroup> Get(string hostGroupName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (hostGroupName == null)
+            if (string.IsNullOrEmpty(hostGroupName))
             {
-                throw new ArgumentNullException(nameof(hostGroupName));
+                throw new ArgumentException($"Parameter {nameof(hostGroupName)} cannot be null or empty", nameof(hostGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DedicatedHostGroupCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="hostGroupName"> The name of the dedicated host group. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the list of instance views of the dedicated hosts under the dedicated host group. &apos;UserData&apos; is not supported for dedicated host group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="hostGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="hostGroupName"/> is null or empty. </exception>
         public async virtual Task<Response<DedicatedHostGroup>> GetAsync(string hostGroupName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (hostGroupName == null)
+            if (string.IsNullOrEmpty(hostGroupName))
             {
-                throw new ArgumentNullException(nameof(hostGroupName));
+                throw new ArgumentException($"Parameter {nameof(hostGroupName)} cannot be null or empty", nameof(hostGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DedicatedHostGroupCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="hostGroupName"> The name of the dedicated host group. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the list of instance views of the dedicated hosts under the dedicated host group. &apos;UserData&apos; is not supported for dedicated host group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="hostGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="hostGroupName"/> is null or empty. </exception>
         public virtual Response<DedicatedHostGroup> GetIfExists(string hostGroupName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (hostGroupName == null)
+            if (string.IsNullOrEmpty(hostGroupName))
             {
-                throw new ArgumentNullException(nameof(hostGroupName));
+                throw new ArgumentException($"Parameter {nameof(hostGroupName)} cannot be null or empty", nameof(hostGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DedicatedHostGroupCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="hostGroupName"> The name of the dedicated host group. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the list of instance views of the dedicated hosts under the dedicated host group. &apos;UserData&apos; is not supported for dedicated host group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="hostGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="hostGroupName"/> is null or empty. </exception>
         public async virtual Task<Response<DedicatedHostGroup>> GetIfExistsAsync(string hostGroupName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (hostGroupName == null)
+            if (string.IsNullOrEmpty(hostGroupName))
             {
-                throw new ArgumentNullException(nameof(hostGroupName));
+                throw new ArgumentException($"Parameter {nameof(hostGroupName)} cannot be null or empty", nameof(hostGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DedicatedHostGroupCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="hostGroupName"> The name of the dedicated host group. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the list of instance views of the dedicated hosts under the dedicated host group. &apos;UserData&apos; is not supported for dedicated host group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="hostGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="hostGroupName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string hostGroupName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (hostGroupName == null)
+            if (string.IsNullOrEmpty(hostGroupName))
             {
-                throw new ArgumentNullException(nameof(hostGroupName));
+                throw new ArgumentException($"Parameter {nameof(hostGroupName)} cannot be null or empty", nameof(hostGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DedicatedHostGroupCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="hostGroupName"> The name of the dedicated host group. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; will retrieve the list of instance views of the dedicated hosts under the dedicated host group. &apos;UserData&apos; is not supported for dedicated host group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="hostGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="hostGroupName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string hostGroupName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (hostGroupName == null)
+            if (string.IsNullOrEmpty(hostGroupName))
             {
-                throw new ArgumentNullException(nameof(hostGroupName));
+                throw new ArgumentException($"Parameter {nameof(hostGroupName)} cannot be null or empty", nameof(hostGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DedicatedHostGroupCollection.Exists");

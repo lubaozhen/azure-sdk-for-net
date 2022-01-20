@@ -56,12 +56,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a vpn site link connection. </summary>
         /// <param name="linkConnectionName"> The name of the vpn connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="linkConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="linkConnectionName"/> is null or empty. </exception>
         public virtual Response<VpnSiteLinkConnection> Get(string linkConnectionName, CancellationToken cancellationToken = default)
         {
-            if (linkConnectionName == null)
+            if (string.IsNullOrEmpty(linkConnectionName))
             {
-                throw new ArgumentNullException(nameof(linkConnectionName));
+                throw new ArgumentException($"Parameter {nameof(linkConnectionName)} cannot be null or empty", nameof(linkConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnSiteLinkConnectionCollection.Get");
@@ -83,12 +83,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a vpn site link connection. </summary>
         /// <param name="linkConnectionName"> The name of the vpn connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="linkConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="linkConnectionName"/> is null or empty. </exception>
         public async virtual Task<Response<VpnSiteLinkConnection>> GetAsync(string linkConnectionName, CancellationToken cancellationToken = default)
         {
-            if (linkConnectionName == null)
+            if (string.IsNullOrEmpty(linkConnectionName))
             {
-                throw new ArgumentNullException(nameof(linkConnectionName));
+                throw new ArgumentException($"Parameter {nameof(linkConnectionName)} cannot be null or empty", nameof(linkConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnSiteLinkConnectionCollection.Get");
@@ -110,12 +110,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="linkConnectionName"> The name of the vpn connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="linkConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="linkConnectionName"/> is null or empty. </exception>
         public virtual Response<VpnSiteLinkConnection> GetIfExists(string linkConnectionName, CancellationToken cancellationToken = default)
         {
-            if (linkConnectionName == null)
+            if (string.IsNullOrEmpty(linkConnectionName))
             {
-                throw new ArgumentNullException(nameof(linkConnectionName));
+                throw new ArgumentException($"Parameter {nameof(linkConnectionName)} cannot be null or empty", nameof(linkConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnSiteLinkConnectionCollection.GetIfExists");
@@ -137,12 +137,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="linkConnectionName"> The name of the vpn connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="linkConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="linkConnectionName"/> is null or empty. </exception>
         public async virtual Task<Response<VpnSiteLinkConnection>> GetIfExistsAsync(string linkConnectionName, CancellationToken cancellationToken = default)
         {
-            if (linkConnectionName == null)
+            if (string.IsNullOrEmpty(linkConnectionName))
             {
-                throw new ArgumentNullException(nameof(linkConnectionName));
+                throw new ArgumentException($"Parameter {nameof(linkConnectionName)} cannot be null or empty", nameof(linkConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnSiteLinkConnectionCollection.GetIfExists");
@@ -164,12 +164,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="linkConnectionName"> The name of the vpn connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="linkConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="linkConnectionName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string linkConnectionName, CancellationToken cancellationToken = default)
         {
-            if (linkConnectionName == null)
+            if (string.IsNullOrEmpty(linkConnectionName))
             {
-                throw new ArgumentNullException(nameof(linkConnectionName));
+                throw new ArgumentException($"Parameter {nameof(linkConnectionName)} cannot be null or empty", nameof(linkConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnSiteLinkConnectionCollection.Exists");
@@ -189,12 +189,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="linkConnectionName"> The name of the vpn connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="linkConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="linkConnectionName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string linkConnectionName, CancellationToken cancellationToken = default)
         {
-            if (linkConnectionName == null)
+            if (string.IsNullOrEmpty(linkConnectionName))
             {
-                throw new ArgumentNullException(nameof(linkConnectionName));
+                throw new ArgumentException($"Parameter {nameof(linkConnectionName)} cannot be null or empty", nameof(linkConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnSiteLinkConnectionCollection.Exists");

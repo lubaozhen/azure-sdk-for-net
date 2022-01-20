@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmScaleSetName"> The name of the VM scale set to create or update. </param>
         /// <param name="parameters"> The scale set object. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmScaleSetName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmScaleSetName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual VirtualMachineScaleSetCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string vmScaleSetName, VirtualMachineScaleSetData parameters, CancellationToken cancellationToken = default)
         {
-            if (vmScaleSetName == null)
+            if (string.IsNullOrEmpty(vmScaleSetName))
             {
-                throw new ArgumentNullException(nameof(vmScaleSetName));
+                throw new ArgumentException($"Parameter {nameof(vmScaleSetName)} cannot be null or empty", nameof(vmScaleSetName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmScaleSetName"> The name of the VM scale set to create or update. </param>
         /// <param name="parameters"> The scale set object. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmScaleSetName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmScaleSetName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<VirtualMachineScaleSetCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string vmScaleSetName, VirtualMachineScaleSetData parameters, CancellationToken cancellationToken = default)
         {
-            if (vmScaleSetName == null)
+            if (string.IsNullOrEmpty(vmScaleSetName))
             {
-                throw new ArgumentNullException(nameof(vmScaleSetName));
+                throw new ArgumentException($"Parameter {nameof(vmScaleSetName)} cannot be null or empty", nameof(vmScaleSetName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmScaleSetName"> The name of the VM scale set. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;UserData&apos; retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmScaleSetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmScaleSetName"/> is null or empty. </exception>
         public virtual Response<VirtualMachineScaleSet> Get(string vmScaleSetName, ExpandTypesForGetVMScaleSets? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmScaleSetName == null)
+            if (string.IsNullOrEmpty(vmScaleSetName))
             {
-                throw new ArgumentNullException(nameof(vmScaleSetName));
+                throw new ArgumentException($"Parameter {nameof(vmScaleSetName)} cannot be null or empty", nameof(vmScaleSetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmScaleSetName"> The name of the VM scale set. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;UserData&apos; retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmScaleSetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmScaleSetName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualMachineScaleSet>> GetAsync(string vmScaleSetName, ExpandTypesForGetVMScaleSets? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmScaleSetName == null)
+            if (string.IsNullOrEmpty(vmScaleSetName))
             {
-                throw new ArgumentNullException(nameof(vmScaleSetName));
+                throw new ArgumentException($"Parameter {nameof(vmScaleSetName)} cannot be null or empty", nameof(vmScaleSetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmScaleSetName"> The name of the VM scale set. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;UserData&apos; retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmScaleSetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmScaleSetName"/> is null or empty. </exception>
         public virtual Response<VirtualMachineScaleSet> GetIfExists(string vmScaleSetName, ExpandTypesForGetVMScaleSets? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmScaleSetName == null)
+            if (string.IsNullOrEmpty(vmScaleSetName))
             {
-                throw new ArgumentNullException(nameof(vmScaleSetName));
+                throw new ArgumentException($"Parameter {nameof(vmScaleSetName)} cannot be null or empty", nameof(vmScaleSetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmScaleSetName"> The name of the VM scale set. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;UserData&apos; retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmScaleSetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmScaleSetName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualMachineScaleSet>> GetIfExistsAsync(string vmScaleSetName, ExpandTypesForGetVMScaleSets? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmScaleSetName == null)
+            if (string.IsNullOrEmpty(vmScaleSetName))
             {
-                throw new ArgumentNullException(nameof(vmScaleSetName));
+                throw new ArgumentException($"Parameter {nameof(vmScaleSetName)} cannot be null or empty", nameof(vmScaleSetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmScaleSetName"> The name of the VM scale set. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;UserData&apos; retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmScaleSetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmScaleSetName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string vmScaleSetName, ExpandTypesForGetVMScaleSets? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmScaleSetName == null)
+            if (string.IsNullOrEmpty(vmScaleSetName))
             {
-                throw new ArgumentNullException(nameof(vmScaleSetName));
+                throw new ArgumentException($"Parameter {nameof(vmScaleSetName)} cannot be null or empty", nameof(vmScaleSetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmScaleSetName"> The name of the VM scale set. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;UserData&apos; retrieves the UserData property of the VM scale set that was provided by the user during the VM scale set Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmScaleSetName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmScaleSetName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string vmScaleSetName, ExpandTypesForGetVMScaleSets? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmScaleSetName == null)
+            if (string.IsNullOrEmpty(vmScaleSetName))
             {
-                throw new ArgumentNullException(nameof(vmScaleSetName));
+                throw new ArgumentException($"Parameter {nameof(vmScaleSetName)} cannot be null or empty", nameof(vmScaleSetName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineScaleSetCollection.Exists");

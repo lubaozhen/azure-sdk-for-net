@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmName"> The name of the virtual machine. </param>
         /// <param name="parameters"> Parameters supplied to the Create Virtual Machine operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual VirtualMachineCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string vmName, VirtualMachineData parameters, CancellationToken cancellationToken = default)
         {
-            if (vmName == null)
+            if (string.IsNullOrEmpty(vmName))
             {
-                throw new ArgumentNullException(nameof(vmName));
+                throw new ArgumentException($"Parameter {nameof(vmName)} cannot be null or empty", nameof(vmName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmName"> The name of the virtual machine. </param>
         /// <param name="parameters"> Parameters supplied to the Create Virtual Machine operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<VirtualMachineCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string vmName, VirtualMachineData parameters, CancellationToken cancellationToken = default)
         {
-            if (vmName == null)
+            if (string.IsNullOrEmpty(vmName))
             {
-                throw new ArgumentNullException(nameof(vmName));
+                throw new ArgumentException($"Parameter {nameof(vmName)} cannot be null or empty", nameof(vmName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmName"> The name of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. &apos;UserData&apos; retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmName"/> is null or empty. </exception>
         public virtual Response<VirtualMachine> Get(string vmName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmName == null)
+            if (string.IsNullOrEmpty(vmName))
             {
-                throw new ArgumentNullException(nameof(vmName));
+                throw new ArgumentException($"Parameter {nameof(vmName)} cannot be null or empty", nameof(vmName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmName"> The name of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. &apos;UserData&apos; retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualMachine>> GetAsync(string vmName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmName == null)
+            if (string.IsNullOrEmpty(vmName))
             {
-                throw new ArgumentNullException(nameof(vmName));
+                throw new ArgumentException($"Parameter {nameof(vmName)} cannot be null or empty", nameof(vmName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmName"> The name of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. &apos;UserData&apos; retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmName"/> is null or empty. </exception>
         public virtual Response<VirtualMachine> GetIfExists(string vmName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmName == null)
+            if (string.IsNullOrEmpty(vmName))
             {
-                throw new ArgumentNullException(nameof(vmName));
+                throw new ArgumentException($"Parameter {nameof(vmName)} cannot be null or empty", nameof(vmName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmName"> The name of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. &apos;UserData&apos; retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualMachine>> GetIfExistsAsync(string vmName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmName == null)
+            if (string.IsNullOrEmpty(vmName))
             {
-                throw new ArgumentNullException(nameof(vmName));
+                throw new ArgumentException($"Parameter {nameof(vmName)} cannot be null or empty", nameof(vmName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmName"> The name of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. &apos;UserData&apos; retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string vmName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmName == null)
+            if (string.IsNullOrEmpty(vmName))
             {
-                throw new ArgumentNullException(nameof(vmName));
+                throw new ArgumentException($"Parameter {nameof(vmName)} cannot be null or empty", nameof(vmName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="vmName"> The name of the virtual machine. </param>
         /// <param name="expand"> The expand expression to apply on the operation. &apos;InstanceView&apos; retrieves a snapshot of the runtime properties of the virtual machine that is managed by the platform and can change outside of control plane operations. &apos;UserData&apos; retrieves the UserData property as part of the VM model view that was provided by the user during the VM Create/Update operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vmName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vmName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string vmName, InstanceViewTypes? expand = null, CancellationToken cancellationToken = default)
         {
-            if (vmName == null)
+            if (string.IsNullOrEmpty(vmName))
             {
-                throw new ArgumentNullException(nameof(vmName));
+                throw new ArgumentException($"Parameter {nameof(vmName)} cannot be null or empty", nameof(vmName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualMachineCollection.Exists");

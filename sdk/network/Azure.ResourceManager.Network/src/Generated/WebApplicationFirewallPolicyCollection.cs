@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="policyName"> The name of the policy. </param>
         /// <param name="parameters"> Policy to be created. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="policyName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="policyName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual WebApplicationFirewallPolicyCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string policyName, WebApplicationFirewallPolicyData parameters, CancellationToken cancellationToken = default)
         {
-            if (policyName == null)
+            if (string.IsNullOrEmpty(policyName))
             {
-                throw new ArgumentNullException(nameof(policyName));
+                throw new ArgumentException($"Parameter {nameof(policyName)} cannot be null or empty", nameof(policyName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="policyName"> The name of the policy. </param>
         /// <param name="parameters"> Policy to be created. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="policyName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="policyName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<WebApplicationFirewallPolicyCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string policyName, WebApplicationFirewallPolicyData parameters, CancellationToken cancellationToken = default)
         {
-            if (policyName == null)
+            if (string.IsNullOrEmpty(policyName))
             {
-                throw new ArgumentNullException(nameof(policyName));
+                throw new ArgumentException($"Parameter {nameof(policyName)} cannot be null or empty", nameof(policyName));
             }
             if (parameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieve protection policy with specified name within a resource group. </summary>
         /// <param name="policyName"> The name of the policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="policyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="policyName"/> is null or empty. </exception>
         public virtual Response<WebApplicationFirewallPolicy> Get(string policyName, CancellationToken cancellationToken = default)
         {
-            if (policyName == null)
+            if (string.IsNullOrEmpty(policyName))
             {
-                throw new ArgumentNullException(nameof(policyName));
+                throw new ArgumentException($"Parameter {nameof(policyName)} cannot be null or empty", nameof(policyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("WebApplicationFirewallPolicyCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieve protection policy with specified name within a resource group. </summary>
         /// <param name="policyName"> The name of the policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="policyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="policyName"/> is null or empty. </exception>
         public async virtual Task<Response<WebApplicationFirewallPolicy>> GetAsync(string policyName, CancellationToken cancellationToken = default)
         {
-            if (policyName == null)
+            if (string.IsNullOrEmpty(policyName))
             {
-                throw new ArgumentNullException(nameof(policyName));
+                throw new ArgumentException($"Parameter {nameof(policyName)} cannot be null or empty", nameof(policyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("WebApplicationFirewallPolicyCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="policyName"> The name of the policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="policyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="policyName"/> is null or empty. </exception>
         public virtual Response<WebApplicationFirewallPolicy> GetIfExists(string policyName, CancellationToken cancellationToken = default)
         {
-            if (policyName == null)
+            if (string.IsNullOrEmpty(policyName))
             {
-                throw new ArgumentNullException(nameof(policyName));
+                throw new ArgumentException($"Parameter {nameof(policyName)} cannot be null or empty", nameof(policyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("WebApplicationFirewallPolicyCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="policyName"> The name of the policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="policyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="policyName"/> is null or empty. </exception>
         public async virtual Task<Response<WebApplicationFirewallPolicy>> GetIfExistsAsync(string policyName, CancellationToken cancellationToken = default)
         {
-            if (policyName == null)
+            if (string.IsNullOrEmpty(policyName))
             {
-                throw new ArgumentNullException(nameof(policyName));
+                throw new ArgumentException($"Parameter {nameof(policyName)} cannot be null or empty", nameof(policyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("WebApplicationFirewallPolicyCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="policyName"> The name of the policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="policyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="policyName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string policyName, CancellationToken cancellationToken = default)
         {
-            if (policyName == null)
+            if (string.IsNullOrEmpty(policyName))
             {
-                throw new ArgumentNullException(nameof(policyName));
+                throw new ArgumentException($"Parameter {nameof(policyName)} cannot be null or empty", nameof(policyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("WebApplicationFirewallPolicyCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="policyName"> The name of the policy. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="policyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="policyName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string policyName, CancellationToken cancellationToken = default)
         {
-            if (policyName == null)
+            if (string.IsNullOrEmpty(policyName))
             {
-                throw new ArgumentNullException(nameof(policyName));
+                throw new ArgumentException($"Parameter {nameof(policyName)} cannot be null or empty", nameof(policyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("WebApplicationFirewallPolicyCollection.Exists");

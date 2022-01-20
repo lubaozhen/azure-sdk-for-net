@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="crossConnectionName"> The name of the ExpressRouteCrossConnection. </param>
         /// <param name="parameters"> Parameters supplied to the update express route crossConnection operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="crossConnectionName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="crossConnectionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual ExpressRouteCrossConnectionCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string crossConnectionName, ExpressRouteCrossConnectionData parameters, CancellationToken cancellationToken = default)
         {
-            if (crossConnectionName == null)
+            if (string.IsNullOrEmpty(crossConnectionName))
             {
-                throw new ArgumentNullException(nameof(crossConnectionName));
+                throw new ArgumentException($"Parameter {nameof(crossConnectionName)} cannot be null or empty", nameof(crossConnectionName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="crossConnectionName"> The name of the ExpressRouteCrossConnection. </param>
         /// <param name="parameters"> Parameters supplied to the update express route crossConnection operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="crossConnectionName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="crossConnectionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<ExpressRouteCrossConnectionCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string crossConnectionName, ExpressRouteCrossConnectionData parameters, CancellationToken cancellationToken = default)
         {
-            if (crossConnectionName == null)
+            if (string.IsNullOrEmpty(crossConnectionName))
             {
-                throw new ArgumentNullException(nameof(crossConnectionName));
+                throw new ArgumentException($"Parameter {nameof(crossConnectionName)} cannot be null or empty", nameof(crossConnectionName));
             }
             if (parameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets details about the specified ExpressRouteCrossConnection. </summary>
         /// <param name="crossConnectionName"> The name of the ExpressRouteCrossConnection (service key of the circuit). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="crossConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="crossConnectionName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteCrossConnection> Get(string crossConnectionName, CancellationToken cancellationToken = default)
         {
-            if (crossConnectionName == null)
+            if (string.IsNullOrEmpty(crossConnectionName))
             {
-                throw new ArgumentNullException(nameof(crossConnectionName));
+                throw new ArgumentException($"Parameter {nameof(crossConnectionName)} cannot be null or empty", nameof(crossConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCrossConnectionCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets details about the specified ExpressRouteCrossConnection. </summary>
         /// <param name="crossConnectionName"> The name of the ExpressRouteCrossConnection (service key of the circuit). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="crossConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="crossConnectionName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteCrossConnection>> GetAsync(string crossConnectionName, CancellationToken cancellationToken = default)
         {
-            if (crossConnectionName == null)
+            if (string.IsNullOrEmpty(crossConnectionName))
             {
-                throw new ArgumentNullException(nameof(crossConnectionName));
+                throw new ArgumentException($"Parameter {nameof(crossConnectionName)} cannot be null or empty", nameof(crossConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCrossConnectionCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="crossConnectionName"> The name of the ExpressRouteCrossConnection (service key of the circuit). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="crossConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="crossConnectionName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteCrossConnection> GetIfExists(string crossConnectionName, CancellationToken cancellationToken = default)
         {
-            if (crossConnectionName == null)
+            if (string.IsNullOrEmpty(crossConnectionName))
             {
-                throw new ArgumentNullException(nameof(crossConnectionName));
+                throw new ArgumentException($"Parameter {nameof(crossConnectionName)} cannot be null or empty", nameof(crossConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCrossConnectionCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="crossConnectionName"> The name of the ExpressRouteCrossConnection (service key of the circuit). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="crossConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="crossConnectionName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteCrossConnection>> GetIfExistsAsync(string crossConnectionName, CancellationToken cancellationToken = default)
         {
-            if (crossConnectionName == null)
+            if (string.IsNullOrEmpty(crossConnectionName))
             {
-                throw new ArgumentNullException(nameof(crossConnectionName));
+                throw new ArgumentException($"Parameter {nameof(crossConnectionName)} cannot be null or empty", nameof(crossConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCrossConnectionCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="crossConnectionName"> The name of the ExpressRouteCrossConnection (service key of the circuit). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="crossConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="crossConnectionName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string crossConnectionName, CancellationToken cancellationToken = default)
         {
-            if (crossConnectionName == null)
+            if (string.IsNullOrEmpty(crossConnectionName))
             {
-                throw new ArgumentNullException(nameof(crossConnectionName));
+                throw new ArgumentException($"Parameter {nameof(crossConnectionName)} cannot be null or empty", nameof(crossConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCrossConnectionCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="crossConnectionName"> The name of the ExpressRouteCrossConnection (service key of the circuit). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="crossConnectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="crossConnectionName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string crossConnectionName, CancellationToken cancellationToken = default)
         {
-            if (crossConnectionName == null)
+            if (string.IsNullOrEmpty(crossConnectionName))
             {
-                throw new ArgumentNullException(nameof(crossConnectionName));
+                throw new ArgumentException($"Parameter {nameof(crossConnectionName)} cannot be null or empty", nameof(crossConnectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCrossConnectionCollection.Exists");

@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="gatewayName"> The name of the gateway. </param>
         /// <param name="p2SVpnGatewayParameters"> Parameters supplied to create or Update a virtual wan p2s vpn gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="gatewayName"/> or <paramref name="p2SVpnGatewayParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="gatewayName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="p2SVpnGatewayParameters"/> is null. </exception>
         public virtual P2SVpnGatewayCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string gatewayName, P2SVpnGatewayData p2SVpnGatewayParameters, CancellationToken cancellationToken = default)
         {
-            if (gatewayName == null)
+            if (string.IsNullOrEmpty(gatewayName))
             {
-                throw new ArgumentNullException(nameof(gatewayName));
+                throw new ArgumentException($"Parameter {nameof(gatewayName)} cannot be null or empty", nameof(gatewayName));
             }
             if (p2SVpnGatewayParameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="gatewayName"> The name of the gateway. </param>
         /// <param name="p2SVpnGatewayParameters"> Parameters supplied to create or Update a virtual wan p2s vpn gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="gatewayName"/> or <paramref name="p2SVpnGatewayParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="gatewayName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="p2SVpnGatewayParameters"/> is null. </exception>
         public async virtual Task<P2SVpnGatewayCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string gatewayName, P2SVpnGatewayData p2SVpnGatewayParameters, CancellationToken cancellationToken = default)
         {
-            if (gatewayName == null)
+            if (string.IsNullOrEmpty(gatewayName))
             {
-                throw new ArgumentNullException(nameof(gatewayName));
+                throw new ArgumentException($"Parameter {nameof(gatewayName)} cannot be null or empty", nameof(gatewayName));
             }
             if (p2SVpnGatewayParameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a virtual wan p2s vpn gateway. </summary>
         /// <param name="gatewayName"> The name of the gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="gatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="gatewayName"/> is null or empty. </exception>
         public virtual Response<P2SVpnGateway> Get(string gatewayName, CancellationToken cancellationToken = default)
         {
-            if (gatewayName == null)
+            if (string.IsNullOrEmpty(gatewayName))
             {
-                throw new ArgumentNullException(nameof(gatewayName));
+                throw new ArgumentException($"Parameter {nameof(gatewayName)} cannot be null or empty", nameof(gatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("P2SVpnGatewayCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a virtual wan p2s vpn gateway. </summary>
         /// <param name="gatewayName"> The name of the gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="gatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="gatewayName"/> is null or empty. </exception>
         public async virtual Task<Response<P2SVpnGateway>> GetAsync(string gatewayName, CancellationToken cancellationToken = default)
         {
-            if (gatewayName == null)
+            if (string.IsNullOrEmpty(gatewayName))
             {
-                throw new ArgumentNullException(nameof(gatewayName));
+                throw new ArgumentException($"Parameter {nameof(gatewayName)} cannot be null or empty", nameof(gatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("P2SVpnGatewayCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="gatewayName"> The name of the gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="gatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="gatewayName"/> is null or empty. </exception>
         public virtual Response<P2SVpnGateway> GetIfExists(string gatewayName, CancellationToken cancellationToken = default)
         {
-            if (gatewayName == null)
+            if (string.IsNullOrEmpty(gatewayName))
             {
-                throw new ArgumentNullException(nameof(gatewayName));
+                throw new ArgumentException($"Parameter {nameof(gatewayName)} cannot be null or empty", nameof(gatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("P2SVpnGatewayCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="gatewayName"> The name of the gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="gatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="gatewayName"/> is null or empty. </exception>
         public async virtual Task<Response<P2SVpnGateway>> GetIfExistsAsync(string gatewayName, CancellationToken cancellationToken = default)
         {
-            if (gatewayName == null)
+            if (string.IsNullOrEmpty(gatewayName))
             {
-                throw new ArgumentNullException(nameof(gatewayName));
+                throw new ArgumentException($"Parameter {nameof(gatewayName)} cannot be null or empty", nameof(gatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("P2SVpnGatewayCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="gatewayName"> The name of the gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="gatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="gatewayName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string gatewayName, CancellationToken cancellationToken = default)
         {
-            if (gatewayName == null)
+            if (string.IsNullOrEmpty(gatewayName))
             {
-                throw new ArgumentNullException(nameof(gatewayName));
+                throw new ArgumentException($"Parameter {nameof(gatewayName)} cannot be null or empty", nameof(gatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("P2SVpnGatewayCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="gatewayName"> The name of the gateway. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="gatewayName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="gatewayName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string gatewayName, CancellationToken cancellationToken = default)
         {
-            if (gatewayName == null)
+            if (string.IsNullOrEmpty(gatewayName))
             {
-                throw new ArgumentNullException(nameof(gatewayName));
+                throw new ArgumentException($"Parameter {nameof(gatewayName)} cannot be null or empty", nameof(gatewayName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("P2SVpnGatewayCollection.Exists");

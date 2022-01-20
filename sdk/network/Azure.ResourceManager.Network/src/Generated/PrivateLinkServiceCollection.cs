@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceName"> The name of the private link service. </param>
         /// <param name="parameters"> Parameters supplied to the create or update private link service operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual PrivateLinkServiceCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string serviceName, PrivateLinkServiceData parameters, CancellationToken cancellationToken = default)
         {
-            if (serviceName == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                throw new ArgumentNullException(nameof(serviceName));
+                throw new ArgumentException($"Parameter {nameof(serviceName)} cannot be null or empty", nameof(serviceName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceName"> The name of the private link service. </param>
         /// <param name="parameters"> Parameters supplied to the create or update private link service operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<PrivateLinkServiceCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string serviceName, PrivateLinkServiceData parameters, CancellationToken cancellationToken = default)
         {
-            if (serviceName == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                throw new ArgumentNullException(nameof(serviceName));
+                throw new ArgumentException($"Parameter {nameof(serviceName)} cannot be null or empty", nameof(serviceName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceName"> The name of the private link service. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceName"/> is null or empty. </exception>
         public virtual Response<PrivateLinkService> Get(string serviceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (serviceName == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                throw new ArgumentNullException(nameof(serviceName));
+                throw new ArgumentException($"Parameter {nameof(serviceName)} cannot be null or empty", nameof(serviceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateLinkServiceCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceName"> The name of the private link service. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceName"/> is null or empty. </exception>
         public async virtual Task<Response<PrivateLinkService>> GetAsync(string serviceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (serviceName == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                throw new ArgumentNullException(nameof(serviceName));
+                throw new ArgumentException($"Parameter {nameof(serviceName)} cannot be null or empty", nameof(serviceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateLinkServiceCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceName"> The name of the private link service. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceName"/> is null or empty. </exception>
         public virtual Response<PrivateLinkService> GetIfExists(string serviceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (serviceName == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                throw new ArgumentNullException(nameof(serviceName));
+                throw new ArgumentException($"Parameter {nameof(serviceName)} cannot be null or empty", nameof(serviceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateLinkServiceCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceName"> The name of the private link service. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceName"/> is null or empty. </exception>
         public async virtual Task<Response<PrivateLinkService>> GetIfExistsAsync(string serviceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (serviceName == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                throw new ArgumentNullException(nameof(serviceName));
+                throw new ArgumentException($"Parameter {nameof(serviceName)} cannot be null or empty", nameof(serviceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateLinkServiceCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceName"> The name of the private link service. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string serviceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (serviceName == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                throw new ArgumentNullException(nameof(serviceName));
+                throw new ArgumentException($"Parameter {nameof(serviceName)} cannot be null or empty", nameof(serviceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateLinkServiceCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="serviceName"> The name of the private link service. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="serviceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="serviceName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string serviceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (serviceName == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                throw new ArgumentNullException(nameof(serviceName));
+                throw new ArgumentException($"Parameter {nameof(serviceName)} cannot be null or empty", nameof(serviceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateLinkServiceCollection.Exists");

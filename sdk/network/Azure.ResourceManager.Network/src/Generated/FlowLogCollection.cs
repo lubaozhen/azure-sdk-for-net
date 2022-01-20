@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="flowLogName"> The name of the flow log. </param>
         /// <param name="parameters"> Parameters that define the create or update flow log resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="flowLogName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="flowLogName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual FlowLogCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string flowLogName, FlowLogData parameters, CancellationToken cancellationToken = default)
         {
-            if (flowLogName == null)
+            if (string.IsNullOrEmpty(flowLogName))
             {
-                throw new ArgumentNullException(nameof(flowLogName));
+                throw new ArgumentException($"Parameter {nameof(flowLogName)} cannot be null or empty", nameof(flowLogName));
             }
             if (parameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="flowLogName"> The name of the flow log. </param>
         /// <param name="parameters"> Parameters that define the create or update flow log resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="flowLogName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="flowLogName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<FlowLogCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string flowLogName, FlowLogData parameters, CancellationToken cancellationToken = default)
         {
-            if (flowLogName == null)
+            if (string.IsNullOrEmpty(flowLogName))
             {
-                throw new ArgumentNullException(nameof(flowLogName));
+                throw new ArgumentException($"Parameter {nameof(flowLogName)} cannot be null or empty", nameof(flowLogName));
             }
             if (parameters == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets a flow log resource by name. </summary>
         /// <param name="flowLogName"> The name of the flow log resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="flowLogName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="flowLogName"/> is null or empty. </exception>
         public virtual Response<FlowLog> Get(string flowLogName, CancellationToken cancellationToken = default)
         {
-            if (flowLogName == null)
+            if (string.IsNullOrEmpty(flowLogName))
             {
-                throw new ArgumentNullException(nameof(flowLogName));
+                throw new ArgumentException($"Parameter {nameof(flowLogName)} cannot be null or empty", nameof(flowLogName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FlowLogCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets a flow log resource by name. </summary>
         /// <param name="flowLogName"> The name of the flow log resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="flowLogName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="flowLogName"/> is null or empty. </exception>
         public async virtual Task<Response<FlowLog>> GetAsync(string flowLogName, CancellationToken cancellationToken = default)
         {
-            if (flowLogName == null)
+            if (string.IsNullOrEmpty(flowLogName))
             {
-                throw new ArgumentNullException(nameof(flowLogName));
+                throw new ArgumentException($"Parameter {nameof(flowLogName)} cannot be null or empty", nameof(flowLogName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FlowLogCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="flowLogName"> The name of the flow log resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="flowLogName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="flowLogName"/> is null or empty. </exception>
         public virtual Response<FlowLog> GetIfExists(string flowLogName, CancellationToken cancellationToken = default)
         {
-            if (flowLogName == null)
+            if (string.IsNullOrEmpty(flowLogName))
             {
-                throw new ArgumentNullException(nameof(flowLogName));
+                throw new ArgumentException($"Parameter {nameof(flowLogName)} cannot be null or empty", nameof(flowLogName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FlowLogCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="flowLogName"> The name of the flow log resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="flowLogName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="flowLogName"/> is null or empty. </exception>
         public async virtual Task<Response<FlowLog>> GetIfExistsAsync(string flowLogName, CancellationToken cancellationToken = default)
         {
-            if (flowLogName == null)
+            if (string.IsNullOrEmpty(flowLogName))
             {
-                throw new ArgumentNullException(nameof(flowLogName));
+                throw new ArgumentException($"Parameter {nameof(flowLogName)} cannot be null or empty", nameof(flowLogName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FlowLogCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="flowLogName"> The name of the flow log resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="flowLogName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="flowLogName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string flowLogName, CancellationToken cancellationToken = default)
         {
-            if (flowLogName == null)
+            if (string.IsNullOrEmpty(flowLogName))
             {
-                throw new ArgumentNullException(nameof(flowLogName));
+                throw new ArgumentException($"Parameter {nameof(flowLogName)} cannot be null or empty", nameof(flowLogName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FlowLogCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="flowLogName"> The name of the flow log resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="flowLogName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="flowLogName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string flowLogName, CancellationToken cancellationToken = default)
         {
-            if (flowLogName == null)
+            if (string.IsNullOrEmpty(flowLogName))
             {
-                throw new ArgumentNullException(nameof(flowLogName));
+                throw new ArgumentException($"Parameter {nameof(flowLogName)} cannot be null or empty", nameof(flowLogName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FlowLogCollection.Exists");

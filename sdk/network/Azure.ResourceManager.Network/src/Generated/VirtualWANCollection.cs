@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualWANName"> The name of the VirtualWAN being created or updated. </param>
         /// <param name="wANParameters"> Parameters supplied to create or update VirtualWAN. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualWANName"/> or <paramref name="wANParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualWANName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="wANParameters"/> is null. </exception>
         public virtual VirtualWANCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string virtualWANName, VirtualWANData wANParameters, CancellationToken cancellationToken = default)
         {
-            if (virtualWANName == null)
+            if (string.IsNullOrEmpty(virtualWANName))
             {
-                throw new ArgumentNullException(nameof(virtualWANName));
+                throw new ArgumentException($"Parameter {nameof(virtualWANName)} cannot be null or empty", nameof(virtualWANName));
             }
             if (wANParameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="virtualWANName"> The name of the VirtualWAN being created or updated. </param>
         /// <param name="wANParameters"> Parameters supplied to create or update VirtualWAN. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualWANName"/> or <paramref name="wANParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualWANName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="wANParameters"/> is null. </exception>
         public async virtual Task<VirtualWANCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string virtualWANName, VirtualWANData wANParameters, CancellationToken cancellationToken = default)
         {
-            if (virtualWANName == null)
+            if (string.IsNullOrEmpty(virtualWANName))
             {
-                throw new ArgumentNullException(nameof(virtualWANName));
+                throw new ArgumentException($"Parameter {nameof(virtualWANName)} cannot be null or empty", nameof(virtualWANName));
             }
             if (wANParameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a VirtualWAN. </summary>
         /// <param name="virtualWANName"> The name of the VirtualWAN being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualWANName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualWANName"/> is null or empty. </exception>
         public virtual Response<VirtualWAN> Get(string virtualWANName, CancellationToken cancellationToken = default)
         {
-            if (virtualWANName == null)
+            if (string.IsNullOrEmpty(virtualWANName))
             {
-                throw new ArgumentNullException(nameof(virtualWANName));
+                throw new ArgumentException($"Parameter {nameof(virtualWANName)} cannot be null or empty", nameof(virtualWANName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualWANCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a VirtualWAN. </summary>
         /// <param name="virtualWANName"> The name of the VirtualWAN being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualWANName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualWANName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualWAN>> GetAsync(string virtualWANName, CancellationToken cancellationToken = default)
         {
-            if (virtualWANName == null)
+            if (string.IsNullOrEmpty(virtualWANName))
             {
-                throw new ArgumentNullException(nameof(virtualWANName));
+                throw new ArgumentException($"Parameter {nameof(virtualWANName)} cannot be null or empty", nameof(virtualWANName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualWANCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="virtualWANName"> The name of the VirtualWAN being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualWANName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualWANName"/> is null or empty. </exception>
         public virtual Response<VirtualWAN> GetIfExists(string virtualWANName, CancellationToken cancellationToken = default)
         {
-            if (virtualWANName == null)
+            if (string.IsNullOrEmpty(virtualWANName))
             {
-                throw new ArgumentNullException(nameof(virtualWANName));
+                throw new ArgumentException($"Parameter {nameof(virtualWANName)} cannot be null or empty", nameof(virtualWANName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualWANCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="virtualWANName"> The name of the VirtualWAN being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualWANName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualWANName"/> is null or empty. </exception>
         public async virtual Task<Response<VirtualWAN>> GetIfExistsAsync(string virtualWANName, CancellationToken cancellationToken = default)
         {
-            if (virtualWANName == null)
+            if (string.IsNullOrEmpty(virtualWANName))
             {
-                throw new ArgumentNullException(nameof(virtualWANName));
+                throw new ArgumentException($"Parameter {nameof(virtualWANName)} cannot be null or empty", nameof(virtualWANName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualWANCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="virtualWANName"> The name of the VirtualWAN being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualWANName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualWANName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string virtualWANName, CancellationToken cancellationToken = default)
         {
-            if (virtualWANName == null)
+            if (string.IsNullOrEmpty(virtualWANName))
             {
-                throw new ArgumentNullException(nameof(virtualWANName));
+                throw new ArgumentException($"Parameter {nameof(virtualWANName)} cannot be null or empty", nameof(virtualWANName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualWANCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="virtualWANName"> The name of the VirtualWAN being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="virtualWANName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="virtualWANName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string virtualWANName, CancellationToken cancellationToken = default)
         {
-            if (virtualWANName == null)
+            if (string.IsNullOrEmpty(virtualWANName))
             {
-                throw new ArgumentNullException(nameof(virtualWANName));
+                throw new ArgumentException($"Parameter {nameof(virtualWANName)} cannot be null or empty", nameof(virtualWANName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VirtualWANCollection.Exists");

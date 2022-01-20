@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="privateDnsZoneGroupName"> The name of the private dns zone group. </param>
         /// <param name="parameters"> Parameters supplied to the create or update private dns zone group operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="privateDnsZoneGroupName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="privateDnsZoneGroupName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual PrivateDnsZoneGroupCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string privateDnsZoneGroupName, PrivateDnsZoneGroupData parameters, CancellationToken cancellationToken = default)
         {
-            if (privateDnsZoneGroupName == null)
+            if (string.IsNullOrEmpty(privateDnsZoneGroupName))
             {
-                throw new ArgumentNullException(nameof(privateDnsZoneGroupName));
+                throw new ArgumentException($"Parameter {nameof(privateDnsZoneGroupName)} cannot be null or empty", nameof(privateDnsZoneGroupName));
             }
             if (parameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="privateDnsZoneGroupName"> The name of the private dns zone group. </param>
         /// <param name="parameters"> Parameters supplied to the create or update private dns zone group operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="privateDnsZoneGroupName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="privateDnsZoneGroupName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<PrivateDnsZoneGroupCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string privateDnsZoneGroupName, PrivateDnsZoneGroupData parameters, CancellationToken cancellationToken = default)
         {
-            if (privateDnsZoneGroupName == null)
+            if (string.IsNullOrEmpty(privateDnsZoneGroupName))
             {
-                throw new ArgumentNullException(nameof(privateDnsZoneGroupName));
+                throw new ArgumentException($"Parameter {nameof(privateDnsZoneGroupName)} cannot be null or empty", nameof(privateDnsZoneGroupName));
             }
             if (parameters == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the private dns zone group resource by specified private dns zone group name. </summary>
         /// <param name="privateDnsZoneGroupName"> The name of the private dns zone group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="privateDnsZoneGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="privateDnsZoneGroupName"/> is null or empty. </exception>
         public virtual Response<PrivateDnsZoneGroup> Get(string privateDnsZoneGroupName, CancellationToken cancellationToken = default)
         {
-            if (privateDnsZoneGroupName == null)
+            if (string.IsNullOrEmpty(privateDnsZoneGroupName))
             {
-                throw new ArgumentNullException(nameof(privateDnsZoneGroupName));
+                throw new ArgumentException($"Parameter {nameof(privateDnsZoneGroupName)} cannot be null or empty", nameof(privateDnsZoneGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateDnsZoneGroupCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the private dns zone group resource by specified private dns zone group name. </summary>
         /// <param name="privateDnsZoneGroupName"> The name of the private dns zone group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="privateDnsZoneGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="privateDnsZoneGroupName"/> is null or empty. </exception>
         public async virtual Task<Response<PrivateDnsZoneGroup>> GetAsync(string privateDnsZoneGroupName, CancellationToken cancellationToken = default)
         {
-            if (privateDnsZoneGroupName == null)
+            if (string.IsNullOrEmpty(privateDnsZoneGroupName))
             {
-                throw new ArgumentNullException(nameof(privateDnsZoneGroupName));
+                throw new ArgumentException($"Parameter {nameof(privateDnsZoneGroupName)} cannot be null or empty", nameof(privateDnsZoneGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateDnsZoneGroupCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="privateDnsZoneGroupName"> The name of the private dns zone group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="privateDnsZoneGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="privateDnsZoneGroupName"/> is null or empty. </exception>
         public virtual Response<PrivateDnsZoneGroup> GetIfExists(string privateDnsZoneGroupName, CancellationToken cancellationToken = default)
         {
-            if (privateDnsZoneGroupName == null)
+            if (string.IsNullOrEmpty(privateDnsZoneGroupName))
             {
-                throw new ArgumentNullException(nameof(privateDnsZoneGroupName));
+                throw new ArgumentException($"Parameter {nameof(privateDnsZoneGroupName)} cannot be null or empty", nameof(privateDnsZoneGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateDnsZoneGroupCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="privateDnsZoneGroupName"> The name of the private dns zone group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="privateDnsZoneGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="privateDnsZoneGroupName"/> is null or empty. </exception>
         public async virtual Task<Response<PrivateDnsZoneGroup>> GetIfExistsAsync(string privateDnsZoneGroupName, CancellationToken cancellationToken = default)
         {
-            if (privateDnsZoneGroupName == null)
+            if (string.IsNullOrEmpty(privateDnsZoneGroupName))
             {
-                throw new ArgumentNullException(nameof(privateDnsZoneGroupName));
+                throw new ArgumentException($"Parameter {nameof(privateDnsZoneGroupName)} cannot be null or empty", nameof(privateDnsZoneGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateDnsZoneGroupCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="privateDnsZoneGroupName"> The name of the private dns zone group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="privateDnsZoneGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="privateDnsZoneGroupName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string privateDnsZoneGroupName, CancellationToken cancellationToken = default)
         {
-            if (privateDnsZoneGroupName == null)
+            if (string.IsNullOrEmpty(privateDnsZoneGroupName))
             {
-                throw new ArgumentNullException(nameof(privateDnsZoneGroupName));
+                throw new ArgumentException($"Parameter {nameof(privateDnsZoneGroupName)} cannot be null or empty", nameof(privateDnsZoneGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateDnsZoneGroupCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="privateDnsZoneGroupName"> The name of the private dns zone group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="privateDnsZoneGroupName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="privateDnsZoneGroupName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string privateDnsZoneGroupName, CancellationToken cancellationToken = default)
         {
-            if (privateDnsZoneGroupName == null)
+            if (string.IsNullOrEmpty(privateDnsZoneGroupName))
             {
-                throw new ArgumentNullException(nameof(privateDnsZoneGroupName));
+                throw new ArgumentException($"Parameter {nameof(privateDnsZoneGroupName)} cannot be null or empty", nameof(privateDnsZoneGroupName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("PrivateDnsZoneGroupCollection.Exists");

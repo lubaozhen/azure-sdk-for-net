@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="ipGroupsName"> The name of the ipGroups. </param>
         /// <param name="parameters"> Parameters supplied to the create or update IpGroups operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ipGroupsName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ipGroupsName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual IpGroupCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string ipGroupsName, IpGroupData parameters, CancellationToken cancellationToken = default)
         {
-            if (ipGroupsName == null)
+            if (string.IsNullOrEmpty(ipGroupsName))
             {
-                throw new ArgumentNullException(nameof(ipGroupsName));
+                throw new ArgumentException($"Parameter {nameof(ipGroupsName)} cannot be null or empty", nameof(ipGroupsName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="ipGroupsName"> The name of the ipGroups. </param>
         /// <param name="parameters"> Parameters supplied to the create or update IpGroups operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ipGroupsName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ipGroupsName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<IpGroupCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string ipGroupsName, IpGroupData parameters, CancellationToken cancellationToken = default)
         {
-            if (ipGroupsName == null)
+            if (string.IsNullOrEmpty(ipGroupsName))
             {
-                throw new ArgumentNullException(nameof(ipGroupsName));
+                throw new ArgumentException($"Parameter {nameof(ipGroupsName)} cannot be null or empty", nameof(ipGroupsName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="ipGroupsName"> The name of the ipGroups. </param>
         /// <param name="expand"> Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ipGroupsName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ipGroupsName"/> is null or empty. </exception>
         public virtual Response<IpGroup> Get(string ipGroupsName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (ipGroupsName == null)
+            if (string.IsNullOrEmpty(ipGroupsName))
             {
-                throw new ArgumentNullException(nameof(ipGroupsName));
+                throw new ArgumentException($"Parameter {nameof(ipGroupsName)} cannot be null or empty", nameof(ipGroupsName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("IpGroupCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="ipGroupsName"> The name of the ipGroups. </param>
         /// <param name="expand"> Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ipGroupsName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ipGroupsName"/> is null or empty. </exception>
         public async virtual Task<Response<IpGroup>> GetAsync(string ipGroupsName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (ipGroupsName == null)
+            if (string.IsNullOrEmpty(ipGroupsName))
             {
-                throw new ArgumentNullException(nameof(ipGroupsName));
+                throw new ArgumentException($"Parameter {nameof(ipGroupsName)} cannot be null or empty", nameof(ipGroupsName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("IpGroupCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="ipGroupsName"> The name of the ipGroups. </param>
         /// <param name="expand"> Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ipGroupsName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ipGroupsName"/> is null or empty. </exception>
         public virtual Response<IpGroup> GetIfExists(string ipGroupsName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (ipGroupsName == null)
+            if (string.IsNullOrEmpty(ipGroupsName))
             {
-                throw new ArgumentNullException(nameof(ipGroupsName));
+                throw new ArgumentException($"Parameter {nameof(ipGroupsName)} cannot be null or empty", nameof(ipGroupsName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("IpGroupCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="ipGroupsName"> The name of the ipGroups. </param>
         /// <param name="expand"> Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ipGroupsName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ipGroupsName"/> is null or empty. </exception>
         public async virtual Task<Response<IpGroup>> GetIfExistsAsync(string ipGroupsName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (ipGroupsName == null)
+            if (string.IsNullOrEmpty(ipGroupsName))
             {
-                throw new ArgumentNullException(nameof(ipGroupsName));
+                throw new ArgumentException($"Parameter {nameof(ipGroupsName)} cannot be null or empty", nameof(ipGroupsName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("IpGroupCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="ipGroupsName"> The name of the ipGroups. </param>
         /// <param name="expand"> Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ipGroupsName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ipGroupsName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string ipGroupsName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (ipGroupsName == null)
+            if (string.IsNullOrEmpty(ipGroupsName))
             {
-                throw new ArgumentNullException(nameof(ipGroupsName));
+                throw new ArgumentException($"Parameter {nameof(ipGroupsName)} cannot be null or empty", nameof(ipGroupsName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("IpGroupCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="ipGroupsName"> The name of the ipGroups. </param>
         /// <param name="expand"> Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ipGroupsName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ipGroupsName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string ipGroupsName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (ipGroupsName == null)
+            if (string.IsNullOrEmpty(ipGroupsName))
             {
-                throw new ArgumentNullException(nameof(ipGroupsName));
+                throw new ArgumentException($"Parameter {nameof(ipGroupsName)} cannot be null or empty", nameof(ipGroupsName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("IpGroupCollection.Exists");

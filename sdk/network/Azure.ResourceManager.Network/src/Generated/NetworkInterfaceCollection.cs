@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="networkInterfaceName"> The name of the network interface. </param>
         /// <param name="parameters"> Parameters supplied to the create or update network interface operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="networkInterfaceName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="networkInterfaceName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual NetworkInterfaceCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string networkInterfaceName, NetworkInterfaceData parameters, CancellationToken cancellationToken = default)
         {
-            if (networkInterfaceName == null)
+            if (string.IsNullOrEmpty(networkInterfaceName))
             {
-                throw new ArgumentNullException(nameof(networkInterfaceName));
+                throw new ArgumentException($"Parameter {nameof(networkInterfaceName)} cannot be null or empty", nameof(networkInterfaceName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="networkInterfaceName"> The name of the network interface. </param>
         /// <param name="parameters"> Parameters supplied to the create or update network interface operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="networkInterfaceName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="networkInterfaceName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<NetworkInterfaceCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string networkInterfaceName, NetworkInterfaceData parameters, CancellationToken cancellationToken = default)
         {
-            if (networkInterfaceName == null)
+            if (string.IsNullOrEmpty(networkInterfaceName))
             {
-                throw new ArgumentNullException(nameof(networkInterfaceName));
+                throw new ArgumentException($"Parameter {nameof(networkInterfaceName)} cannot be null or empty", nameof(networkInterfaceName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="networkInterfaceName"> The name of the network interface. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="networkInterfaceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="networkInterfaceName"/> is null or empty. </exception>
         public virtual Response<NetworkInterface> Get(string networkInterfaceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (networkInterfaceName == null)
+            if (string.IsNullOrEmpty(networkInterfaceName))
             {
-                throw new ArgumentNullException(nameof(networkInterfaceName));
+                throw new ArgumentException($"Parameter {nameof(networkInterfaceName)} cannot be null or empty", nameof(networkInterfaceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("NetworkInterfaceCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="networkInterfaceName"> The name of the network interface. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="networkInterfaceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="networkInterfaceName"/> is null or empty. </exception>
         public async virtual Task<Response<NetworkInterface>> GetAsync(string networkInterfaceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (networkInterfaceName == null)
+            if (string.IsNullOrEmpty(networkInterfaceName))
             {
-                throw new ArgumentNullException(nameof(networkInterfaceName));
+                throw new ArgumentException($"Parameter {nameof(networkInterfaceName)} cannot be null or empty", nameof(networkInterfaceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("NetworkInterfaceCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="networkInterfaceName"> The name of the network interface. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="networkInterfaceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="networkInterfaceName"/> is null or empty. </exception>
         public virtual Response<NetworkInterface> GetIfExists(string networkInterfaceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (networkInterfaceName == null)
+            if (string.IsNullOrEmpty(networkInterfaceName))
             {
-                throw new ArgumentNullException(nameof(networkInterfaceName));
+                throw new ArgumentException($"Parameter {nameof(networkInterfaceName)} cannot be null or empty", nameof(networkInterfaceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("NetworkInterfaceCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="networkInterfaceName"> The name of the network interface. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="networkInterfaceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="networkInterfaceName"/> is null or empty. </exception>
         public async virtual Task<Response<NetworkInterface>> GetIfExistsAsync(string networkInterfaceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (networkInterfaceName == null)
+            if (string.IsNullOrEmpty(networkInterfaceName))
             {
-                throw new ArgumentNullException(nameof(networkInterfaceName));
+                throw new ArgumentException($"Parameter {nameof(networkInterfaceName)} cannot be null or empty", nameof(networkInterfaceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("NetworkInterfaceCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="networkInterfaceName"> The name of the network interface. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="networkInterfaceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="networkInterfaceName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string networkInterfaceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (networkInterfaceName == null)
+            if (string.IsNullOrEmpty(networkInterfaceName))
             {
-                throw new ArgumentNullException(nameof(networkInterfaceName));
+                throw new ArgumentException($"Parameter {nameof(networkInterfaceName)} cannot be null or empty", nameof(networkInterfaceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("NetworkInterfaceCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="networkInterfaceName"> The name of the network interface. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="networkInterfaceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="networkInterfaceName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string networkInterfaceName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (networkInterfaceName == null)
+            if (string.IsNullOrEmpty(networkInterfaceName))
             {
-                throw new ArgumentNullException(nameof(networkInterfaceName));
+                throw new ArgumentException($"Parameter {nameof(networkInterfaceName)} cannot be null or empty", nameof(networkInterfaceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("NetworkInterfaceCollection.Exists");

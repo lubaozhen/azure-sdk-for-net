@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using Azure.Core;
 using Azure.ResourceManager.Compute.Models;
+using Azure.ResourceManager.Models;
 using Azure.ResourceManager.Resources.Models;
 
 namespace Azure.ResourceManager.Compute
@@ -137,8 +138,8 @@ namespace Azure.ResourceManager.Compute
         internal static VirtualMachineScaleSetData DeserializeVirtualMachineScaleSetData(JsonElement element)
         {
             Optional<Models.Sku> sku = default;
-            Optional<Plan> plan = default;
-            Optional<ResourceIdentity> identity = default;
+            Optional<Models.Plan> plan = default;
+            Optional<ManagedServiceIdentity> identity = default;
             Optional<IList<string>> zones = default;
             Optional<Models.ExtendedLocation> extendedLocation = default;
             IDictionary<string, string> tags = default;
@@ -181,7 +182,7 @@ namespace Azure.ResourceManager.Compute
                         property.ThrowNonNullablePropertyIsNull();
                         continue;
                     }
-                    plan = Plan.DeserializePlan(property.Value);
+                    plan = Models.Plan.DeserializePlan(property.Value);
                     continue;
                 }
                 if (property.NameEquals("identity"))
@@ -191,7 +192,7 @@ namespace Azure.ResourceManager.Compute
                         property.ThrowNonNullablePropertyIsNull();
                         continue;
                     }
-                    identity = JsonSerializer.Deserialize<ResourceIdentity>(property.Value.ToString());
+                    identity = JsonSerializer.Deserialize<ManagedServiceIdentity>(property.Value.ToString());
                     continue;
                 }
                 if (property.NameEquals("zones"))

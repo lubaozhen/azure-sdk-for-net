@@ -54,12 +54,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Get a shared gallery image by subscription id or tenant id. </summary>
         /// <param name="galleryImageName"> The name of the Shared Gallery Image Definition from which the Image Versions are to be listed. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageName"/> is null or empty. </exception>
         public virtual Response<SharedGalleryImage> Get(string galleryImageName, CancellationToken cancellationToken = default)
         {
-            if (galleryImageName == null)
+            if (string.IsNullOrEmpty(galleryImageName))
             {
-                throw new ArgumentNullException(nameof(galleryImageName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageName)} cannot be null or empty", nameof(galleryImageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SharedGalleryImageCollection.Get");
@@ -82,12 +82,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Get a shared gallery image by subscription id or tenant id. </summary>
         /// <param name="galleryImageName"> The name of the Shared Gallery Image Definition from which the Image Versions are to be listed. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageName"/> is null or empty. </exception>
         public async virtual Task<Response<SharedGalleryImage>> GetAsync(string galleryImageName, CancellationToken cancellationToken = default)
         {
-            if (galleryImageName == null)
+            if (string.IsNullOrEmpty(galleryImageName))
             {
-                throw new ArgumentNullException(nameof(galleryImageName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageName)} cannot be null or empty", nameof(galleryImageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SharedGalleryImageCollection.Get");
@@ -110,12 +110,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="galleryImageName"> The name of the Shared Gallery Image Definition from which the Image Versions are to be listed. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageName"/> is null or empty. </exception>
         public virtual Response<SharedGalleryImage> GetIfExists(string galleryImageName, CancellationToken cancellationToken = default)
         {
-            if (galleryImageName == null)
+            if (string.IsNullOrEmpty(galleryImageName))
             {
-                throw new ArgumentNullException(nameof(galleryImageName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageName)} cannot be null or empty", nameof(galleryImageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SharedGalleryImageCollection.GetIfExists");
@@ -138,12 +138,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="galleryImageName"> The name of the Shared Gallery Image Definition from which the Image Versions are to be listed. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageName"/> is null or empty. </exception>
         public async virtual Task<Response<SharedGalleryImage>> GetIfExistsAsync(string galleryImageName, CancellationToken cancellationToken = default)
         {
-            if (galleryImageName == null)
+            if (string.IsNullOrEmpty(galleryImageName))
             {
-                throw new ArgumentNullException(nameof(galleryImageName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageName)} cannot be null or empty", nameof(galleryImageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SharedGalleryImageCollection.GetIfExists");
@@ -166,12 +166,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="galleryImageName"> The name of the Shared Gallery Image Definition from which the Image Versions are to be listed. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string galleryImageName, CancellationToken cancellationToken = default)
         {
-            if (galleryImageName == null)
+            if (string.IsNullOrEmpty(galleryImageName))
             {
-                throw new ArgumentNullException(nameof(galleryImageName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageName)} cannot be null or empty", nameof(galleryImageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SharedGalleryImageCollection.Exists");
@@ -191,12 +191,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="galleryImageName"> The name of the Shared Gallery Image Definition from which the Image Versions are to be listed. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="galleryImageName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="galleryImageName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string galleryImageName, CancellationToken cancellationToken = default)
         {
-            if (galleryImageName == null)
+            if (string.IsNullOrEmpty(galleryImageName))
             {
-                throw new ArgumentNullException(nameof(galleryImageName));
+                throw new ArgumentException($"Parameter {nameof(galleryImageName)} cannot be null or empty", nameof(galleryImageName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("SharedGalleryImageCollection.Exists");

@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="firewallPolicyName"> The name of the Firewall Policy. </param>
         /// <param name="parameters"> Parameters supplied to the create or update Firewall Policy operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="firewallPolicyName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="firewallPolicyName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual FirewallPolicyCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string firewallPolicyName, FirewallPolicyData parameters, CancellationToken cancellationToken = default)
         {
-            if (firewallPolicyName == null)
+            if (string.IsNullOrEmpty(firewallPolicyName))
             {
-                throw new ArgumentNullException(nameof(firewallPolicyName));
+                throw new ArgumentException($"Parameter {nameof(firewallPolicyName)} cannot be null or empty", nameof(firewallPolicyName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="firewallPolicyName"> The name of the Firewall Policy. </param>
         /// <param name="parameters"> Parameters supplied to the create or update Firewall Policy operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="firewallPolicyName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="firewallPolicyName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<FirewallPolicyCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string firewallPolicyName, FirewallPolicyData parameters, CancellationToken cancellationToken = default)
         {
-            if (firewallPolicyName == null)
+            if (string.IsNullOrEmpty(firewallPolicyName))
             {
-                throw new ArgumentNullException(nameof(firewallPolicyName));
+                throw new ArgumentException($"Parameter {nameof(firewallPolicyName)} cannot be null or empty", nameof(firewallPolicyName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="firewallPolicyName"> The name of the Firewall Policy. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="firewallPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="firewallPolicyName"/> is null or empty. </exception>
         public virtual Response<FirewallPolicy> Get(string firewallPolicyName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (firewallPolicyName == null)
+            if (string.IsNullOrEmpty(firewallPolicyName))
             {
-                throw new ArgumentNullException(nameof(firewallPolicyName));
+                throw new ArgumentException($"Parameter {nameof(firewallPolicyName)} cannot be null or empty", nameof(firewallPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="firewallPolicyName"> The name of the Firewall Policy. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="firewallPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="firewallPolicyName"/> is null or empty. </exception>
         public async virtual Task<Response<FirewallPolicy>> GetAsync(string firewallPolicyName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (firewallPolicyName == null)
+            if (string.IsNullOrEmpty(firewallPolicyName))
             {
-                throw new ArgumentNullException(nameof(firewallPolicyName));
+                throw new ArgumentException($"Parameter {nameof(firewallPolicyName)} cannot be null or empty", nameof(firewallPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="firewallPolicyName"> The name of the Firewall Policy. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="firewallPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="firewallPolicyName"/> is null or empty. </exception>
         public virtual Response<FirewallPolicy> GetIfExists(string firewallPolicyName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (firewallPolicyName == null)
+            if (string.IsNullOrEmpty(firewallPolicyName))
             {
-                throw new ArgumentNullException(nameof(firewallPolicyName));
+                throw new ArgumentException($"Parameter {nameof(firewallPolicyName)} cannot be null or empty", nameof(firewallPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="firewallPolicyName"> The name of the Firewall Policy. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="firewallPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="firewallPolicyName"/> is null or empty. </exception>
         public async virtual Task<Response<FirewallPolicy>> GetIfExistsAsync(string firewallPolicyName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (firewallPolicyName == null)
+            if (string.IsNullOrEmpty(firewallPolicyName))
             {
-                throw new ArgumentNullException(nameof(firewallPolicyName));
+                throw new ArgumentException($"Parameter {nameof(firewallPolicyName)} cannot be null or empty", nameof(firewallPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="firewallPolicyName"> The name of the Firewall Policy. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="firewallPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="firewallPolicyName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string firewallPolicyName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (firewallPolicyName == null)
+            if (string.IsNullOrEmpty(firewallPolicyName))
             {
-                throw new ArgumentNullException(nameof(firewallPolicyName));
+                throw new ArgumentException($"Parameter {nameof(firewallPolicyName)} cannot be null or empty", nameof(firewallPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="firewallPolicyName"> The name of the Firewall Policy. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="firewallPolicyName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="firewallPolicyName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string firewallPolicyName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (firewallPolicyName == null)
+            if (string.IsNullOrEmpty(firewallPolicyName))
             {
-                throw new ArgumentNullException(nameof(firewallPolicyName));
+                throw new ArgumentException($"Parameter {nameof(firewallPolicyName)} cannot be null or empty", nameof(firewallPolicyName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("FirewallPolicyCollection.Exists");

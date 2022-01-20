@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="loadBalancerName"> The name of the load balancer. </param>
         /// <param name="parameters"> Parameters supplied to the create or update load balancer operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="loadBalancerName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="loadBalancerName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual LoadBalancerCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string loadBalancerName, LoadBalancerData parameters, CancellationToken cancellationToken = default)
         {
-            if (loadBalancerName == null)
+            if (string.IsNullOrEmpty(loadBalancerName))
             {
-                throw new ArgumentNullException(nameof(loadBalancerName));
+                throw new ArgumentException($"Parameter {nameof(loadBalancerName)} cannot be null or empty", nameof(loadBalancerName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="loadBalancerName"> The name of the load balancer. </param>
         /// <param name="parameters"> Parameters supplied to the create or update load balancer operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="loadBalancerName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="loadBalancerName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<LoadBalancerCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string loadBalancerName, LoadBalancerData parameters, CancellationToken cancellationToken = default)
         {
-            if (loadBalancerName == null)
+            if (string.IsNullOrEmpty(loadBalancerName))
             {
-                throw new ArgumentNullException(nameof(loadBalancerName));
+                throw new ArgumentException($"Parameter {nameof(loadBalancerName)} cannot be null or empty", nameof(loadBalancerName));
             }
             if (parameters == null)
             {
@@ -125,12 +127,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="loadBalancerName"> The name of the load balancer. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="loadBalancerName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="loadBalancerName"/> is null or empty. </exception>
         public virtual Response<LoadBalancer> Get(string loadBalancerName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (loadBalancerName == null)
+            if (string.IsNullOrEmpty(loadBalancerName))
             {
-                throw new ArgumentNullException(nameof(loadBalancerName));
+                throw new ArgumentException($"Parameter {nameof(loadBalancerName)} cannot be null or empty", nameof(loadBalancerName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("LoadBalancerCollection.Get");
@@ -153,12 +155,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="loadBalancerName"> The name of the load balancer. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="loadBalancerName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="loadBalancerName"/> is null or empty. </exception>
         public async virtual Task<Response<LoadBalancer>> GetAsync(string loadBalancerName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (loadBalancerName == null)
+            if (string.IsNullOrEmpty(loadBalancerName))
             {
-                throw new ArgumentNullException(nameof(loadBalancerName));
+                throw new ArgumentException($"Parameter {nameof(loadBalancerName)} cannot be null or empty", nameof(loadBalancerName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("LoadBalancerCollection.Get");
@@ -181,12 +183,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="loadBalancerName"> The name of the load balancer. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="loadBalancerName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="loadBalancerName"/> is null or empty. </exception>
         public virtual Response<LoadBalancer> GetIfExists(string loadBalancerName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (loadBalancerName == null)
+            if (string.IsNullOrEmpty(loadBalancerName))
             {
-                throw new ArgumentNullException(nameof(loadBalancerName));
+                throw new ArgumentException($"Parameter {nameof(loadBalancerName)} cannot be null or empty", nameof(loadBalancerName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("LoadBalancerCollection.GetIfExists");
@@ -209,12 +211,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="loadBalancerName"> The name of the load balancer. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="loadBalancerName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="loadBalancerName"/> is null or empty. </exception>
         public async virtual Task<Response<LoadBalancer>> GetIfExistsAsync(string loadBalancerName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (loadBalancerName == null)
+            if (string.IsNullOrEmpty(loadBalancerName))
             {
-                throw new ArgumentNullException(nameof(loadBalancerName));
+                throw new ArgumentException($"Parameter {nameof(loadBalancerName)} cannot be null or empty", nameof(loadBalancerName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("LoadBalancerCollection.GetIfExists");
@@ -237,12 +239,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="loadBalancerName"> The name of the load balancer. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="loadBalancerName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="loadBalancerName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string loadBalancerName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (loadBalancerName == null)
+            if (string.IsNullOrEmpty(loadBalancerName))
             {
-                throw new ArgumentNullException(nameof(loadBalancerName));
+                throw new ArgumentException($"Parameter {nameof(loadBalancerName)} cannot be null or empty", nameof(loadBalancerName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("LoadBalancerCollection.Exists");
@@ -263,12 +265,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="loadBalancerName"> The name of the load balancer. </param>
         /// <param name="expand"> Expands referenced resources. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="loadBalancerName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="loadBalancerName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string loadBalancerName, string expand = null, CancellationToken cancellationToken = default)
         {
-            if (loadBalancerName == null)
+            if (string.IsNullOrEmpty(loadBalancerName))
             {
-                throw new ArgumentNullException(nameof(loadBalancerName));
+                throw new ArgumentException($"Parameter {nameof(loadBalancerName)} cannot be null or empty", nameof(loadBalancerName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("LoadBalancerCollection.Exists");

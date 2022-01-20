@@ -286,12 +286,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="ruleCollectionName"> The name of security rule collection. </param>
         /// <param name="parameters"> Parameters supplied to the create or update Network Virtual Appliance Inbound Security Rules operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<NetworkVirtualApplianceCreateOrUpdateInboundSecurityRuleOperation> CreateOrUpdateInboundSecurityRuleAsync(bool waitForCompletion, string ruleCollectionName, InboundSecurityRule parameters, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionName == null)
+            if (string.IsNullOrEmpty(ruleCollectionName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionName)} cannot be null or empty", nameof(ruleCollectionName));
             }
             if (parameters == null)
             {
@@ -320,12 +321,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="ruleCollectionName"> The name of security rule collection. </param>
         /// <param name="parameters"> Parameters supplied to the create or update Network Virtual Appliance Inbound Security Rules operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="ruleCollectionName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="ruleCollectionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual NetworkVirtualApplianceCreateOrUpdateInboundSecurityRuleOperation CreateOrUpdateInboundSecurityRule(bool waitForCompletion, string ruleCollectionName, InboundSecurityRule parameters, CancellationToken cancellationToken = default)
         {
-            if (ruleCollectionName == null)
+            if (string.IsNullOrEmpty(ruleCollectionName))
             {
-                throw new ArgumentNullException(nameof(ruleCollectionName));
+                throw new ArgumentException($"Parameter {nameof(ruleCollectionName)} cannot be null or empty", nameof(ruleCollectionName));
             }
             if (parameters == null)
             {

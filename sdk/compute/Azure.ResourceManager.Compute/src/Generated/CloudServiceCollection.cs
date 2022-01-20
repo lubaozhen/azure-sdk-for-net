@@ -58,12 +58,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="cloudServiceName"> Name of the cloud service. </param>
         /// <param name="parameters"> The cloud service object. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="cloudServiceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="cloudServiceName"/> is null or empty. </exception>
         public virtual CloudServiceCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string cloudServiceName, CloudServiceData parameters = null, CancellationToken cancellationToken = default)
         {
-            if (cloudServiceName == null)
+            if (string.IsNullOrEmpty(cloudServiceName))
             {
-                throw new ArgumentNullException(nameof(cloudServiceName));
+                throw new ArgumentException($"Parameter {nameof(cloudServiceName)} cannot be null or empty", nameof(cloudServiceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceCollection.CreateOrUpdate");
@@ -88,12 +88,12 @@ namespace Azure.ResourceManager.Compute
         /// <param name="cloudServiceName"> Name of the cloud service. </param>
         /// <param name="parameters"> The cloud service object. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="cloudServiceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="cloudServiceName"/> is null or empty. </exception>
         public async virtual Task<CloudServiceCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string cloudServiceName, CloudServiceData parameters = null, CancellationToken cancellationToken = default)
         {
-            if (cloudServiceName == null)
+            if (string.IsNullOrEmpty(cloudServiceName))
             {
-                throw new ArgumentNullException(nameof(cloudServiceName));
+                throw new ArgumentException($"Parameter {nameof(cloudServiceName)} cannot be null or empty", nameof(cloudServiceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceCollection.CreateOrUpdate");
@@ -116,12 +116,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Display information about a cloud service. </summary>
         /// <param name="cloudServiceName"> Name of the cloud service. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="cloudServiceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="cloudServiceName"/> is null or empty. </exception>
         public virtual Response<CloudService> Get(string cloudServiceName, CancellationToken cancellationToken = default)
         {
-            if (cloudServiceName == null)
+            if (string.IsNullOrEmpty(cloudServiceName))
             {
-                throw new ArgumentNullException(nameof(cloudServiceName));
+                throw new ArgumentException($"Parameter {nameof(cloudServiceName)} cannot be null or empty", nameof(cloudServiceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceCollection.Get");
@@ -143,12 +143,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Display information about a cloud service. </summary>
         /// <param name="cloudServiceName"> Name of the cloud service. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="cloudServiceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="cloudServiceName"/> is null or empty. </exception>
         public async virtual Task<Response<CloudService>> GetAsync(string cloudServiceName, CancellationToken cancellationToken = default)
         {
-            if (cloudServiceName == null)
+            if (string.IsNullOrEmpty(cloudServiceName))
             {
-                throw new ArgumentNullException(nameof(cloudServiceName));
+                throw new ArgumentException($"Parameter {nameof(cloudServiceName)} cannot be null or empty", nameof(cloudServiceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceCollection.Get");
@@ -170,12 +170,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="cloudServiceName"> Name of the cloud service. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="cloudServiceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="cloudServiceName"/> is null or empty. </exception>
         public virtual Response<CloudService> GetIfExists(string cloudServiceName, CancellationToken cancellationToken = default)
         {
-            if (cloudServiceName == null)
+            if (string.IsNullOrEmpty(cloudServiceName))
             {
-                throw new ArgumentNullException(nameof(cloudServiceName));
+                throw new ArgumentException($"Parameter {nameof(cloudServiceName)} cannot be null or empty", nameof(cloudServiceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceCollection.GetIfExists");
@@ -197,12 +197,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="cloudServiceName"> Name of the cloud service. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="cloudServiceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="cloudServiceName"/> is null or empty. </exception>
         public async virtual Task<Response<CloudService>> GetIfExistsAsync(string cloudServiceName, CancellationToken cancellationToken = default)
         {
-            if (cloudServiceName == null)
+            if (string.IsNullOrEmpty(cloudServiceName))
             {
-                throw new ArgumentNullException(nameof(cloudServiceName));
+                throw new ArgumentException($"Parameter {nameof(cloudServiceName)} cannot be null or empty", nameof(cloudServiceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceCollection.GetIfExists");
@@ -224,12 +224,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="cloudServiceName"> Name of the cloud service. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="cloudServiceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="cloudServiceName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string cloudServiceName, CancellationToken cancellationToken = default)
         {
-            if (cloudServiceName == null)
+            if (string.IsNullOrEmpty(cloudServiceName))
             {
-                throw new ArgumentNullException(nameof(cloudServiceName));
+                throw new ArgumentException($"Parameter {nameof(cloudServiceName)} cannot be null or empty", nameof(cloudServiceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceCollection.Exists");
@@ -249,12 +249,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="cloudServiceName"> Name of the cloud service. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="cloudServiceName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="cloudServiceName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string cloudServiceName, CancellationToken cancellationToken = default)
         {
-            if (cloudServiceName == null)
+            if (string.IsNullOrEmpty(cloudServiceName))
             {
-                throw new ArgumentNullException(nameof(cloudServiceName));
+                throw new ArgumentException($"Parameter {nameof(cloudServiceName)} cannot be null or empty", nameof(cloudServiceName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("CloudServiceCollection.Exists");

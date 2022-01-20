@@ -56,12 +56,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="connectionName"> The name of the express route circuit connection. </param>
         /// <param name="expressRouteCircuitConnectionParameters"> Parameters supplied to the create or update express route circuit connection operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> or <paramref name="expressRouteCircuitConnectionParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteCircuitConnectionParameters"/> is null. </exception>
         public virtual ExpressRouteCircuitConnectionCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string connectionName, ExpressRouteCircuitConnectionData expressRouteCircuitConnectionParameters, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
             if (expressRouteCircuitConnectionParameters == null)
             {
@@ -90,12 +91,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="connectionName"> The name of the express route circuit connection. </param>
         /// <param name="expressRouteCircuitConnectionParameters"> Parameters supplied to the create or update express route circuit connection operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> or <paramref name="expressRouteCircuitConnectionParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="expressRouteCircuitConnectionParameters"/> is null. </exception>
         public async virtual Task<ExpressRouteCircuitConnectionCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string connectionName, ExpressRouteCircuitConnectionData expressRouteCircuitConnectionParameters, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
             if (expressRouteCircuitConnectionParameters == null)
             {
@@ -122,12 +124,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified Express Route Circuit Connection from the specified express route circuit. </summary>
         /// <param name="connectionName"> The name of the express route circuit connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteCircuitConnection> Get(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitConnectionCollection.Get");
@@ -149,12 +151,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified Express Route Circuit Connection from the specified express route circuit. </summary>
         /// <param name="connectionName"> The name of the express route circuit connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteCircuitConnection>> GetAsync(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitConnectionCollection.Get");
@@ -176,12 +178,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="connectionName"> The name of the express route circuit connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public virtual Response<ExpressRouteCircuitConnection> GetIfExists(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitConnectionCollection.GetIfExists");
@@ -203,12 +205,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="connectionName"> The name of the express route circuit connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public async virtual Task<Response<ExpressRouteCircuitConnection>> GetIfExistsAsync(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitConnectionCollection.GetIfExists");
@@ -230,12 +232,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="connectionName"> The name of the express route circuit connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitConnectionCollection.Exists");
@@ -255,12 +257,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="connectionName"> The name of the express route circuit connection. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="connectionName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="connectionName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string connectionName, CancellationToken cancellationToken = default)
         {
-            if (connectionName == null)
+            if (string.IsNullOrEmpty(connectionName))
             {
-                throw new ArgumentNullException(nameof(connectionName));
+                throw new ArgumentException($"Parameter {nameof(connectionName)} cannot be null or empty", nameof(connectionName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("ExpressRouteCircuitConnectionCollection.Exists");

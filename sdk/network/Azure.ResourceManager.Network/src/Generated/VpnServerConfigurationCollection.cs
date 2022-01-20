@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="vpnServerConfigurationName"> The name of the VpnServerConfiguration being created or updated. </param>
         /// <param name="vpnServerConfigurationParameters"> Parameters supplied to create or update VpnServerConfiguration. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationName"/> or <paramref name="vpnServerConfigurationParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vpnServerConfigurationName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationParameters"/> is null. </exception>
         public virtual VpnServerConfigurationCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string vpnServerConfigurationName, VpnServerConfigurationData vpnServerConfigurationParameters, CancellationToken cancellationToken = default)
         {
-            if (vpnServerConfigurationName == null)
+            if (string.IsNullOrEmpty(vpnServerConfigurationName))
             {
-                throw new ArgumentNullException(nameof(vpnServerConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(vpnServerConfigurationName)} cannot be null or empty", nameof(vpnServerConfigurationName));
             }
             if (vpnServerConfigurationParameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="vpnServerConfigurationName"> The name of the VpnServerConfiguration being created or updated. </param>
         /// <param name="vpnServerConfigurationParameters"> Parameters supplied to create or update VpnServerConfiguration. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationName"/> or <paramref name="vpnServerConfigurationParameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vpnServerConfigurationName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationParameters"/> is null. </exception>
         public async virtual Task<VpnServerConfigurationCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string vpnServerConfigurationName, VpnServerConfigurationData vpnServerConfigurationParameters, CancellationToken cancellationToken = default)
         {
-            if (vpnServerConfigurationName == null)
+            if (string.IsNullOrEmpty(vpnServerConfigurationName))
             {
-                throw new ArgumentNullException(nameof(vpnServerConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(vpnServerConfigurationName)} cannot be null or empty", nameof(vpnServerConfigurationName));
             }
             if (vpnServerConfigurationParameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a VpnServerConfiguration. </summary>
         /// <param name="vpnServerConfigurationName"> The name of the VpnServerConfiguration being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vpnServerConfigurationName"/> is null or empty. </exception>
         public virtual Response<VpnServerConfiguration> Get(string vpnServerConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (vpnServerConfigurationName == null)
+            if (string.IsNullOrEmpty(vpnServerConfigurationName))
             {
-                throw new ArgumentNullException(nameof(vpnServerConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(vpnServerConfigurationName)} cannot be null or empty", nameof(vpnServerConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnServerConfigurationCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Retrieves the details of a VpnServerConfiguration. </summary>
         /// <param name="vpnServerConfigurationName"> The name of the VpnServerConfiguration being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vpnServerConfigurationName"/> is null or empty. </exception>
         public async virtual Task<Response<VpnServerConfiguration>> GetAsync(string vpnServerConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (vpnServerConfigurationName == null)
+            if (string.IsNullOrEmpty(vpnServerConfigurationName))
             {
-                throw new ArgumentNullException(nameof(vpnServerConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(vpnServerConfigurationName)} cannot be null or empty", nameof(vpnServerConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnServerConfigurationCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="vpnServerConfigurationName"> The name of the VpnServerConfiguration being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vpnServerConfigurationName"/> is null or empty. </exception>
         public virtual Response<VpnServerConfiguration> GetIfExists(string vpnServerConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (vpnServerConfigurationName == null)
+            if (string.IsNullOrEmpty(vpnServerConfigurationName))
             {
-                throw new ArgumentNullException(nameof(vpnServerConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(vpnServerConfigurationName)} cannot be null or empty", nameof(vpnServerConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnServerConfigurationCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="vpnServerConfigurationName"> The name of the VpnServerConfiguration being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vpnServerConfigurationName"/> is null or empty. </exception>
         public async virtual Task<Response<VpnServerConfiguration>> GetIfExistsAsync(string vpnServerConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (vpnServerConfigurationName == null)
+            if (string.IsNullOrEmpty(vpnServerConfigurationName))
             {
-                throw new ArgumentNullException(nameof(vpnServerConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(vpnServerConfigurationName)} cannot be null or empty", nameof(vpnServerConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnServerConfigurationCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="vpnServerConfigurationName"> The name of the VpnServerConfiguration being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vpnServerConfigurationName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string vpnServerConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (vpnServerConfigurationName == null)
+            if (string.IsNullOrEmpty(vpnServerConfigurationName))
             {
-                throw new ArgumentNullException(nameof(vpnServerConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(vpnServerConfigurationName)} cannot be null or empty", nameof(vpnServerConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnServerConfigurationCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="vpnServerConfigurationName"> The name of the VpnServerConfiguration being retrieved. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="vpnServerConfigurationName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="vpnServerConfigurationName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string vpnServerConfigurationName, CancellationToken cancellationToken = default)
         {
-            if (vpnServerConfigurationName == null)
+            if (string.IsNullOrEmpty(vpnServerConfigurationName))
             {
-                throw new ArgumentNullException(nameof(vpnServerConfigurationName));
+                throw new ArgumentException($"Parameter {nameof(vpnServerConfigurationName)} cannot be null or empty", nameof(vpnServerConfigurationName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("VpnServerConfigurationCollection.Exists");

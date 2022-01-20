@@ -791,13 +791,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location of the subnet. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static AsyncPageable<AvailableDelegation> GetAvailableDelegationsAsync(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -843,13 +843,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location of the subnet. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static Pageable<AvailableDelegation> GetAvailableDelegations(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -895,13 +895,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static AsyncPageable<AvailableServiceAlias> GetAvailableServiceAliasesAsync(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -947,13 +947,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static Pageable<AvailableServiceAlias> GetAvailableServiceAliases(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -1330,12 +1330,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="location"> The location of the domain name. </param>
         /// <param name="domainNameLabel"> The domain name to be verified. It must conform to the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> or <paramref name="domainNameLabel"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="domainNameLabel"/> is null. </exception>
         public static async Task<Response<DnsNameAvailabilityResult>> CheckDnsNameAvailabilityAsync(this Subscription subscription, string location, string domainNameLabel, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
             if (domainNameLabel == null)
             {
@@ -1367,12 +1368,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="location"> The location of the domain name. </param>
         /// <param name="domainNameLabel"> The domain name to be verified. It must conform to the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> or <paramref name="domainNameLabel"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="domainNameLabel"/> is null. </exception>
         public static Response<DnsNameAvailabilityResult> CheckDnsNameAvailability(this Subscription subscription, string location, string domainNameLabel, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
             if (domainNameLabel == null)
             {
@@ -1763,13 +1765,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location to check available endpoint services. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static AsyncPageable<EndpointServiceResult> GetAvailableEndpointServicesAsync(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -1815,13 +1817,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location to check available endpoint services. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static Pageable<EndpointServiceResult> GetAvailableEndpointServices(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -2799,12 +2801,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="location"> The region where load balancers are located at. </param>
         /// <param name="parameters"> Parameters that define which VIPs should be swapped. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public static async Task<SwapPublicIpAddressesLoadBalancerOperation> SwapPublicIpAddressesLoadBalancerAsync(this Subscription subscription, bool waitForCompletion, string location, LoadBalancerVipSwapRequest parameters, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
             if (parameters == null)
             {
@@ -2840,12 +2843,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="location"> The region where load balancers are located at. </param>
         /// <param name="parameters"> Parameters that define which VIPs should be swapped. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public static SwapPublicIpAddressesLoadBalancerOperation SwapPublicIpAddressesLoadBalancer(this Subscription subscription, bool waitForCompletion, string location, LoadBalancerVipSwapRequest parameters, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
             if (parameters == null)
             {
@@ -3689,13 +3693,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location of the domain name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static AsyncPageable<AvailablePrivateEndpointType> GetAvailablePrivateEndpointTypesAsync(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -3741,13 +3745,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location of the domain name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static Pageable<AvailablePrivateEndpointType> GetAvailablePrivateEndpointTypes(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -3915,12 +3919,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="location"> The location of the domain name. </param>
         /// <param name="parameters"> The request body of CheckPrivateLinkService API call. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public static async Task<CheckPrivateLinkServiceVisibilityPrivateLinkServiceOperation> CheckPrivateLinkServiceVisibilityPrivateLinkServiceAsync(this Subscription subscription, bool waitForCompletion, string location, CheckPrivateLinkServiceVisibilityRequest parameters, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
             if (parameters == null)
             {
@@ -3956,12 +3961,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="location"> The location of the domain name. </param>
         /// <param name="parameters"> The request body of CheckPrivateLinkService API call. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public static CheckPrivateLinkServiceVisibilityPrivateLinkServiceOperation CheckPrivateLinkServiceVisibilityPrivateLinkService(this Subscription subscription, bool waitForCompletion, string location, CheckPrivateLinkServiceVisibilityRequest parameters, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
             if (parameters == null)
             {
@@ -3995,13 +4001,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location of the domain name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static AsyncPageable<AutoApprovedPrivateLinkService> GetAutoApprovedPrivateLinkServicesPrivateLinkServicesAsync(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -4047,13 +4053,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location of the domain name. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static Pageable<AutoApprovedPrivateLinkService> GetAutoApprovedPrivateLinkServicesPrivateLinkServices(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -4909,12 +4915,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location that will be used as a reference for version (not as a filter based on location, you will get the list of service tags with prefix details across all regions but limited to the cloud that your subscription belongs to). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         public static async Task<Response<ServiceTagsListResult>> GetServiceTagAsync(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return await subscription.UseClientContext(async (baseUri, credential, options, pipeline) =>
@@ -4941,12 +4947,12 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location that will be used as a reference for version (not as a filter based on location, you will get the list of service tags with prefix details across all regions but limited to the cloud that your subscription belongs to). </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         public static Response<ServiceTagsListResult> GetServiceTag(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -4973,13 +4979,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location where resource usage is queried. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static AsyncPageable<Usage> GetUsagesAsync(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>
@@ -5025,13 +5031,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="subscription"> The <see cref="Subscription" /> instance the method will execute against. </param>
         /// <param name="location"> The location where resource usage is queried. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="location"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="location"/> is null or empty. </exception>
         /// <returns> A collection of resource operations that may take multiple service requests to iterate over. </returns>
         public static Pageable<Usage> GetUsages(this Subscription subscription, string location, CancellationToken cancellationToken = default)
         {
-            if (location == null)
+            if (string.IsNullOrEmpty(location))
             {
-                throw new ArgumentNullException(nameof(location));
+                throw new ArgumentException($"Parameter {nameof(location)} cannot be null or empty", nameof(location));
             }
 
             return subscription.UseClientContext((baseUri, credential, options, pipeline) =>

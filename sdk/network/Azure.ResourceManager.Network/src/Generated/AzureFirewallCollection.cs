@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="azureFirewallName"> The name of the Azure Firewall. </param>
         /// <param name="parameters"> Parameters supplied to the create or update Azure Firewall operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="azureFirewallName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="azureFirewallName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public virtual AzureFirewallCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string azureFirewallName, AzureFirewallData parameters, CancellationToken cancellationToken = default)
         {
-            if (azureFirewallName == null)
+            if (string.IsNullOrEmpty(azureFirewallName))
             {
-                throw new ArgumentNullException(nameof(azureFirewallName));
+                throw new ArgumentException($"Parameter {nameof(azureFirewallName)} cannot be null or empty", nameof(azureFirewallName));
             }
             if (parameters == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Network
         /// <param name="azureFirewallName"> The name of the Azure Firewall. </param>
         /// <param name="parameters"> Parameters supplied to the create or update Azure Firewall operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="azureFirewallName"/> or <paramref name="parameters"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="azureFirewallName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="parameters"/> is null. </exception>
         public async virtual Task<AzureFirewallCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string azureFirewallName, AzureFirewallData parameters, CancellationToken cancellationToken = default)
         {
-            if (azureFirewallName == null)
+            if (string.IsNullOrEmpty(azureFirewallName))
             {
-                throw new ArgumentNullException(nameof(azureFirewallName));
+                throw new ArgumentException($"Parameter {nameof(azureFirewallName)} cannot be null or empty", nameof(azureFirewallName));
             }
             if (parameters == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified Azure Firewall. </summary>
         /// <param name="azureFirewallName"> The name of the Azure Firewall. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="azureFirewallName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="azureFirewallName"/> is null or empty. </exception>
         public virtual Response<AzureFirewall> Get(string azureFirewallName, CancellationToken cancellationToken = default)
         {
-            if (azureFirewallName == null)
+            if (string.IsNullOrEmpty(azureFirewallName))
             {
-                throw new ArgumentNullException(nameof(azureFirewallName));
+                throw new ArgumentException($"Parameter {nameof(azureFirewallName)} cannot be null or empty", nameof(azureFirewallName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureFirewallCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Gets the specified Azure Firewall. </summary>
         /// <param name="azureFirewallName"> The name of the Azure Firewall. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="azureFirewallName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="azureFirewallName"/> is null or empty. </exception>
         public async virtual Task<Response<AzureFirewall>> GetAsync(string azureFirewallName, CancellationToken cancellationToken = default)
         {
-            if (azureFirewallName == null)
+            if (string.IsNullOrEmpty(azureFirewallName))
             {
-                throw new ArgumentNullException(nameof(azureFirewallName));
+                throw new ArgumentException($"Parameter {nameof(azureFirewallName)} cannot be null or empty", nameof(azureFirewallName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureFirewallCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="azureFirewallName"> The name of the Azure Firewall. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="azureFirewallName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="azureFirewallName"/> is null or empty. </exception>
         public virtual Response<AzureFirewall> GetIfExists(string azureFirewallName, CancellationToken cancellationToken = default)
         {
-            if (azureFirewallName == null)
+            if (string.IsNullOrEmpty(azureFirewallName))
             {
-                throw new ArgumentNullException(nameof(azureFirewallName));
+                throw new ArgumentException($"Parameter {nameof(azureFirewallName)} cannot be null or empty", nameof(azureFirewallName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureFirewallCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="azureFirewallName"> The name of the Azure Firewall. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="azureFirewallName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="azureFirewallName"/> is null or empty. </exception>
         public async virtual Task<Response<AzureFirewall>> GetIfExistsAsync(string azureFirewallName, CancellationToken cancellationToken = default)
         {
-            if (azureFirewallName == null)
+            if (string.IsNullOrEmpty(azureFirewallName))
             {
-                throw new ArgumentNullException(nameof(azureFirewallName));
+                throw new ArgumentException($"Parameter {nameof(azureFirewallName)} cannot be null or empty", nameof(azureFirewallName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureFirewallCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="azureFirewallName"> The name of the Azure Firewall. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="azureFirewallName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="azureFirewallName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string azureFirewallName, CancellationToken cancellationToken = default)
         {
-            if (azureFirewallName == null)
+            if (string.IsNullOrEmpty(azureFirewallName))
             {
-                throw new ArgumentNullException(nameof(azureFirewallName));
+                throw new ArgumentException($"Parameter {nameof(azureFirewallName)} cannot be null or empty", nameof(azureFirewallName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureFirewallCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Network
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="azureFirewallName"> The name of the Azure Firewall. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="azureFirewallName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="azureFirewallName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string azureFirewallName, CancellationToken cancellationToken = default)
         {
-            if (azureFirewallName == null)
+            if (string.IsNullOrEmpty(azureFirewallName))
             {
-                throw new ArgumentNullException(nameof(azureFirewallName));
+                throw new ArgumentException($"Parameter {nameof(azureFirewallName)} cannot be null or empty", nameof(azureFirewallName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("AzureFirewallCollection.Exists");

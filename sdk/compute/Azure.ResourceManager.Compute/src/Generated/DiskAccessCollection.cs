@@ -58,12 +58,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="diskAccessName"> The name of the disk access resource that is being created. The name can&apos;t be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="diskAccess"> disk access object supplied in the body of the Put disk access operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskAccessName"/> or <paramref name="diskAccess"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskAccessName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="diskAccess"/> is null. </exception>
         public virtual DiskAccessCreateOrUpdateOperation CreateOrUpdate(bool waitForCompletion, string diskAccessName, DiskAccessData diskAccess, CancellationToken cancellationToken = default)
         {
-            if (diskAccessName == null)
+            if (string.IsNullOrEmpty(diskAccessName))
             {
-                throw new ArgumentNullException(nameof(diskAccessName));
+                throw new ArgumentException($"Parameter {nameof(diskAccessName)} cannot be null or empty", nameof(diskAccessName));
             }
             if (diskAccess == null)
             {
@@ -92,12 +93,13 @@ namespace Azure.ResourceManager.Compute
         /// <param name="diskAccessName"> The name of the disk access resource that is being created. The name can&apos;t be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="diskAccess"> disk access object supplied in the body of the Put disk access operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskAccessName"/> or <paramref name="diskAccess"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskAccessName"/> is null or empty. </exception>
+        /// <exception cref="ArgumentNullException"> <paramref name="diskAccess"/> is null. </exception>
         public async virtual Task<DiskAccessCreateOrUpdateOperation> CreateOrUpdateAsync(bool waitForCompletion, string diskAccessName, DiskAccessData diskAccess, CancellationToken cancellationToken = default)
         {
-            if (diskAccessName == null)
+            if (string.IsNullOrEmpty(diskAccessName))
             {
-                throw new ArgumentNullException(nameof(diskAccessName));
+                throw new ArgumentException($"Parameter {nameof(diskAccessName)} cannot be null or empty", nameof(diskAccessName));
             }
             if (diskAccess == null)
             {
@@ -124,12 +126,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Gets information about a disk access resource. </summary>
         /// <param name="diskAccessName"> The name of the disk access resource that is being created. The name can&apos;t be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskAccessName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskAccessName"/> is null or empty. </exception>
         public virtual Response<DiskAccess> Get(string diskAccessName, CancellationToken cancellationToken = default)
         {
-            if (diskAccessName == null)
+            if (string.IsNullOrEmpty(diskAccessName))
             {
-                throw new ArgumentNullException(nameof(diskAccessName));
+                throw new ArgumentException($"Parameter {nameof(diskAccessName)} cannot be null or empty", nameof(diskAccessName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskAccessCollection.Get");
@@ -151,12 +153,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Gets information about a disk access resource. </summary>
         /// <param name="diskAccessName"> The name of the disk access resource that is being created. The name can&apos;t be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskAccessName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskAccessName"/> is null or empty. </exception>
         public async virtual Task<Response<DiskAccess>> GetAsync(string diskAccessName, CancellationToken cancellationToken = default)
         {
-            if (diskAccessName == null)
+            if (string.IsNullOrEmpty(diskAccessName))
             {
-                throw new ArgumentNullException(nameof(diskAccessName));
+                throw new ArgumentException($"Parameter {nameof(diskAccessName)} cannot be null or empty", nameof(diskAccessName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskAccessCollection.Get");
@@ -178,12 +180,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="diskAccessName"> The name of the disk access resource that is being created. The name can&apos;t be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskAccessName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskAccessName"/> is null or empty. </exception>
         public virtual Response<DiskAccess> GetIfExists(string diskAccessName, CancellationToken cancellationToken = default)
         {
-            if (diskAccessName == null)
+            if (string.IsNullOrEmpty(diskAccessName))
             {
-                throw new ArgumentNullException(nameof(diskAccessName));
+                throw new ArgumentException($"Parameter {nameof(diskAccessName)} cannot be null or empty", nameof(diskAccessName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskAccessCollection.GetIfExists");
@@ -205,12 +207,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="diskAccessName"> The name of the disk access resource that is being created. The name can&apos;t be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskAccessName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskAccessName"/> is null or empty. </exception>
         public async virtual Task<Response<DiskAccess>> GetIfExistsAsync(string diskAccessName, CancellationToken cancellationToken = default)
         {
-            if (diskAccessName == null)
+            if (string.IsNullOrEmpty(diskAccessName))
             {
-                throw new ArgumentNullException(nameof(diskAccessName));
+                throw new ArgumentException($"Parameter {nameof(diskAccessName)} cannot be null or empty", nameof(diskAccessName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskAccessCollection.GetIfExists");
@@ -232,12 +234,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="diskAccessName"> The name of the disk access resource that is being created. The name can&apos;t be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskAccessName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskAccessName"/> is null or empty. </exception>
         public virtual Response<bool> Exists(string diskAccessName, CancellationToken cancellationToken = default)
         {
-            if (diskAccessName == null)
+            if (string.IsNullOrEmpty(diskAccessName))
             {
-                throw new ArgumentNullException(nameof(diskAccessName));
+                throw new ArgumentException($"Parameter {nameof(diskAccessName)} cannot be null or empty", nameof(diskAccessName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskAccessCollection.Exists");
@@ -257,12 +259,12 @@ namespace Azure.ResourceManager.Compute
         /// <summary> Tries to get details for this resource from the service. </summary>
         /// <param name="diskAccessName"> The name of the disk access resource that is being created. The name can&apos;t be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="diskAccessName"/> is null. </exception>
+        /// <exception cref="ArgumentException"> <paramref name="diskAccessName"/> is null or empty. </exception>
         public async virtual Task<Response<bool>> ExistsAsync(string diskAccessName, CancellationToken cancellationToken = default)
         {
-            if (diskAccessName == null)
+            if (string.IsNullOrEmpty(diskAccessName))
             {
-                throw new ArgumentNullException(nameof(diskAccessName));
+                throw new ArgumentException($"Parameter {nameof(diskAccessName)} cannot be null or empty", nameof(diskAccessName));
             }
 
             using var scope = _clientDiagnostics.CreateScope("DiskAccessCollection.Exists");
